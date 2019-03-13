@@ -1,4 +1,8 @@
-package com.atypon.training.litratum.controllers;
+package com.atypon.training.litratum.mvc.controllers;
+
+import com.atypon.training.litratum.database.UserDao;
+import com.atypon.training.litratum.xml.DataBase;
+import com.atypon.training.litratum.xml.XmlParser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +16,11 @@ import java.io.PrintWriter;
 public class FrontController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         PrintWriter out = response.getWriter();
-        out.println("123");
+//        XStream xsrteam = new XStream(new DomDriver());
+        XmlParser parser = new XmlParser();
+        DataBase obj = (DataBase)parser.read("DataBase.xml");
+        System.out.println(obj);
+        out.println(obj.toString());
+        UserDao dao = UserDao.getInstance();
     }
 }
