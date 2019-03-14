@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.mvc.model;
+package com.atypon.training.litratum.mvc.model.database;
 
 public class User {
     String username;

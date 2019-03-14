@@ -1,7 +1,7 @@
-package com.atypon.training.litratum.mvc.controllers;
+package com.atypon.training.litratum.mvc.controllers.servlets;
 
-import com.atypon.training.litratum.database.daos.UserDao;
-import com.atypon.training.litratum.mvc.model.User;
+import com.atypon.training.litratum.mvc.controllers.database.daos.UserDao;
+import com.atypon.training.litratum.mvc.model.database.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +16,10 @@ import java.io.PrintWriter;
 public class FrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User("abd","12345678");
+        UserDao dao = UserDao.getInstance();
+        User user = dao.getUser("dba");
         PrintWriter out = resp.getWriter();
         out.println(user.toString());
-        UserDao dao = UserDao.getInstance();
-        dao.addUser(user);
+
     }
 }

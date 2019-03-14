@@ -1,6 +1,7 @@
-package com.atypon.training.litratum.xml;
+package com.atypon.training.litratum.mvc.controllers.xml;
 
 
+import com.atypon.training.litratum.mvc.model.xml.DataBase;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

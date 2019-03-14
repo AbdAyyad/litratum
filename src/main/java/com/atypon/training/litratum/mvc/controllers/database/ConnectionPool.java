@@ -1,8 +1,8 @@
-package com.atypon.training.litratum.database;
+package com.atypon.training.litratum.mvc.controllers.database;
 
 import com.atypon.training.litratum.Constants;
-import com.atypon.training.litratum.xml.DataBase;
-import com.atypon.training.litratum.xml.XmlParser;
+import com.atypon.training.litratum.mvc.model.xml.DataBase;
+import com.atypon.training.litratum.mvc.controllers.xml.XmlParser;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
