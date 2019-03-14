@@ -29,6 +29,12 @@
             <artifactId>xstream</artifactId>
             <version>1.4.11.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 </project>

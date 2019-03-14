@@ -1,8 +1,7 @@
 package com.atypon.training.litratum.mvc.controllers;
 
-import com.atypon.training.litratum.database.UserDao;
-import com.atypon.training.litratum.xml.DataBase;
-import com.atypon.training.litratum.xml.XmlParser;
+import com.atypon.training.litratum.database.daos.UserDao;
+import com.atypon.training.litratum.mvc.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "front Servlet",  urlPatterns = {"/front"})
+
+@WebServlet(name = "front Servlet", urlPatterns = {"/front"})
 public class FrontController extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        PrintWriter out = response.getWriter();
-//        XStream xsrteam = new XStream(new DomDriver());
-        XmlParser parser = new XmlParser();
-        DataBase obj = (DataBase)parser.read("DataBase.xml");
-        System.out.println(obj);
-        out.println(obj.toString());
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = new User("abd","12345678");
+        PrintWriter out = resp.getWriter();
+        out.println(user.toString());
         UserDao dao = UserDao.getInstance();
+        dao.addUser(user);
     }
 }

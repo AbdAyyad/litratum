@@ -5,28 +5,34 @@ public class DataBase {
     String name;
     String password;
     int port;
+    String user;
 
-    public DataBase(String host, String name, String password, int port) {
+    public DataBase(String host, String name, String password, int port, String user) {
         this.host = host;
         this.name = name;
         this.password = password;
         this.port = port;
+        this.user = user;
     }
 
-    public String getHost() {
-        return host;
-    }
+    public String getUri() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("jdbc:postgresql://");
+        builder.append(host);
+        builder.append(":");
+        builder.append(port);
+        builder.append("/");
+        builder.append(name);
 
-    public String getName() {
-        return name;
+        return builder.toString();
     }
 
     public String getPassword() {
         return password;
     }
 
-    public int getPort() {
-        return port;
+    public String getUser() {
+        return user;
     }
 
     @Override
