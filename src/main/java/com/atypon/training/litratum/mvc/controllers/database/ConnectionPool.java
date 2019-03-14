@@ -3,23 +3,40 @@ package com.atypon.training.litratum.mvc.controllers.database;
 import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.model.xml.DataBase;
 import com.atypon.training.litratum.mvc.controllers.xml.XmlParser;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 public class ConnectionPool {
     private static ConnectionPool instance;
-    private BlockingQueue<Connection> queue;
+
+    private BasicDataSource pool;
 
     private ConnectionPool() {
+        initThePool();
+    }
+
+    private void initThePool() {
         try {
-            fillTheQueue();
-        } catch (Exception e) {
+            initThePoolWithException();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void initThePoolWithException() throws ClassNotFoundException {
+      //  Class.forName("org.apache.commons.dbcp2.BasicDataSource");
+        pool = new BasicDataSource();
+
+        DataBase dataBase = getDataBaseObject();
+
+        pool.setUrl(dataBase.getUri());
+        pool.setUsername(dataBase.getUser());
+        pool.setPassword(dataBase.getPassword());
+
+        pool.setMinIdle(Constants.CONNECTION_POOL_MIN_SIZE);
+        pool.setMaxIdle(Constants.CONNECTION_POOL_MAX_SIZE);
     }
 
     public synchronized static ConnectionPool getConnectionPool() {
@@ -29,35 +46,22 @@ public class ConnectionPool {
         return instance;
     }
 
-    private void fillTheQueue() throws ClassNotFoundException, SQLException {
-        queue = new ArrayBlockingQueue<Connection>(Constants.CONNECTION_POOL_SIZE);
-        Class.forName("org.postgresql.Driver");
-        DataBase dataBase = getDataBaseObject();
-        for (int i = 0; i < Constants.CONNECTION_POOL_SIZE; ++i) {
-            Connection con = DriverManager.getConnection(dataBase.getUri(), dataBase.getUser(), dataBase.getPassword());
-            queue.add(con);
-        }
-    }
 
     private DataBase getDataBaseObject() {
         XmlParser parser = new XmlParser();
         return (DataBase) parser.read(Constants.DATABASE_XML_FILE);
     }
 
-    public Connection getConnConnection() {
+    private Connection getConnectionWithException() throws SQLException {
+        return pool.getConnection();
+    }
+
+    public Connection getConnection() {
         try {
             return getConnectionWithException();
-        } catch (InterruptedException ex) {
+        } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
-
-    private Connection getConnectionWithException() throws InterruptedException {
-        return queue.take();
-    }
-
-    public void addConnConnection(Connection con) {
-        queue.add(con);
-    }
-
 }

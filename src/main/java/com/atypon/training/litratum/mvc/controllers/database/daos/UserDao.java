@@ -9,19 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    private static UserDao instance;
 
-    private ConnectionPool pool;
+    private Connection con;
 
-    private UserDao() {
-        pool = ConnectionPool.getConnectionPool();
-    }
-
-    public static synchronized UserDao getInstance() {
-        if (instance == null) {
-            instance = new UserDao();
-        }
-        return instance;
+    public UserDao(Connection con) {
+        this.con = con;
     }
 
     public void addUser(User user) {
@@ -30,15 +22,14 @@ public class UserDao {
     }
 
     private void insertQuery(String sql, Object... args) {
-        try {
-            insertQueryWithException(sql, args);
+        try(Connection con = this.con) {
+            insertQueryWithException(con,sql, args);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void insertQueryWithException(String sql, Object... args) throws SQLException {
-        Connection con = pool.getConnConnection();
+    private void insertQueryWithException(Connection con,String sql, Object... args) throws SQLException {
         PreparedStatement statement = con.prepareStatement(sql);
         for (int i = 0; i < args.length; ++i) {
             if (args[i] instanceof Integer) {
@@ -48,26 +39,23 @@ public class UserDao {
             }
         }
         statement.execute();
-        pool.addConnConnection(con);
-        con = null;
     }
 
     public User getUser(String username) {
-        try {
-            return getUserWithException(username);
+        try (Connection con = this.con){
+            return getUserWithException(con,username);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private User getUserWithException(String username) throws SQLException {
+    private User getUserWithException(Connection con,String username) throws SQLException {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM user_table WHERE username = ");
         sql.append('\'');
         sql.append(username);
         sql.append('\'');
-        Connection con = pool.getConnConnection();
         PreparedStatement statement = con.prepareStatement(sql.toString());
         ResultSet result = statement.executeQuery();
         result.next();
@@ -76,9 +64,6 @@ public class UserDao {
 
         User user = new User(username, password);
 
-        pool.addConnConnection(con);
-        con = null;
-        System.out.println(result.getObject(1));
         result.close();
         return user;
     }
