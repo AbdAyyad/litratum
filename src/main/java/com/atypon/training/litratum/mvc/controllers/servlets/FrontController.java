@@ -1,5 +1,7 @@
 package com.atypon.training.litratum.mvc.controllers.servlets;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.controllers.database.ConnectionPool;
 import com.atypon.training.litratum.mvc.controllers.database.daos.UserDao;
 import com.atypon.training.litratum.mvc.model.database.User;
@@ -17,12 +19,33 @@ import java.sql.Connection;
 @WebServlet(name = "front Servlet", urlPatterns = {"/front"})
 public class FrontController extends HttpServlet {
     @Override
+    public void init() throws ServletException {
+        super.init();
+        Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
-        User user = dao.getUser("dba");
+        User user = dao.getUser("abd");
         PrintWriter out = resp.getWriter();
         out.println(user.toString());
 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String password = req.getParameter("password");
+        String username = req.getParameter("username");
+        password = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+        User user = new User(username, password);
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        UserDao dao = new UserDao(pool.getConnection());
+        dao.addUser(user);
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        out.println(user.toString());
     }
 }

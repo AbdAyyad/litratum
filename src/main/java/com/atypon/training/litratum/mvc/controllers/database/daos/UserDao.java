@@ -17,7 +17,7 @@ public class UserDao {
     }
 
     public void addUser(User user) {
-        String query = "INSERT INTO user_table (username, user_password) VALUES (?,?);";
+        String query = "INSERT INTO user_table (user_name, user_password) VALUES (?,?);";
         insertQuery(query, user.getUsername(), user.getPassword());
     }
 
@@ -52,7 +52,7 @@ public class UserDao {
 
     private User getUserWithException(Connection con,String username) throws SQLException {
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM user_table WHERE username = ");
+        sql.append("SELECT * FROM user_table WHERE user_name = ");
         sql.append('\'');
         sql.append(username);
         sql.append('\'');

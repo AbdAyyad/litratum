@@ -1,6 +1,7 @@
 package com.atypon.training.litratum.mvc.controllers.xml;
 
 
+import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.model.xml.DataBase;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -20,7 +21,7 @@ public class XmlParser {
     }
 
     public Object read(String fileName) {
-        fileName = "/home/aayyad/IdeaProjects/litratum/web/xml/" + fileName;
+        fileName = Constants.RELATIVE_PATH + "/xml/" + fileName;
         File file = new File(fileName);
         return xStream.fromXML(file);
     }
