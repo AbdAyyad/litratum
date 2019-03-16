@@ -1,14 +1,22 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:template match="/">
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:for-each select="DataBase">
-            <xsl:value-of select="host"/><xsl:text>&#xa;</xsl:text>
-            <xsl:value-of select="port"/><xsl:text>&#xa;</xsl:text>
-            <xsl:value-of select="password"/><xsl:text>&#xa;</xsl:text>
-            <xsl:value-of select="name"/><xsl:text>&#xa;</xsl:text>
-            <xsl:value-of select="user"/><xsl:text>&#xa;</xsl:text>
-        </xsl:for-each>
+        <xsl:apply-templates/>
     </xsl:template>
+
+    <!--<xsl:template match="host">-->
+        <!--<db>-->
+            <!--<xsl:attribute name="host">-->
+                <!--<xsl:value-of select="."/>-->
+            <!--</xsl:attribute>-->
+        <!--</db>-->
+    <!--</xsl:template>-->
+    <!--<xsl:template match="user">-->
+        <!--<a>-->
+            <!--<xsl:attribute name="href">-->
+                <!--<xsl:value-of select="@src"/>-->
+            <!--</xsl:attribute>-->
+        <!--</a>-->
+    <!--</xsl:template>-->
 
 </xsl:stylesheet>

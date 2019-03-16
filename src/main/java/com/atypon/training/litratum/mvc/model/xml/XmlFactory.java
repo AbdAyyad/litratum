@@ -36,11 +36,11 @@ public class XmlFactory {
     }
 
     private DataBase getDataBaseWithException() throws IOException {
-        String host = reader.readLine();
-        int port = Integer.parseInt(reader.readLine());
-        String password = reader.readLine();
-        String name = reader.readLine();
-        String user = reader.readLine();
+        String host = reader.readLine().trim();
+        int port = Integer.parseInt(reader.readLine().trim());
+        String password = reader.readLine().trim();
+        String name = reader.readLine().trim();
+        String user = reader.readLine().trim();
         return new DataBase(host, name, password, port, user);
     }
 }
