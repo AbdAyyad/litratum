@@ -5,3 +5,4 @@ com\atypon\training\litratum\mvc\controllers\database\daos\UserDao.class
 com\atypon\training\litratum\mvc\controllers\servlets\FrontController.class
 com\atypon\training\litratum\mvc\model\database\User.class
 com\atypon\training\litratum\mvc\controllers\xml\XmlParser.class
+com\atypon\training\litratum\mvc\model\xml\XmlFactory.class

@@ -7,7 +7,7 @@ public class DataBase {
     int port;
     String user;
 
-    public DataBase(String host, String name, String password, int port, String user) {
+    protected DataBase(String host, String name, String password, int port, String user) {
         this.host = host;
         this.name = name;
         this.password = password;

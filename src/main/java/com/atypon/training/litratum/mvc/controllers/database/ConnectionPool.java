@@ -1,8 +1,9 @@
 package com.atypon.training.litratum.mvc.controllers.database;
 
 import com.atypon.training.litratum.Constants;
-import com.atypon.training.litratum.mvc.model.xml.DataBase;
 import com.atypon.training.litratum.mvc.controllers.xml.XmlParser;
+import com.atypon.training.litratum.mvc.model.xml.DataBase;
+import com.atypon.training.litratum.mvc.model.xml.XmlFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class ConnectionPool {
     }
 
     private void initThePoolWithException() throws ClassNotFoundException {
-      //  Class.forName("org.apache.commons.dbcp2.BasicDataSource");
+        //  Class.forName("org.apache.commons.dbcp2.BasicDataSource");
         pool = new BasicDataSource();
 
         DataBase dataBase = getDataBaseObject();
@@ -48,8 +49,8 @@ public class ConnectionPool {
 
 
     private DataBase getDataBaseObject() {
-        XmlParser parser = new XmlParser();
-        return (DataBase) parser.read(Constants.DATABASE_XML_FILE);
+        XmlFactory factory = new XmlFactory(XmlParser.getXml("xml/DataBase.xml", "xsl/DataBase.xsl"));
+        return factory.getDataBase();
     }
 
     private Connection getConnectionWithException() throws SQLException {
