@@ -1,7 +1,5 @@
 package com.atypon.training.litratum.mvc.model.xml;
 
-import com.atypon.training.litratum.mvc.model.xml.DataBase;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;

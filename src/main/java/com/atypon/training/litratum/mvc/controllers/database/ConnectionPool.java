@@ -18,16 +18,8 @@ public class ConnectionPool {
         initThePool();
     }
 
-    private void initThePool() {
-        try {
-            initThePoolWithException();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void initThePoolWithException() throws ClassNotFoundException {
-        //  Class.forName("org.apache.commons.dbcp2.BasicDataSource");
+    private void initThePool() {
         pool = new BasicDataSource();
 
         DataBase dataBase = getDataBaseObject();
@@ -49,7 +41,7 @@ public class ConnectionPool {
 
 
     private DataBase getDataBaseObject() {
-        XmlFactory factory = new XmlFactory(XmlParser.getXml("xml/DataBase.xml", "xsl/DataBase.xsl"));
+        XmlFactory factory = new XmlFactory(XmlParser.getXml(Constants.DATABASE_XML_FILE, Constants.DATABASE_XSL_FILE));
         return factory.getDataBase();
     }
 
