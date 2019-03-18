@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: aayyad
-  Date: 3/18/19
-  Time: 10:42 AM
+  User: abday
+  Date: 3/18/2019
+  Time: 9:26 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,18 +10,12 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Litratum sign up</title>
+    <title>Litratum sign in</title>
 
 </head>
 <body>
 <div class="container">
-    <h1>Sign up</h1>
-        <form method="post">
-            <input type="text" placeholder="username" name="username" class="form-control"/>
-            <input type="password" placeholder="password" name="password" class="form-control"/>
-            <input type="password" placeholder="confirm password" name="confirm password" class="form-control"/>
-            <button type="submit" class="btn btn-primary">submit</button>
-        </form>
+    <h1>Sign In to Litratum Complete</h1>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

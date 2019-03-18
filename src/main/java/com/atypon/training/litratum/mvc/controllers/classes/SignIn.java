@@ -9,6 +9,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SignIn implements ActionInterface {
@@ -30,9 +31,16 @@ public class SignIn implements ActionInterface {
         UserDao dao = new UserDao(pool.getConnection());
         User user = dao.getUser(userName);
         boolean result = user.verifyPassword(password);
-        System.out.println(result);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
-        dispatcher.forward(req, resp);
+        HttpSession session = req.getSession();
+        if (result) {
+            session.setAttribute("sign_in", true);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignInComplete.jsp");
+            dispatcher.forward(req, resp);
+        } else {
+            session.setAttribute("sign_in", false);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignInForm.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 
 }
