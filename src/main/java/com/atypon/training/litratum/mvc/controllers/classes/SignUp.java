@@ -1,6 +1,9 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
-import com.atypon.training.litratum.Constants;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
+import com.atypon.training.litratum.mvc.model.database.User;
+import com.atypon.training.litratum.mvc.model.database.daos.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,13 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class SignUp implements ActionInterface {
+
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getMethod());
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignUp.jsp");
-        dispatcher.forward(req,resp);
-//        resp.sendRedirect(Constants.RELATIVE_PATH + "jsp/SignUp.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignUpForm.jsp");
+        dispatcher.forward(req, resp);
     }
 
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+
+        String userName = req.getParameter("username");
+        String password = req.getParameter("password");
+
+        char[] bcryptChars = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
+
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        UserDao dao = new UserDao(pool.getConnection());
+        User user = new User(userName, String.copyValueOf(bcryptChars));
+        dao.addUser(user);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
+        dispatcher.forward(req, resp);
+    }
 }

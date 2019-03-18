@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebServlet(name = "front Servlet", urlPatterns = {"/front"})
+@WebServlet(name = "front Servlet", urlPatterns = {"/front/*"})
 public class FrontController extends HttpServlet {
     private Map<String, String> actionsClassMap;
 
@@ -64,16 +64,16 @@ public class FrontController extends HttpServlet {
 
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
-        String actionName = getAction();
+        String actionName = getAction(req);
         Class<?> actionClass = Class.forName(actionsClassMap.get(actionName));
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
         obj.execute(req, resp);
     }
 
-    private String getAction() {
-        return "sign_up";
+    private String getAction(HttpServletRequest req) {
+        String url = req.getRequestURI();
+        return url.substring(7);
     }
 
 }
