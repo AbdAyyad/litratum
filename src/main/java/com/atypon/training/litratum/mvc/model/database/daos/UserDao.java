@@ -1,6 +1,5 @@
-package com.atypon.training.litratum.mvc.controllers.database.daos;
+package com.atypon.training.litratum.mvc.model.database.daos;
 
-import com.atypon.training.litratum.mvc.controllers.database.ConnectionPool;
 import com.atypon.training.litratum.mvc.model.database.User;
 
 import java.sql.Connection;

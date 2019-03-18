@@ -2,7 +2,7 @@ package com.atypon.training.litratum.mvc.controllers.servlets;
 
 import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.controllers.classes.ActionInterface;
-import com.atypon.training.litratum.mvc.controllers.xml.XmlParser;
+import com.atypon.training.litratum.xml.XmlParser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -73,7 +73,7 @@ public class FrontController extends HttpServlet {
     }
 
     private String getAction() {
-        return "sign_in";
+        return "sign_up";
     }
 
 }

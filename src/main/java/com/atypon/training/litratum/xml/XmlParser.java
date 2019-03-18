@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.mvc.controllers.xml;
+package com.atypon.training.litratum.xml;
 
 import com.atypon.training.litratum.Constants;
 import org.w3c.dom.Document;

@@ -1,7 +1,7 @@
-package com.atypon.training.litratum.mvc.controllers.database;
+package com.atypon.training.litratum.mvc.model.database;
 
 import com.atypon.training.litratum.Constants;
-import com.atypon.training.litratum.mvc.controllers.xml.XmlParser;
+import com.atypon.training.litratum.xml.XmlParser;
 import com.atypon.training.litratum.mvc.model.xml.DataBase;
 import com.atypon.training.litratum.mvc.model.xml.XmlFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
