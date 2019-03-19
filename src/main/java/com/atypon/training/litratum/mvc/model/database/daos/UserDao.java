@@ -7,12 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDao {
-
-    private Connection con;
-
+public class UserDao extends Dao {
     public UserDao(Connection con) {
-        this.con = con;
+        super(con);
     }
 
     public void addUser(User user) {
@@ -20,37 +17,17 @@ public class UserDao {
         insertQuery(query, user.getUsername(), user.getPassword());
     }
 
-    private void insertQuery(String sql, Object... args) {
-        try(Connection con = this.con) {
-            insertQueryWithException(con,sql, args);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void insertQueryWithException(Connection con,String sql, Object... args) throws SQLException {
-        PreparedStatement statement = con.prepareStatement(sql);
-        for (int i = 0; i < args.length; ++i) {
-            if (args[i] instanceof Integer) {
-                statement.setInt(i + 1, (Integer) args[i]);
-            } else if (args[i] instanceof String) {
-                statement.setString(i + 1, (String) args[i]);
-            }
-        }
-        statement.execute();
-    }
-
     public User getUser(String username) {
-        try (Connection con = this.con){
-            return getUserWithException(con,username);
+        try {
+            return getUserWithException(getCon(), username);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private User getUserWithException(Connection con,String username) throws SQLException {
-        StringBuilder sql = new StringBuilder();
+    private User getUserWithException(Connection con, String username) throws SQLException {
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM user_table WHERE user_name = ");
         sql.append('\'');
         sql.append(username);

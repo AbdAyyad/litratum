@@ -6,5 +6,5 @@
     <port>5432</port>
     <password>12345678</password>
     <name>postgres</name>
-    <user src="test">postgres</user>
+    <user>postgres</user>
 </DataBase>
