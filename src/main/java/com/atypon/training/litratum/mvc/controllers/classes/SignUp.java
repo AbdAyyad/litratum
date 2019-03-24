@@ -26,12 +26,13 @@ public class SignUp implements ActionInterface {
 
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
+        String email = req.getParameter("email");
 
         char[] bcryptChars = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
 
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
-        User user = new User(userName, String.copyValueOf(bcryptChars));
+        User user = new User(userName, String.copyValueOf(bcryptChars),email);
         dao.addUser(user);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
         dispatcher.forward(req, resp);

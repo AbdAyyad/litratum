@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao extends Dao {
     public UserDao(Connection con) {
@@ -13,8 +15,8 @@ public class UserDao extends Dao {
     }
 
     public void addUser(User user) {
-        String query = "INSERT INTO user_table (user_name, user_password) VALUES (?,?);";
-        insertQuery(query, user.getUsername(), user.getPassword());
+        String query = "INSERT INTO user_table (user_name, user_password, user_email) VALUES (?,?,?);";
+        insertQuery(query, user.getUsername(), user.getPassword(), user.getEmail());
     }
 
     public User getUser(String username) {
@@ -32,15 +34,44 @@ public class UserDao extends Dao {
         sql.append('\'');
         sql.append(username);
         sql.append('\'');
-        PreparedStatement statement = con.prepareStatement(sql.toString());
-        ResultSet result = statement.executeQuery();
+        sql.append(';');
+
+        ResultSet result = getResult(sql.toString(), con);
         result.next();
 
         String password = result.getString(2);
+        String email = result.getString(3);
 
-        User user = new User(username, password);
+        User user = new User(username, password, email);
 
         result.close();
         return user;
+    }
+
+    public List<User> getAllUsers() {
+        try {
+            return getAllUsersWithException(getCon());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private List<User> getAllUsersWithException(Connection con) throws SQLException {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM user_table;");
+        ResultSet result = getResult(sql.toString(), con);
+        List<User> list = new ArrayList<>();
+
+        while (result.next()) {
+            String username = result.getString(1);
+            String password = result.getString(2);
+            String email = result.getString(3);
+            User user = new User(username, password, email);
+            list.add(user);
+        }
+
+        result.close();
+        return list;
     }
 }
