@@ -16,14 +16,14 @@ public class SignIn implements ActionInterface {
 
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp,String args) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignInForm.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp,String args) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         String userName = req.getParameter("username");
         String password = req.getParameter("password");

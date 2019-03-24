@@ -12,9 +12,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class AdminTool implements ActionInterface {
-    public AdminTool(){}
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp,String args) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
         List<User> users = dao.getAllUsers();

@@ -6,22 +6,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface ActionInterface {
-    default void execute(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+    default void execute(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {
         switch (req.getMethod()) {
             case "GET":
-                doGet(req, resp);
+                doGet(req, resp,args);
                 break;
             case "POST":
-                doPost(req, resp);
+                doPost(req, resp,args);
                 break;
             case "PUT":
-                doPost(req, resp);
+                doPost(req, resp,args);
                 break;
         }
     }
 
-    default void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {}
-    default void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {}
-    default void doPut(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {}
+    default void doGet(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
+    default void doPost(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
+    default void doPut(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
 
 }

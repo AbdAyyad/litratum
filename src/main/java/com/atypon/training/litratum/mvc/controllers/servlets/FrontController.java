@@ -2,6 +2,7 @@ package com.atypon.training.litratum.mvc.controllers.servlets;
 
 import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.controllers.classes.ActionInterface;
+import com.atypon.training.litratum.mvc.model.Action;
 import com.atypon.training.litratum.xml.XmlParser;
 
 import javax.servlet.ServletException;
@@ -64,16 +65,21 @@ public class FrontController extends HttpServlet {
 
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        String actionName = getAction(req);
-        Class<?> actionClass = Class.forName(actionsClassMap.get(actionName));
+        Action action = getAction(req);
+        Class<?> actionClass = Class.forName(actionsClassMap.get(action.getClassName()));
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
-        obj.execute(req, resp);
+        obj.execute(req, resp, action.getArg());
     }
 
-    private String getAction(HttpServletRequest req) {
+    private Action getAction(HttpServletRequest req) {
         String url = req.getRequestURI();
-        return url.substring(7);
+        int idx = req.getRequestURI().indexOf('/', 7);
+        String className = url.substring(7, idx);
+        String args = url.substring(idx + 1);
+        Action action = new Action(className, args);
+        return action;
     }
+
 
 }
