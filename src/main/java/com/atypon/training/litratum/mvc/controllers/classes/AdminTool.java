@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class AdminTool implements ActionInterface {
+    public AdminTool(){}
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
