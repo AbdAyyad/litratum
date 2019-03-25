@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/action.xsl"?>
+
+<actions>
+    <action url="sign_up" class="com.atypon.training.litratum.mvc.controllers.classes.SignUp"/>
+    <action url="sign_in" class="com.atypon.training.litratum.mvc.controllers.classes.SignIn"/>
+    <action url="admin" class="com.atypon.training.litratum.mvc.controllers.classes.AdminTool"/>
+</actions>

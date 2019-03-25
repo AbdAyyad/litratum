@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/DataBase.xsl"?>
+
+<DataBase>
+    <host>localhost</host>
+    <port>5432</port>
+    <password>12345678</password>
+    <name>postgres</name>
+    <user>postgres</user>
+</DataBase>
