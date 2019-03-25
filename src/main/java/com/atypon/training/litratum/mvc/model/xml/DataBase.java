@@ -1,11 +1,11 @@
 package com.atypon.training.litratum.mvc.model.xml;
 
 public class DataBase {
-    String host;
-    String name;
-    String password;
-    int port;
-    String user;
+    private String host;
+    private String name;
+    private String password;
+    private int port;
+    private String user;
 
     protected DataBase(String host, String name, String password, int port, String user) {
         this.host = host;
@@ -16,7 +16,7 @@ public class DataBase {
     }
 
     public String getUri() {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         builder.append("jdbc:postgresql://");
         builder.append(host);
         builder.append(":");
