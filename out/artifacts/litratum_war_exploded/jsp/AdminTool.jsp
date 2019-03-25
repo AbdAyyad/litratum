@@ -30,7 +30,7 @@
         <% for (int i = 0; i < users.size(); ++i) {%>
         <tr>
             <td>
-                <%= i+1 %>
+                <%= i + 1 %>
             </td>
             <td>
                 <%= users.get(i).getUsername()%>
