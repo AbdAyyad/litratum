@@ -7,7 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af693e34-9b4e-4928-a3fa-bcd7c9b0760a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/xml/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/xml/DataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/jsp/ContentForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56c9c7fc-ca12-412a-9462-14927d163efc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56c9c7fc-ca12-412a-9462-14927d163efc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/xml/action.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/xml/Actions.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,50 +25,74 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/jsp/Header.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+            <state relative-caret-position="120">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/web/jsp/AdminTool.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            <state relative-caret-position="225">
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/artifacts/litratum_war_exploded.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/ConnectionPool.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            <state relative-caret-position="342">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignIn.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
+            <state relative-caret-position="90">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <folding>
+                <element signature="e#276#277#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#338#339#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/xml/Actions.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -80,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+            <state relative-caret-position="225">
+              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,11 +124,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+            <state relative-caret-position="622">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/ContentForm.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -108,9 +149,9 @@
       <list>
         <option value="XSLT Stylesheet" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -156,17 +197,20 @@
         <option value="$PROJECT_DIR$/web/jsp/SignInForm.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/SignUpForm.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/WelcomeMessage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/Action.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" />
-        <option value="$PROJECT_DIR$/web/jsp/AdminTool.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/style.css" />
         <option value="$PROJECT_DIR$/web/jsp/Header.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/xml/DataBase.java" />
+        <option value="$PROJECT_DIR$/web/xml/Actions.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" />
+        <option value="$PROJECT_DIR$/web/jsp/AdminTool.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/ContentForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" />
       </list>
     </option>
   </component>
@@ -209,8 +253,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -375,10 +419,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553522140070" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/xml/action.xml" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -435,7 +483,7 @@
       <option name="myModule" />
       <option name="myJdk" />
       <XsltFile url="file://$PROJECT_DIR$/web/xsl/action.xsl" />
-      <XmlFile url="file://$PROJECT_DIR$/web/xml/action.xml" />
+      <XmlFile url="file://$PROJECT_DIR$/web/xml/Actions.xml" />
       <parameters />
       <OutputType value="CONSOLE" save-to-file="false" />
       <FileType name="XML" />
@@ -445,7 +493,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.16" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.16" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/front/admin" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/front/admin/content" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="litratum:war exploded">
@@ -552,11 +600,16 @@
       <workItem from="1552929779264" duration="12729000" />
       <workItem from="1553415832573" duration="12427000" />
       <workItem from="1553500926834" duration="5260000" />
+      <workItem from="1553524915719" duration="104000" />
+      <workItem from="1553763972271" duration="22000" />
+      <workItem from="1553764025406" duration="1963000" />
+      <workItem from="1554019812257" duration="308000" />
+      <workItem from="1554020173538" duration="2723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63275000" />
+    <option name="totallyTimeSpent" value="68395000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -569,9 +622,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1175" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28610957" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30271167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -580,14 +632,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3288719" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32695985" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39866155" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39866155" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288719" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32791588" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32791588" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3288719" />
@@ -628,6 +680,18 @@
           <line>24</line>
           <properties />
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -713,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/xml/action.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/AdminNabBar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -797,27 +854,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="76" selection-start-line="70" selection-start-column="8" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/AdminTool.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -827,75 +867,6 @@
           <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <element signature="e#308#309#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="82" selection-start-line="16" selection-start-column="82" selection-end-line="16" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/Header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/litratum_war_exploded.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -917,8 +888,119 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/ConnectionPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
+        <state relative-caret-position="270">
           <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/litratum_war_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/Header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="82" selection-start-line="16" selection-start-column="82" selection-end-line="16" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/xml/Actions.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding>
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ActionInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/AdminTool.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/ContentForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

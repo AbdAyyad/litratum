@@ -15,7 +15,7 @@ public interface ActionInterface {
                 doPost(req, resp,args);
                 break;
             case "PUT":
-                doPost(req, resp,args);
+                doPut(req, resp,args);
                 break;
         }
     }

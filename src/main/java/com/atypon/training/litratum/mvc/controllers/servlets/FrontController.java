@@ -74,11 +74,27 @@ public class FrontController extends HttpServlet {
 
     private Action getAction(HttpServletRequest req) {
         String url = req.getRequestURI();
-        int idx = req.getRequestURI().indexOf('/', 7);
-        String className = url.substring(7, idx);
-        String args = url.substring(idx + 1);
-        Action action = new Action(className, args);
-        return action;
+        String args;
+        int idx;
+        int argsIdx;
+        String className;
+
+        idx = url.indexOf('/', 5);
+        argsIdx = url.indexOf('/', idx+1);
+
+        if (argsIdx > idx) {
+            className = url.substring(idx + 1, argsIdx);
+        } else {
+            className = url.substring(idx + 1);
+        }
+
+        if (argsIdx > -1) {
+            args = url.substring(argsIdx + 1);
+        } else {
+            args = "";
+        }
+
+        return new Action(className, args);
     }
 
 
