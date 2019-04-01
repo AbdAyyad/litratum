@@ -10,7 +10,7 @@
 <jsp:include page="AdminNabBar.html"/>
 
 <div class="container">
-    <form method="post" action="http://localhost:8080/front/backstage">
+    <form method="post" action="http://localhost:8080/front/backstage" enctype="multipart/form-data">
         <input type="file" name="content">
         <button type="submit" class="btn btn-primary">submit</button>
     </form>

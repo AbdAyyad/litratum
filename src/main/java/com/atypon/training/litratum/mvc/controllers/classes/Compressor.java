@@ -1,6 +1,7 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,22 +10,26 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-public class ZipClass {
-    public void undone() throws Exception {
-        String zippedFile = "/home/aayyad/Desktop/aaaa.zip";
-        String outputFolder = "/home/aayyad/Desktop/ol";
+public class Compressor {
+    private Compressor() {
+    }
 
-        ZipFile zipFile = new ZipFile(zippedFile);
-        //ZipOutputStream outputStream = new ZipOutputStream(new FileOutputStream(outputFolder));
+    public static void unZip(String filePath, String outputDirectoryPath) {
+        try {
+            unZipWithException(filePath, outputDirectoryPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private static void unZipWithException(String filePath, String outputDirectoryPath) throws IOException {
+        ZipFile zipFile = new ZipFile(filePath);
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
-        System.out.println(entries);
         byte[] buffer = new byte[512];
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
             if (!entry.isDirectory()) {
-                FileOutputStream outputStream = new FileOutputStream(outputFolder + "/" + entry.toString());
-                //outputStream.putNextEntry(entry);
+                FileOutputStream outputStream = new FileOutputStream(outputDirectoryPath + "/" + entry.toString());
                 InputStream in = zipFile.getInputStream(entry);
                 while (0 < in.available()) {
                     int read = in.read(buffer);
@@ -32,9 +37,8 @@ public class ZipClass {
                 }
                 outputStream.close();
                 in.close();
-                System.out.println(entry.getName());
             } else {
-                Path path = Paths.get(outputFolder + "/" + entry.toString());
+                Path path = Paths.get(outputDirectoryPath + "/" + entry.toString());
                 Files.createDirectory(path);
             }
         }
