@@ -14,6 +14,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Constructor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +29,24 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
+        Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed/";
         initMap();
+        createDirectories();
+    }
+
+    private void createDirectories() {
+        try {
+            createDirectoriesWithException();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createDirectoriesWithException() throws IOException {
+        Path workingDirectory = Paths.get(Constants.UNPROCESSED_FOLDER);
+        if (!Files.exists(workingDirectory)) {
+            Files.createDirectory(workingDirectory);
+        }
     }
 
     private void initMap() {
@@ -80,7 +100,7 @@ public class FrontController extends HttpServlet {
         String className;
 
         idx = url.indexOf('/', 5);
-        argsIdx = url.indexOf('/', idx+1);
+        argsIdx = url.indexOf('/', idx + 1);
 
         if (argsIdx > idx) {
             className = url.substring(idx + 1, argsIdx);
