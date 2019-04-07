@@ -44,7 +44,7 @@ public class BackStage implements ActionInterface {
         // Set factory constraints
         factory.setSizeThreshold(100000);
         File file = new File(fileName);
-        factory.setRepository(file);
+        factory.setRepository(new File(fileName.substring(0, fileName.length() - 4)));
 
         // Create a new file upload handler
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -59,5 +59,8 @@ public class BackStage implements ActionInterface {
 
         //uploadedFile.createNewFile();
         iter.next().write(file);
+
+        Thread th = new Thread(new ContentProcessing(fileName));
+        th.run();
     }
 }

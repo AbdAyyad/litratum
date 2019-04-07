@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af693e34-9b4e-4928-a3fa-bcd7c9b0760a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UnprocessedDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,20 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/Dao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="442">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UnprocessedDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="165">
               <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="e#176#177#0" expanded="true" />
@@ -70,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="390">
               <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -82,44 +65,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#190#191#0" expanded="true" />
+                <element signature="e#236#237#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/6VANCmVCVP8MxzbI5y4u/afpa_6_3/192536211600600301/192536211600600301.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
+            <state relative-caret-position="360">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="446" column="11" selection-start-line="446" selection-start-column="11" selection-end-line="446" selection-end-column="11" />
-              <folding>
-                <element signature="e#15020#15021#0" expanded="true" />
-                <element signature="e#15084#15085#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="230">
+              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#initMap#0;class#FrontController#0" />
@@ -168,6 +147,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>log</find>
+      <find>Formulary?</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,8 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/controllers/FrontController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/database/daos/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/xml/DataBaseXmlParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/xml/BaseParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/Factory.java" />
@@ -223,10 +201,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/unprocessedDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java" />
+        <option value="$USER_HOME$/Desktop/192536211600600301.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java" />
+        <option value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/6VANCmVCVP8MxzbI5y4u/afpa_6_3/192536211600600301/192536211600600301.xml" />
       </list>
     </option>
   </component>
@@ -256,8 +236,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="205" />
-    <option name="y" value="152" />
+    <option name="x" value="67" />
+    <option name="y" value="97" />
     <option name="width" value="1657" />
     <option name="height" value="1048" />
   </component>
@@ -293,6 +273,44 @@
               <item name="out" type="462c0819:PsiDirectoryNode" />
               <item name="artifacts" type="462c0819:PsiDirectoryNode" />
               <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="6VANCmVCVP8MxzbI5y4u" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="6VANCmVCVP8MxzbI5y4u" type="462c0819:PsiDirectoryNode" />
+              <item name="afpa_6_3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="6VANCmVCVP8MxzbI5y4u" type="462c0819:PsiDirectoryNode" />
+              <item name="afpa_6_3" type="462c0819:PsiDirectoryNode" />
+              <item name="192536211600600301" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
@@ -599,12 +617,13 @@
       <workItem from="1554103381772" duration="6490000" />
       <workItem from="1554368566450" duration="5812000" />
       <workItem from="1554542344047" duration="635000" />
-      <workItem from="1554623207910" duration="3235000" />
+      <workItem from="1554623207910" duration="4576000" />
+      <workItem from="1554628263988" duration="3870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86062000" />
+    <option name="totallyTimeSpent" value="91273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,7 +638,7 @@
     <frame x="67" y="25" width="1853" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36081904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40951854" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -629,13 +648,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3288719" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37189293" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39866155" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37189293" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39866155" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288719" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32791588" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.37380496" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3288719" />
@@ -691,16 +710,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java</url>
-          <line>32</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/xml/Parser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/xml/BaseParser.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/System.java" />
     <entry file="file://$USER_HOME$/Desktop/clean.sh" />
     <entry file="file://$MAVEN_REPOSITORY$/copyDependency.sh" />
@@ -977,7 +1000,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UnprocessedDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="165">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#176#177#0" expanded="true" />
@@ -986,12 +1009,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="390">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6075">
+          <caret line="446" column="11" selection-start-line="446" selection-start-column="11" selection-end-line="446" selection-end-column="11" />
+          <folding>
+            <element signature="e#15020#15021#0" expanded="true" />
+            <element signature="e#15084#15085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/192536211600600301.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+          <folding>
+            <element signature="n#body#0;n#article#0;n#issue-meta#0;n#issue-xml#0;n#!!top" />
+            <element signature="e#6595#6600#0" expanded="true" />
+            <element signature="e#6880#6885#0" expanded="true" />
+            <element signature="e#7118#7123#0" expanded="true" />
+            <element signature="e#7382#7387#0" expanded="true" />
+            <element signature="e#13680#13685#0" expanded="true" />
+            <element signature="e#13798#13803#0" expanded="true" />
+            <element signature="e#13891#13896#0" expanded="true" />
+            <element signature="e#14742#14747#0" expanded="true" />
+            <element signature="e#14811#14816#0" expanded="true" />
+            <element signature="e#15606#15611#0" expanded="true" />
+            <element signature="e#15692#15697#0" expanded="true" />
+            <element signature="e#15797#15802#0" expanded="true" />
+            <element signature="e#16057#16062#0" expanded="true" />
+            <element signature="e#16638#16643#0" expanded="true" />
+            <element signature="e#16850#16855#0" expanded="true" />
+            <element signature="e#19381#19386#0" expanded="true" />
+            <element signature="n#back#0;n#article#0;n#issue-meta#0;n#issue-xml#0;n#!!top" />
+            <element signature="e#21126#21131#0" expanded="true" />
+            <element signature="e#27889#27894#0" expanded="true" />
+            <element signature="n#toc#0;n#issue-xml#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -1008,8 +1082,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="230">
+          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#initMap#0;class#FrontController#0" />
@@ -1019,10 +1093,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/SignUp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="442">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1031,41 +1105,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="446" column="11" selection-start-line="446" selection-start-column="11" selection-end-line="446" selection-end-column="11" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
-            <element signature="e#15020#15021#0" expanded="true" />
-            <element signature="e#15084#15085#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#190#191#0" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="150">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/6VANCmVCVP8MxzbI5y4u/afpa_6_3/192536211600600301/192536211600600301.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

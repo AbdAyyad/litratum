@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
 public class ContentProcessing implements Runnable {
-    String zipFileName;
+    private String zipFileName;
 
     public ContentProcessing(String zipFileName) {
         this.zipFileName = zipFileName;

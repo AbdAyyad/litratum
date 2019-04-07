@@ -23,30 +23,35 @@ public class Compressor {
     }
 
     private static void createDirectory(String directory) throws IOException {
-        Path path = Paths.get(directory);
-        Files.createDirectory(path);
+        StringBuilder str = new StringBuilder();
+        String[] pieces = directory.split("/");
+        for (int i = 0; i + 1 < pieces.length; ++i) {
+            str.append(pieces[i]);
+            str.append('/');
+            Path path = Paths.get(str.toString());
+            if (!Files.exists(path)) {
+                Files.createDirectory(path);
+            }
+
+        }
     }
 
     private static void unZipWithException(String filePath, String outputDirectoryPath) throws IOException {
-        // create working directory
-        createDirectory(outputDirectoryPath);
         ZipFile zipFile = new ZipFile(filePath);
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
         byte[] buffer = new byte[512];
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
-            if (!entry.isDirectory()) {
-                FileOutputStream outputStream = new FileOutputStream(outputDirectoryPath + "/" + entry.toString());
-                InputStream in = zipFile.getInputStream(entry);
-                while (0 < in.available()) {
-                    int read = in.read(buffer);
-                    outputStream.write(buffer, 0, read);
-                }
-                outputStream.close();
-                in.close();
-            } else {
-                createDirectory(outputDirectoryPath + "/" + entry.toString());
+            createDirectory(outputDirectoryPath + "/" + entry.toString());
+            FileOutputStream outputStream = new FileOutputStream(outputDirectoryPath + "/" + entry.toString());
+            InputStream in = zipFile.getInputStream(entry);
+            while (0 < in.available()) {
+                int read = in.read(buffer);
+                outputStream.write(buffer, 0, read);
             }
+            outputStream.close();
+            in.close();
+
         }
     }
 }
