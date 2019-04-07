@@ -15,5 +15,6 @@ public class Constants {
     // initialize at run time
     public static String RELATIVE_PATH;
     public static String UNPROCESSED_FOLDER;
+    public static String UNZIPPED_FOLDER;
 
 }

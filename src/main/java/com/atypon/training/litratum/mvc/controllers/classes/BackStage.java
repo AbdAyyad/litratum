@@ -34,9 +34,10 @@ public class BackStage implements ActionInterface {
     }
 
     private void writeFileWithException(HttpServletRequest req) throws Exception {
-        String fileName = Constants.UNPROCESSED_FOLDER + RandomGenerator.getRandomFileName() + ".zip";
+        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + RandomGenerator.getRandomFileName() + ".zip";
         Dao dao = new UnprocessedDao(ConnectionPool.getConnectionPool().getConnection());
-        dao.addEntry(fileName);
+        int idx = fileName.lastIndexOf('/');
+        dao.addEntry(fileName.substring(idx + 1));
 
         // Create a factory for disk-based file items
         DiskFileItemFactory factory = new DiskFileItemFactory();

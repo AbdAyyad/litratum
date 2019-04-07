@@ -51,7 +51,8 @@ public class Compressor {
             }
             outputStream.close();
             in.close();
-
         }
+        Path path = Paths.get(filePath.substring(0,filePath.length()-4));
+        Files.delete(path);
     }
 }
