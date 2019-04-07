@@ -33,7 +33,7 @@ public class SignUp implements ActionInterface {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
         User user = new User(userName, String.copyValueOf(bcryptChars),email);
-        dao.addUser(user);
+        dao.addEntry(user);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
         dispatcher.forward(req, resp);
     }

@@ -16,6 +16,8 @@ public abstract class Dao {
         return con;
     }
 
+    public abstract void addEntry(Object o);
+
     protected void insertQuery(String sql, Object... args) {
         try (Connection con = this.con) {
             insertQueryWithException(con, sql, args);

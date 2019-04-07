@@ -14,7 +14,9 @@ public class UserDao extends Dao {
         super(con);
     }
 
-    public void addUser(User user) {
+    @Override
+    public void addEntry(Object o) {
+        User user = (User) o;
         String query = "INSERT INTO user_table (user_name, user_password, user_email) VALUES (?,?,?);";
         insertQuery(query, user.getUsername(), user.getPassword(), user.getEmail());
     }

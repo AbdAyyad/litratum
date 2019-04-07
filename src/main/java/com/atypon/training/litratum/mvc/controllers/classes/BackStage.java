@@ -1,6 +1,9 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
 import com.atypon.training.litratum.Constants;
+import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
+import com.atypon.training.litratum.mvc.model.database.daos.Dao;
+import com.atypon.training.litratum.mvc.model.database.daos.UnprocessedDao;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -31,12 +34,16 @@ public class BackStage implements ActionInterface {
     }
 
     private void writeFileWithException(HttpServletRequest req) throws Exception {
+        String fileName = Constants.UNPROCESSED_FOLDER + RandomGenerator.getRandomFileName() + ".zip";
+        Dao dao = new UnprocessedDao(ConnectionPool.getConnectionPool().getConnection());
+        dao.addEntry(fileName);
+
         // Create a factory for disk-based file items
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
         // Set factory constraints
         factory.setSizeThreshold(100000);
-        File file = new File(Constants.UNPROCESSED_FOLDER + RandomGenerator.getRandomFileName()+".zip");
+        File file = new File(fileName);
         factory.setRepository(file);
 
         // Create a new file upload handler

@@ -22,7 +22,14 @@ public class Compressor {
         }
     }
 
+    private static void createDirectory(String directory) throws IOException {
+        Path path = Paths.get(directory);
+        Files.createDirectory(path);
+    }
+
     private static void unZipWithException(String filePath, String outputDirectoryPath) throws IOException {
+        // create working directory
+        createDirectory(outputDirectoryPath);
         ZipFile zipFile = new ZipFile(filePath);
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
         byte[] buffer = new byte[512];
@@ -38,8 +45,7 @@ public class Compressor {
                 outputStream.close();
                 in.close();
             } else {
-                Path path = Paths.get(outputDirectoryPath + "/" + entry.toString());
-                Files.createDirectory(path);
+                createDirectory(outputDirectoryPath + "/" + entry.toString());
             }
         }
     }
