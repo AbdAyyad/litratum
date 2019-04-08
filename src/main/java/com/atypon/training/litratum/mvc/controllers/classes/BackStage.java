@@ -8,6 +8,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +19,17 @@ import java.util.List;
 public class BackStage implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
-
-        resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
-        out.println("inside backstage");
+        resp.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/ContentUploaded.jsp");
+        dispatcher.forward(req, resp);
         writeFile(req);
+    }
+
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Backstage.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void writeFile(HttpServletRequest req) {
@@ -61,7 +68,7 @@ public class BackStage implements ActionInterface {
         //uploadedFile.createNewFile();
         iter.next().write(file);
 
-        Thread th = new Thread(new ContentProcessing(fileName));
-        th.run();
+//        Thread th = new Thread(new ContentProcessing(fileName));
+//        th.run();
     }
 }
