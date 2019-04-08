@@ -5,6 +5,7 @@ import com.atypon.training.litratum.mvc.controllers.classes.ActionInterface;
 import com.atypon.training.litratum.mvc.model.Action;
 import com.atypon.training.litratum.xml.XmlParser;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebServlet(name = "front Servlet", urlPatterns = {"/front/*"})
+@WebServlet(name = "front Servlet", urlPatterns = {"/r/*"})
 public class FrontController extends HttpServlet {
     private Map<String, String> actionsClassMap;
 
@@ -79,6 +80,9 @@ public class FrontController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             serviceWithException(req, resp);
+        } catch (ClassNotFoundException e) {
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFound.jsp");
+            dispatcher.forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -100,11 +104,14 @@ public class FrontController extends HttpServlet {
         int argsIdx;
         String className;
 
-        idx = url.indexOf('/', 5);
-        argsIdx = url.indexOf('/', idx + 1);
+        idx = url.indexOf("/r/");
+        argsIdx = url.indexOf('/', idx + 3);
 
+        if (idx < 0) {
+            return new Action("notfound", "");
+        }
         if (argsIdx > idx) {
-            className = url.substring(idx + 1, argsIdx);
+            className = url.substring(idx + 3, argsIdx);
         } else {
             className = url.substring(idx + 1);
         }
