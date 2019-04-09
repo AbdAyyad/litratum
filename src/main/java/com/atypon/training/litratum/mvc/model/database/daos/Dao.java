@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public abstract class Dao {
     private Connection con;
@@ -49,8 +50,18 @@ public abstract class Dao {
 
     private ResultSet getResultWithException(String sql, Connection con) throws SQLException {
         PreparedStatement statement = con.prepareStatement(sql);
-        ResultSet result = statement.executeQuery();
-        return result;
+        return statement.executeQuery();
     }
+
+    public List<Object> getAll(){
+        try {
+            return getAllWithException(getCon());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    protected abstract List<Object> getAllWithException(Connection con) throws SQLException;
 
 }

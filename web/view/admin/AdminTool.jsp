@@ -9,8 +9,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% List<User> users = (List<User>) request.getAttribute("users");%>
-<jsp:include page="Header.html"/>
+<% List<Object> users = (List<Object>) request.getAttribute("users");%>
+<jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminNavBar.html"/>
 
 <div class="container">
@@ -33,10 +33,10 @@
                 <%= i + 1 %>
             </td>
             <td>
-                <%= users.get(i).getUsername()%>
+                <%= ((User) users.get(i)).getUsername()%>
             </td>
             <td>
-                <%= users.get(i).getEmail()%>
+                <%= ((User) users.get(i)).getEmail()%>
             </td>
         </tr>
         <% } %>
@@ -44,4 +44,4 @@
     </table>
 </div>
 
-<jsp:include page="Footer.html"/>
+<jsp:include page="../common/Footer.html"/>

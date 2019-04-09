@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="Header.html"/>
+<jsp:include page="common/Header.html"/>
 
 <div class="container">
     <h1>Welcome to Litratum</h1>
@@ -17,4 +17,4 @@
     </form>
 
 </div>
-<jsp:include page="Footer.html"/>
+<jsp:include page="common/Footer.html"/>

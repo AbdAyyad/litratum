@@ -50,20 +50,12 @@ public class UserDao extends Dao {
         return user;
     }
 
-    public List<User> getAllUsers() {
-        try {
-            return getAllUsersWithException(getCon());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private List<User> getAllUsersWithException(Connection con) throws SQLException {
+    @Override
+    protected List<Object> getAllWithException(Connection con) throws SQLException {
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM user_table;");
         ResultSet result = getResult(sql.toString(), con);
-        List<User> list = new ArrayList<>();
+        List<Object> list = new ArrayList<>();
 
         while (result.next()) {
             String username = result.getString(1);

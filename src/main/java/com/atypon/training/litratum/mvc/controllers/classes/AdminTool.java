@@ -64,16 +64,16 @@ public class AdminTool implements ActionInterface {
 
 
     private void contentGetRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/ContentForm.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/ContentForm.jsp");
         dispatcher.forward(req, resp);
     }
 
     private void usersGetRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
-        List<User> users = dao.getAllUsers();
+        List<Object> users = dao.getAll();
         req.setAttribute("users", users);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/AdminTool.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/AdminTool.jsp");
         dispatcher.forward(req, resp);
     }
 
