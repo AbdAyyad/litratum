@@ -24,6 +24,9 @@
         <th>
             status
         </th>
+        <th>
+
+        </th>
         </thead>
         <tbody>
         <% for (int i = 0; i < content.size(); ++i) {%>
@@ -36,6 +39,12 @@
             </td>
             <td>
                 not processed
+            </td>
+            <td>
+                <form method="post">
+                    <input type="hidden" value="<%= ((UnprocessedContent) content.get(i)).getId()%>" name="id">
+                    <button type="submit" class="btn btn-primary">process</button>
+                </form>
             </td>
         </tr>
         <% } %>

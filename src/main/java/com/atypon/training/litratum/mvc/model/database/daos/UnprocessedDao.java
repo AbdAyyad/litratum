@@ -1,7 +1,6 @@
 package com.atypon.training.litratum.mvc.model.database.daos;
 
 import com.atypon.training.litratum.mvc.model.database.UnprocessedContent;
-import com.atypon.training.litratum.mvc.model.database.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

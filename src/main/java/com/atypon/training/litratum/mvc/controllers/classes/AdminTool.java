@@ -37,7 +37,7 @@ public class AdminTool implements ActionInterface {
     private void contentPostRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         writeFile(req);
         resp.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/ContentUploaded.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/ContentUploaded.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -102,7 +102,8 @@ public class AdminTool implements ActionInterface {
         // Set factory constraints
         factory.setSizeThreshold(100000);
         File file = new File(fileName);
-        factory.setRepository(new File(fileName.substring(0, fileName.length() - 4)));
+        File repo = new File(fileName.substring(0, fileName.length() - 4));
+        factory.setRepository(repo);
 
         // Create a new file upload handler
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -117,5 +118,9 @@ public class AdminTool implements ActionInterface {
 
         //uploadedFile.createNewFile();
         iter.next().write(file);
+
+        if (repo.exists()) {
+            repo.delete();
+        }
     }
 }

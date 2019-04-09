@@ -12,6 +12,14 @@ import java.io.*;
 public class BackStage implements ActionInterface {
 
     @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        String id = req.getParameter("id");
+        resp.setContentType("text/html");
+        out.println("start processing" + id);
+    }
+
+    @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UnprocessedDao dao = new UnprocessedDao(pool.getConnection());
