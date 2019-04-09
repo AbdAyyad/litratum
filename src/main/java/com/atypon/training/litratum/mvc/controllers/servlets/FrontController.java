@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 
 @WebServlet(name = "front Servlet", urlPatterns = {"/r/*"})
@@ -98,30 +99,14 @@ public class FrontController extends HttpServlet {
     }
 
     private Action getAction(HttpServletRequest req) {
-        String url = req.getRequestURI();
-        String args;
-        int idx;
-        int argsIdx;
-        String className;
-
-        idx = url.indexOf("/r/");
-        argsIdx = url.indexOf('/', idx + 3);
-
-        if (idx < 0) {
-            return new Action("notfound", "");
+        int idx = req.getRequestURI().indexOf("/r/");
+        String url = req.getRequestURI().substring(idx + 3);
+        StringTokenizer tok = new StringTokenizer(url, "/");
+        String className = tok.nextToken();
+        String args = "";
+        if (tok.hasMoreTokens()) {
+            args = tok.nextToken();
         }
-        if (argsIdx > idx) {
-            className = url.substring(idx + 3, argsIdx);
-        } else {
-            className = url.substring(idx + 1);
-        }
-
-        if (argsIdx > -1) {
-            args = url.substring(argsIdx + 1);
-        } else {
-            args = "";
-        }
-
         return new Action(className, args);
     }
 

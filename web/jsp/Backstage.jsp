@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Header.html"/>
-<jsp:include page="AdminNabBar.html"/>
+<jsp:include page="AdminNavBar.html"/>
 
 <h1>inside backstage</h1>
 

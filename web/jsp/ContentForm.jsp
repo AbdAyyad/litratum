@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Header.html"/>
-<jsp:include page="AdminNabBar.html"/>
+<jsp:include page="AdminNavBar.html"/>
 
 <div class="container">
-    <form method="post" action="http://localhost:8080/front/backstage" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <input type="file" name="content">
         <button type="submit" class="btn btn-primary">submit</button>
     </form>

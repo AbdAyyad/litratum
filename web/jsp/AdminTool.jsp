@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% List<User> users = (List<User>) request.getAttribute("users");%>
 <jsp:include page="Header.html"/>
-<jsp:include page="AdminNabBar.html"/>
+<jsp:include page="AdminNavBar.html"/>
 
 <div class="container">
     <table class="table">
