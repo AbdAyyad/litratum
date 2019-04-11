@@ -67,4 +67,9 @@ public class UserDao extends Dao {
         result.close();
         return list;
     }
+
+    @Override
+    protected Object getEntryWithException(Connection con, int id) throws SQLException {
+        return null;
+    }
 }

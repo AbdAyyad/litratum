@@ -53,7 +53,7 @@ public abstract class Dao {
         return statement.executeQuery();
     }
 
-    public List<Object> getAll(){
+    public List<Object> getAll() {
         try {
             return getAllWithException(getCon());
         } catch (SQLException e) {
@@ -63,5 +63,16 @@ public abstract class Dao {
     }
 
     protected abstract List<Object> getAllWithException(Connection con) throws SQLException;
+
+    public Object getEntry(int id) {
+        try {
+            return getEntryWithException(getCon(), id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    protected abstract Object getEntryWithException(Connection con, int id) throws SQLException;
 
 }

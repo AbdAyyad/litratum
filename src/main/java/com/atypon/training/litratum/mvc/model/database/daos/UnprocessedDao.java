@@ -36,4 +36,24 @@ public class UnprocessedDao extends Dao {
         result.close();
         return list;
     }
+
+    @Override
+    protected Object getEntryWithException(Connection con, int id) throws SQLException {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM unprocessed_content where id = ");
+        sql.append(id);
+        sql.append(';');
+
+        ResultSet result = getResult(sql.toString(), con);
+
+        UnprocessedContent content = null;
+
+        result.next();
+        String fileName = result.getString(1);
+        content = new UnprocessedContent(id, fileName);
+
+        result.close();
+
+        return content;
+    }
 }

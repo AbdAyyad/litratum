@@ -1,6 +1,8 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
+import com.atypon.training.litratum.mvc.model.database.UnprocessedContent;
+import com.atypon.training.litratum.mvc.model.database.daos.Dao;
 import com.atypon.training.litratum.mvc.model.database.daos.UnprocessedDao;
 
 import javax.servlet.RequestDispatcher;
@@ -14,9 +16,12 @@ public class BackStage implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
-        String id = req.getParameter("id");
+        int id = Integer.valueOf(req.getParameter("id"));
         resp.setContentType("text/html");
-        out.println("start processing" + id);
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        Dao dao = new UnprocessedDao(pool.getConnection());
+        UnprocessedContent content = (UnprocessedContent) dao.getEntry(id);
+        out.println("start processing" + content.getFileName());
     }
 
     @Override
