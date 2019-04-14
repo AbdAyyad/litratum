@@ -22,6 +22,13 @@ public class BackStage implements ActionInterface {
         Dao dao = new UnprocessedDao(pool.getConnection());
         UnprocessedContent content = (UnprocessedContent) dao.getEntry(id);
         out.println("start processing" + content.getFileName());
+        Thread t = new Thread(new ContentProcessing(content.getFileName()));
+        //
+        //
+        //
+        //
+        //
+        t.run();
     }
 
     @Override

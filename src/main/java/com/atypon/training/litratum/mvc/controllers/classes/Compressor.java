@@ -52,7 +52,9 @@ public class Compressor {
             outputStream.close();
             in.close();
         }
-        Path path = Paths.get(filePath.substring(0,filePath.length()-4));
-        Files.delete(path);
+        Path path = Paths.get(filePath.substring(0, filePath.length() - 4));
+        if (Files.exists(path)) {
+            Files.delete(path);
+        }
     }
 }

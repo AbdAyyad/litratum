@@ -32,7 +32,8 @@ public class FrontController extends HttpServlet {
         super.init();
         Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
         Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed/";
-        Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "/unzipped/";
+        Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped/";
+        Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped/";
         initMap();
         createDirectories();
     }

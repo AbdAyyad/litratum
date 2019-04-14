@@ -16,5 +16,6 @@ public class Constants {
     public static String RELATIVE_PATH;
     public static String UNPROCESSED_FOLDER;
     public static String UNZIPPED_FOLDER;
+    public static String ZIPPED_FOLDER;
 
 }
