@@ -20,9 +20,43 @@ public class ContentProcessing implements Runnable {
 
         String directory = Constants.UNZIPPED_FOLDER + fileName.substring(idx + 1, fileName.length() - 4);
         Compressor.unZip(fileName, directory);
-        String[] directories = new File(directory).list();
-        System.out.println(Arrays.toString(directories));
+        String xmlDirectory = getXmlFolderPath(directory);
 
+        System.out.println(Arrays.toString(getDirectoryContents(xmlDirectory)));
+
+    }
+
+    private String[] getDirectoryContents(String path) {
+        return new File(path).list();
+    }
+
+    private String getXmlFolderPath(String unzippedPath) {
+        String[] directories = getDirectoryContents(unzippedPath);
+        StringBuilder builder = new StringBuilder(unzippedPath);
+
+        builder.append('/');
+
+
+        if (directories[0].equals("manifest.xml")) {
+            builder.append(directories[1]);
+        } else {
+            builder.append(directories[0]);
+        }
+
+        builder.append('/');
+
+        directories = getDirectoryContents(builder.toString());
+
+        if (directories[0].equals("issue-files")) {
+            builder.append(directories[1]);
+        } else {
+            builder.append(directories[0]);
+        }
+
+        builder.append('/');
+
+
+        return builder.toString();
     }
 
 }
