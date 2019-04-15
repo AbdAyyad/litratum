@@ -31,6 +31,7 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
+        Constants.XSL_PATH = Constants.RELATIVE_PATH + "xsl/";
         Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed/";
         Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped/";
         Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped/";

@@ -1,8 +1,11 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
 import com.atypon.training.litratum.Constants;
+import com.atypon.training.litratum.xml.XmlParser;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class ContentProcessing implements Runnable {
@@ -22,8 +25,34 @@ public class ContentProcessing implements Runnable {
         Compressor.unZip(fileName, directory);
         String xmlDirectory = getXmlFolderPath(directory);
 
-        System.out.println(Arrays.toString(getDirectoryContents(xmlDirectory)));
+        String[] directories = getDirectoryContents(xmlDirectory);
+        String xmlPath = xmlDirectory;
 
+        if (directories[0].endsWith("xml")) {
+            xmlPath += directories[0];
+        } else {
+            xmlPath += directories[1];
+        }
+
+        replaceDtd(xmlPath);
+
+    }
+
+    private void replaceDtd(String xmlPath) {
+        try {
+            replaceDtdWithException(xmlPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void replaceDtdWithException(String xmlPath) throws IOException {
+        StringBuilder str = new StringBuilder();
+        str.append(readFile(xmlPath));
+        int jatIdx = str.indexOf("JATS-archivearticle1.dtd");
+        str.insert(jatIdx, Constants.XSL_PATH);
+        Files.delete(Paths.get(xmlPath));
+        writeFile(xmlPath, str.toString());
     }
 
     private String[] getDirectoryContents(String path) {
@@ -52,11 +81,32 @@ public class ContentProcessing implements Runnable {
         } else {
             builder.append(directories[0]);
         }
-
         builder.append('/');
-
 
         return builder.toString();
     }
 
+    private String readFile(String path) {
+        StringBuilder str = new StringBuilder();
+        String line;
+
+        try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
+            while ((line = bf.readLine()) != null) {
+                str.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return str.toString();
+    }
+
+    private void writeFile(String path, String content) {
+        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path)))) {
+            out.write(content);
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
+import com.atypon.training.litratum.ThreadPool;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
 import com.atypon.training.litratum.mvc.model.database.UnprocessedContent;
 import com.atypon.training.litratum.mvc.model.database.daos.Dao;
@@ -22,13 +23,13 @@ public class BackStage implements ActionInterface {
         Dao dao = new UnprocessedDao(pool.getConnection());
         UnprocessedContent content = (UnprocessedContent) dao.getEntry(id);
         out.println("start processing" + content.getFileName());
-        Thread t = new Thread(new ContentProcessing(content.getFileName()));
-        //
-        //
-        //
-        //
-        //
-        t.run();
+        Runnable task = new ContentProcessing(content.getFileName());
+
+        // for debugging purpose
+        task.run();
+
+        //ThreadPool threadPool = ThreadPool.getInstance();
+        //threadPool.execute(task);
     }
 
     @Override
@@ -40,5 +41,4 @@ public class BackStage implements ActionInterface {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/backstage/Backstage.jsp");
         dispatcher.forward(req, resp);
     }
-
 }

@@ -17,5 +17,6 @@ public class Constants {
     public static String UNPROCESSED_FOLDER;
     public static String UNZIPPED_FOLDER;
     public static String ZIPPED_FOLDER;
+    public static String XSL_PATH;
 
 }
