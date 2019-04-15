@@ -5,14 +5,16 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private int id;
     private String username;
     private String password;
     private String email;
 
-    public User(String username, String password, String email) {
+    public User(int id, String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -25,6 +27,10 @@ public class User implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public boolean verifyPassword(String password) {

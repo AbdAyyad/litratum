@@ -14,14 +14,14 @@ import java.io.IOException;
 public class SignUp implements ActionInterface {
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp,String args) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/SignUpForm.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp,String args) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
 
         String userName = req.getParameter("username");
@@ -32,7 +32,7 @@ public class SignUp implements ActionInterface {
 
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserDao dao = new UserDao(pool.getConnection());
-        User user = new User(userName, String.copyValueOf(bcryptChars),email);
+        User user = new User(0, userName, String.copyValueOf(bcryptChars), email);
         dao.addEntry(user);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
         dispatcher.forward(req, resp);

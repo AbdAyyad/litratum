@@ -40,10 +40,11 @@ public class UserDao extends Dao {
         ResultSet result = getResult(sql.toString(), con);
         result.next();
 
+        int id = result.getInt(1);
         String password = result.getString(2);
         String email = result.getString(3);
 
-        User user = new User(username, password, email);
+        User user = new User(id, username, password, email);
 
         result.close();
         return user;
@@ -57,10 +58,11 @@ public class UserDao extends Dao {
         List<Object> list = new ArrayList<>();
 
         while (result.next()) {
-            String username = result.getString(1);
-            String password = result.getString(2);
-            String email = result.getString(3);
-            User user = new User(username, password, email);
+            int id = result.getInt(1);
+            String username = result.getString(2);
+            String password = result.getString(3);
+            String email = result.getString(4);
+            User user = new User(id, username, password, email);
             list.add(user);
         }
 
@@ -70,6 +72,21 @@ public class UserDao extends Dao {
 
     @Override
     protected Object getEntryWithException(Connection con, int id) throws SQLException {
-        return null;
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM user_table WHERE id = ");
+        sql.append(id);
+        sql.append(';');
+
+        ResultSet result = getResult(sql.toString(), con);
+        result.next();
+
+        String username = result.getString(1);
+        String password = result.getString(2);
+        String email = result.getString(3);
+
+        User user = new User(id, username, password, email);
+
+        result.close();
+        return user;
     }
 }
