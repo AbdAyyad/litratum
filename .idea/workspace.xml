@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af693e34-9b4e-4928-a3fa-bcd7c9b0760a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/ThreadPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/xsl/Article.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/xsl/JATS-archivearticle1.dtd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/xsl/Article.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/web/xsl/Article.xsl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,16 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/SignUpForm.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/SignInForm.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/WelcomeMessage.jsp">
           <provider selected="true" editor-type-id="text-editor" />
@@ -92,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -100,6 +82,45 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-78">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="n#article-meta#0;n#front#0;n#article#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/xsl/Article.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/xsl/DataBase.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="35" selection-start-column="35" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="67" lean-forward="true" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -171,16 +192,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/model/database/daos/UnprocessedDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/Compressor.java" />
         <option value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/issue-files/afpa_6_3.xml" />
-        <option value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/ThreadPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/BackStage.java" />
         <option value="$PROJECT_DIR$/web/xsl/JATS-archivearticle1.dtd" />
         <option value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/ezKw07kSoyA5GBfU9HUJ/afpa_6_3/192536211600600301/192536211600600301.xml" />
         <option value="$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl" />
-        <option value="$PROJECT_DIR$/web/xsl/Article.xsl" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/servlets/FrontController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/ContentProcessing.java" />
+        <option value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml" />
+        <option value="$PROJECT_DIR$/web/xsl/Article.xsl" />
       </list>
     </option>
   </component>
@@ -264,6 +285,39 @@
               <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
               <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
               <item name="unzipped" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="unzipped" type="462c0819:PsiDirectoryNode" />
+              <item name="JZeYIF2mgBC0TkJzD3LY" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="unzipped" type="462c0819:PsiDirectoryNode" />
+              <item name="JZeYIF2mgBC0TkJzD3LY" type="462c0819:PsiDirectoryNode" />
+              <item name="afpa_6_3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="litratum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="litratum_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="unprocessed" type="462c0819:PsiDirectoryNode" />
+              <item name="unzipped" type="462c0819:PsiDirectoryNode" />
+              <item name="JZeYIF2mgBC0TkJzD3LY" type="462c0819:PsiDirectoryNode" />
+              <item name="afpa_6_3" type="462c0819:PsiDirectoryNode" />
+              <item name="192536211600600301" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="litratum" type="b2602c69:ProjectViewProjectNode" />
@@ -416,7 +470,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553522140070" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/ezKw07kSoyA5GBfU9HUJ/afpa_6_3/192536211600600301/192536211600600301.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -447,7 +501,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.16">
+  <component name="RunManager" selected="XSLT.Article.xsl">
     <configuration name="Article.xsl" type="XSLT" factoryName="XSLT" temporary="true">
       <option name="myOutputFile" value="" />
       <option name="myOpenOutputFile" value="false" />
@@ -459,7 +513,7 @@
       <option name="myModule" />
       <option name="myJdk" />
       <XsltFile url="file://$PROJECT_DIR$/web/xsl/Article.xsl" />
-      <XmlFile url="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/ezKw07kSoyA5GBfU9HUJ/afpa_6_3/192536211600600301/192536211600600301.xml" />
+      <XmlFile url="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml" />
       <parameters />
       <OutputType value="CONSOLE" save-to-file="false" />
       <FileType name="XML" />
@@ -633,12 +687,12 @@
       <workItem from="1554706669192" duration="6968000" />
       <workItem from="1554793480181" duration="13498000" />
       <workItem from="1554988087934" duration="14242000" />
-      <workItem from="1555321633112" duration="705000" />
+      <workItem from="1555321633112" duration="4125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128870000" />
+    <option name="totallyTimeSpent" value="132290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -653,7 +707,7 @@
     <frame x="67" y="25" width="1853" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.42999446" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.42999446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -663,7 +717,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3288719" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42256215" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42256215" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39770555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -975,29 +1029,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/xsl/DataBase.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/GRvv4kZCtxw51HRbIGFp/afpa_6_3/192536211600600301/192536211600600301.xml" />
     <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/ezKw07kSoyA5GBfU9HUJ/afpa_6_3/192536211600600301/192536211600600301.xml" />
-    <entry file="file://$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="65" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/xsl/Article.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
@@ -1112,13 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atypon/training/litratum/mvc/controllers/classes/AdminTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="862">
@@ -1155,6 +1181,37 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/xsl/DataBase.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/xsl/ArticleDataBase.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="67" lean-forward="true" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/litratum_war_exploded/unprocessed/unzipped/JZeYIF2mgBC0TkJzD3LY/afpa_6_3/192536211600600301/192536211600600301.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="n#article-meta#0;n#front#0;n#article#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/xsl/Article.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="9" />
         </state>
       </provider>
     </entry>
