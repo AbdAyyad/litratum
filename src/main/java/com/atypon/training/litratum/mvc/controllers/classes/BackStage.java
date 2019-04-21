@@ -1,10 +1,6 @@
 package com.atypon.training.litratum.mvc.controllers.classes;
 
-import com.atypon.training.litratum.ThreadPool;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
-import com.atypon.training.litratum.mvc.model.database.UnprocessedContent;
-import com.atypon.training.litratum.mvc.model.database.daos.Dao;
-import com.atypon.training.litratum.mvc.model.database.daos.UnprocessedDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

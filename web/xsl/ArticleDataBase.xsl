@@ -6,7 +6,7 @@
     </xsl:template>
 
     <xsl:template match="front">
-        <xsl:value-of select="article-meta/article-id"/>
+        <xsl:value-of select="article-meta/article-userId"/>
     </xsl:template>
 
     <xsl:template match="body">

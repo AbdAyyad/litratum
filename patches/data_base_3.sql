@@ -1,11 +1,11 @@
 CREATE TABLE public."admin" (
-	id serial NOT NULL,
+	userId serial NOT NULL,
 	user_id int NOT NULL
 );
 
-ALTER TABLE public."admin" ADD CONSTRAINT admin_pk PRIMARY KEY (id);
+ALTER TABLE public."admin" ADD CONSTRAINT admin_pk PRIMARY KEY (userId);
 
-ALTER TABLE public."admin" ADD CONSTRAINT admin_user_table_fk FOREIGN KEY (user_id) REFERENCES public.user_table(id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE public."admin" ADD CONSTRAINT admin_user_table_fk FOREIGN KEY (user_id) REFERENCES public.user_table(userId) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE public."admin" ADD CONSTRAINT admin_un UNIQUE (user_id);
 

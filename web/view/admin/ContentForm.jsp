@@ -11,8 +11,8 @@
 
 <div class="container">
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="content">
-        <button type="submit" class="btn btn-primary">submit</button>
+        <input licenseType="file" name="content">
+        <button licenseType="submit" class="btn btn-primary">submit</button>
     </form>
 </div>
 

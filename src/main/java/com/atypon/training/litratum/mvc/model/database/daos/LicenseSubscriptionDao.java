@@ -2,7 +2,7 @@ package com.atypon.training.litratum.mvc.model.database.daos;
 
 import java.util.List;
 
-public class UserDao implements Dao {
+public class LicenseSubscriptionDao implements Dao {
     @Override
     public void addEntry(Object o) {
 

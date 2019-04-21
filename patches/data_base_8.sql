@@ -1,9 +1,9 @@
 CREATE TABLE public.license_subscription (
-	id serial NOT NULL,
+	userId serial NOT NULL,
 	end_date varchar(20) NOT NULL DEFAULT to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD'::text)
 );
 
-ALTER TABLE public.license_subscription ADD CONSTRAINT license_subscription_pk PRIMARY KEY (id);
+ALTER TABLE public.license_subscription ADD CONSTRAINT license_subscription_pk PRIMARY KEY (userId);
 ALTER TABLE public.license ADD id_rand varchar(20) NOT NULL;
 ALTER TABLE public.license DROP COLUMN license_id;
 ALTER TABLE public.license ADD CONSTRAINT license_id_un UNIQUE (id_rand);

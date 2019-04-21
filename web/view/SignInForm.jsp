@@ -11,9 +11,9 @@
 <div class="container">
     <h1>Welcome to Litratum</h1>
     <form method="post">
-        <input class="form-control" name="username" type="text" placeholder="username"/>
-        <input class="form-control" name="password" type="password" placeholder="password"/>
-        <button type="submit" class="btn btn-primary">sign in</button>
+        <input class="form-control" name="username" licenseType="text" placeholder="username"/>
+        <input class="form-control" name="password" licenseType="password" placeholder="password"/>
+        <button licenseType="submit" class="btn btn-primary">sign in</button>
     </form>
 
 </div>

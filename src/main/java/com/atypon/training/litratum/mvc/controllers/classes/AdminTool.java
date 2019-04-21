@@ -2,10 +2,6 @@ package com.atypon.training.litratum.mvc.controllers.classes;
 
 import com.atypon.training.litratum.Constants;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
-import com.atypon.training.litratum.mvc.model.database.User;
-import com.atypon.training.litratum.mvc.model.database.daos.Dao;
-import com.atypon.training.litratum.mvc.model.database.daos.UnprocessedDao;
-import com.atypon.training.litratum.mvc.model.database.daos.UserDao;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -91,7 +87,7 @@ public class AdminTool implements ActionInterface {
     }
 
     private void writeFileWithException(HttpServletRequest req) throws Exception {
-        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + RandomGenerator.getRandomFileName() + ".zip";
+        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + RandomGenerator.getRandomString() + ".zip";
         Dao dao = new UnprocessedDao(ConnectionPool.getConnectionPool().getConnection());
         int idx = fileName.lastIndexOf('/');
         dao.addEntry(fileName.substring(idx + 1));

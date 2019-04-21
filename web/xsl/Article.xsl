@@ -15,7 +15,7 @@
 
 
     <xsl:template match="graphic">
-        <xsl:value-of select="@id"/>
+        <xsl:value-of select="@userId"/>
         <xsl:text>&#xa;</xsl:text>
     </xsl:template>
 

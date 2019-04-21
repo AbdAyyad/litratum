@@ -1,38 +1,38 @@
 <!ELEMENT article (front|body)*>
         <!ATTLIST article
-                article-type CDATA #REQUIRED
+                article-licenseType CDATA #REQUIRED
                 dtd-version CDATA #REQUIRED
                 xml:lang CDATA #REQUIRED
                 xmlns:mml CDATA #REQUIRED
                 xmlns:xlink CDATA #REQUIRED>
         <!ELEMENT front (journal-meta|article-meta)*>
-        <!ELEMENT journal-meta (journal-id|journal-title-group|issn|publisher)*>
-        <!ELEMENT journal-id (#PCDATA)>
-        <!ATTLIST journal-id
-                journal-id-type CDATA #REQUIRED>
+        <!ELEMENT journal-meta (journal-userId|journal-title-group|issn|publisher)*>
+        <!ELEMENT journal-userId (#PCDATA)>
+        <!ATTLIST journal-userId
+                journal-userId-licenseType CDATA #REQUIRED>
         <!ELEMENT journal-title-group (journal-title)*>
         <!ELEMENT journal-title (#PCDATA)>
         <!ELEMENT issn (#PCDATA)>
         <!ATTLIST issn
-                pub-type CDATA #REQUIRED>
+                pub-licenseType CDATA #REQUIRED>
         <!ELEMENT publisher (publisher-name|publisher-loc)*>
         <!ELEMENT publisher-name (#PCDATA)>
         <!ELEMENT publisher-loc (#PCDATA)>
-        <!ELEMENT article-meta (article-id|article-categories|title-group|contrib-group|pub-date|volume|issue|issue-title|fpage|lpage|permissions|self-uri)*>
-        <!ELEMENT article-id (#PCDATA)>
-        <!ATTLIST article-id
-                pub-id-type CDATA #REQUIRED>
+        <!ELEMENT article-meta (article-userId|article-categories|title-group|contrib-group|pub-date|volume|issue|issue-title|fpage|lpage|permissions|self-uri)*>
+        <!ELEMENT article-userId (#PCDATA)>
+        <!ATTLIST article-userId
+                pub-userId-licenseType CDATA #REQUIRED>
         <!ELEMENT article-categories (subj-group)*>
         <!ELEMENT subj-group (subject)*>
         <!ATTLIST subj-group
-                subj-group-type CDATA #REQUIRED>
+                subj-group-licenseType CDATA #REQUIRED>
         <!ELEMENT subject (#PCDATA)>
         <!ELEMENT title-group (article-title)*>
         <!ELEMENT article-title (#PCDATA)>
         <!ELEMENT contrib-group (contrib)*>
         <!ELEMENT contrib (string-name|x|degrees)*>
         <!ATTLIST contrib
-                contrib-type CDATA #REQUIRED>
+                contrib-licenseType CDATA #REQUIRED>
         <!ELEMENT string-name (given-names|surname)*>
         <!ELEMENT given-names (#PCDATA)>
         <!ELEMENT surname (#PCDATA)>
@@ -40,7 +40,7 @@
         <!ELEMENT degrees (#PCDATA)>
         <!ELEMENT pub-date (month|year)*>
         <!ATTLIST pub-date
-                pub-type CDATA #REQUIRED>
+                pub-licenseType CDATA #REQUIRED>
         <!ELEMENT month (#PCDATA)>
         <!ELEMENT year (#PCDATA)>
         <!ELEMENT volume (#PCDATA)>
@@ -53,15 +53,15 @@
         <!ELEMENT copyright-year (#PCDATA)>
         <!ELEMENT copyright-holder (#PCDATA)>
         <!ATTLIST copyright-holder
-                content-type CDATA #REQUIRED>
+                content-licenseType CDATA #REQUIRED>
         <!ELEMENT self-uri (#PCDATA)>
         <!ATTLIST self-uri
-                content-type CDATA #REQUIRED
+                content-licenseType CDATA #REQUIRED
                 xlink:href CDATA #REQUIRED>
         <!ELEMENT body (graphic|p)*>
         <!ELEMENT graphic (#PCDATA)>
         <!ATTLIST graphic
-                id CDATA #REQUIRED
+                userId CDATA #REQUIRED
                 xlink:href CDATA #REQUIRED>
         <!ELEMENT p (#PCDATA)>
 

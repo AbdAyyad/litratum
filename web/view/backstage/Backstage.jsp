@@ -42,8 +42,8 @@
             </td>
             <td>
                 <form method="post">
-                    <input type="hidden" value="<%= ((UnprocessedContent) content.get(i)).getId()%>" name="id">
-                    <button type="submit" class="btn btn-primary">process</button>
+                    <input licenseType="hidden" value="<%= ((UnprocessedContent) content.get(i)).getId()%>" name="userId">
+                    <button licenseType="submit" class="btn btn-primary">process</button>
                 </form>
             </td>
         </tr>

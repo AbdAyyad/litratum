@@ -2,8 +2,6 @@ package com.atypon.training.litratum.mvc.controllers.classes;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
-import com.atypon.training.litratum.mvc.model.database.User;
-import com.atypon.training.litratum.mvc.model.database.daos.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
