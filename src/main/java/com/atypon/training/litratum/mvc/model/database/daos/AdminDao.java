@@ -37,7 +37,7 @@ public class AdminDao implements Dao {
             ResultSet result = statement.executeQuery();
             String adminId = result.getString(1);
             String userId = result.getString(2);
-            admin = new Admin(adminId, userId);
+            admin = new Admin(userId, adminId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class AdminDao implements Dao {
             while (result.next()) {
                 String adminId = result.getString(1);
                 String userId = result.getString(2);
-                Admin admin = new Admin(adminId, userId);
+                Admin admin = new Admin(userId, adminId);
                 list.add(admin);
             }
             result.close();

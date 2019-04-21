@@ -3,10 +3,12 @@ package com.atypon.training.litratum.mvc.model.database.datatypes;
 public class NormalUser{
     private String normalUserId;
     private String userId;
+    private String LicenseId;
 
-    public NormalUser(String normalUserId, String userId) {
+    public NormalUser(String normalUserId, String userId, String licenseId) {
         this.normalUserId = normalUserId;
         this.userId = userId;
+        LicenseId = licenseId;
     }
 
     public String getNormalUserId() {
@@ -15,5 +17,9 @@ public class NormalUser{
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getLicenseId() {
+        return LicenseId;
     }
 }
