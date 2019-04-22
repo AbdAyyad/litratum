@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.mvc.controllers.classes;
+package com.atypon.training.litratum.mvc.controllers.actions;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignUp implements ActionInterface {
+public class SignUpAction implements ActionInterface {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
@@ -28,11 +28,11 @@ public class SignUp implements ActionInterface {
 
         char[] bcryptChars = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
 
-        ConnectionPool pool = ConnectionPool.getConnectionPool();
-        UserDao dao = new UserDao(pool.getConnection());
-        User user = new User(0, userName, String.copyValueOf(bcryptChars), email);
-        dao.addEntry(user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
-        dispatcher.forward(req, resp);
+//        ConnectionPool pool = ConnectionPool.getConnectionPool();
+//        UserDao dao = new UserDao(pool.getConnection());
+//        UserAction user = new UserAction(0, userName, String.copyValueOf(bcryptChars), email);
+//        dao.addEntry(user);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
+//        dispatcher.forward(req, resp);
     }
 }

@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.mvc.controllers.classes;
+package com.atypon.training.litratum.mvc.controllers.actions;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.mvc.controllers.classes;
+package com.atypon.training.litratum.mvc.controllers.tools;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

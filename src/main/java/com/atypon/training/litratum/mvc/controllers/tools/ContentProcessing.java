@@ -1,12 +1,10 @@
-package com.atypon.training.litratum.mvc.controllers.classes;
+package com.atypon.training.litratum.mvc.controllers.tools;
 
 import com.atypon.training.litratum.Constants;
-import com.atypon.training.litratum.xml.XmlParser;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ContentProcessing implements Runnable {
     private String zipFileName;

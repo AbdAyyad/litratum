@@ -1,11 +1,12 @@
 package com.atypon.training.litratum.mvc.controllers.servlets;
 
 import com.atypon.training.litratum.Constants;
-import com.atypon.training.litratum.mvc.controllers.classes.ActionInterface;
+import com.atypon.training.litratum.mvc.controllers.actions.ActionInterface;
 import com.atypon.training.litratum.mvc.model.Action;
 import com.atypon.training.litratum.xml.XmlParser;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +21,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 
-@WebServlet(name = "front Servlet", urlPatterns = {"/r/*"})
+@WebServlet(name = "front Servlet", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
+
+    private static final String PATH = "/FrontController";
+    private static Action action;
+
+
+    public static RequestDispatcher getRequestDispatcher(ServletContext context) {
+        return context.getRequestDispatcher(PATH);
+    }
+
     private Map<String, String> actionsClassMap;
 
     @Override
@@ -93,23 +102,19 @@ public class FrontController extends HttpServlet {
 
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        Action action = getAction(req);
+        Action action = getAction();
         Class<?> actionClass = Class.forName(actionsClassMap.get(action.getClassName()));
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
         obj.execute(req, resp, action.getArg());
     }
 
-    private Action getAction(HttpServletRequest req) {
-        int idx = req.getRequestURI().indexOf("/r/");
-        String url = req.getRequestURI().substring(idx + 3);
-        StringTokenizer tok = new StringTokenizer(url, "/");
-        String className = tok.nextToken();
-        String args = "";
-        if (tok.hasMoreTokens()) {
-            args = tok.nextToken();
-        }
-        return new Action(className, args);
+    private static Action getAction() {
+        return action;
+    }
+
+    public static void setAction(Action action) {
+        FrontController.action = action;
     }
 
 

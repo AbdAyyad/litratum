@@ -1,6 +1,7 @@
-package com.atypon.training.litratum.mvc.controllers.classes;
+package com.atypon.training.litratum.mvc.controllers.actions;
 
 import com.atypon.training.litratum.Constants;
+import com.atypon.training.litratum.mvc.controllers.tools.RandomGenerator;
 import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-public class AdminTool implements ActionInterface {
+public class AdminAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         switch (args) {
@@ -65,12 +66,12 @@ public class AdminTool implements ActionInterface {
     }
 
     private void usersGetRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ConnectionPool pool = ConnectionPool.getConnectionPool();
-        UserDao dao = new UserDao(pool.getConnection());
-        List<Object> users = dao.getAll();
-        req.setAttribute("users", users);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/AdminTool.jsp");
-        dispatcher.forward(req, resp);
+//        ConnectionPool pool = ConnectionPool.getConnectionPool();
+//        UserDao dao = new UserDao(pool.getConnection());
+//        List<Object> users = dao.getAll();
+//        req.setAttribute("users", users);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/AdminAction.jsp");
+//        dispatcher.forward(req, resp);
     }
 
     private void noArgsGetRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -87,19 +88,19 @@ public class AdminTool implements ActionInterface {
     }
 
     private void writeFileWithException(HttpServletRequest req) throws Exception {
-        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + RandomGenerator.getRandomString() + ".zip";
-        Dao dao = new UnprocessedDao(ConnectionPool.getConnectionPool().getConnection());
-        int idx = fileName.lastIndexOf('/');
-        dao.addEntry(fileName.substring(idx + 1));
+//        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + RandomGenerator.getRandomString() + ".zip";
+//        Dao dao = new UnprocessedDao(ConnectionPool.getConnectionPool().getConnection());
+//        int idx = fileName.lastIndexOf('/');
+//        dao.addEntry(fileName.substring(idx + 1));
 
         // Create a factory for disk-based file items
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
         // Set factory constraints
-        factory.setSizeThreshold(100000);
-        File file = new File(fileName);
-        File repo = new File(fileName.substring(0, fileName.length() - 4));
-        factory.setRepository(repo);
+//        factory.setSizeThreshold(100000);
+//        File file = new File(fileName);
+//        File repo = new File(fileName.substring(0, fileName.length() - 4));
+//        factory.setRepository(repo);
 
         // Create a new file upload handler
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -113,10 +114,10 @@ public class AdminTool implements ActionInterface {
         Iterator<FileItem> iter = items.iterator();
 
         //uploadedFile.createNewFile();
-        iter.next().write(file);
-
-        if (repo.exists()) {
-            repo.delete();
-        }
+//        iter.next().write(file);
+//
+//        if (repo.exists()) {
+//            repo.delete();
+//        }
     }
 }
