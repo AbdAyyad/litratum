@@ -109,11 +109,11 @@ public class FrontController extends HttpServlet {
         obj.execute(req, resp, action.getArg());
     }
 
-    private static Action getAction() {
+    private synchronized static Action getAction() {
         return action;
     }
 
-    public static void setAction(Action action) {
+    public synchronized static void setAction(Action action) {
         FrontController.action = action;
     }
 

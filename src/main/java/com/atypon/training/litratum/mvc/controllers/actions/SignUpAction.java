@@ -1,7 +1,10 @@
 package com.atypon.training.litratum.mvc.controllers.actions;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.atypon.training.litratum.mvc.model.database.ConnectionPool;
+import com.atypon.training.litratum.mvc.model.database.daos.Dao;
+import com.atypon.training.litratum.mvc.model.database.daos.NormalUserDao;
+import com.atypon.training.litratum.mvc.model.database.daos.UserDao;
+import com.atypon.training.litratum.mvc.model.database.datatypes.NormalUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,16 +25,16 @@ public class SignUpAction implements ActionInterface {
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
 
-        String userName = req.getParameter("username");
-        String password = req.getParameter("password");
-        String email = req.getParameter("email");
+        String userName = req.getParameter("userName");
+        String password = req.getParameter("userPassword");
+        String email = req.getParameter("userEmail");
 
         char[] bcryptChars = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
 
-//        ConnectionPool pool = ConnectionPool.getConnectionPool();
-//        UserDao dao = new UserDao(pool.getConnection());
-//        UserAction user = new UserAction(0, userName, String.copyValueOf(bcryptChars), email);
-//        dao.addEntry(user);
+        Dao userDao = new UserDao();
+        Dao normalDao = new NormalUserDao();
+//        NormalUser normalUser = new NormalUser()
+        //        dao.addEntry(user);
 //        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/WelcomeMessage.jsp");
 //        dispatcher.forward(req, resp);
     }
