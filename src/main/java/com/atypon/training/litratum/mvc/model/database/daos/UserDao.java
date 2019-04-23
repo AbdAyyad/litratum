@@ -18,14 +18,14 @@ public class UserDao implements Dao {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         User user = (User) o;
         try (Connection con = pool.getConnection()) {
-            String sql = "insert into user_table(user_name,user_email,user_password,user_id) values (?,?,?,?);";
+            String sql = "insert into user_table(user_name,user_email,user_password,user_id, logged_in) values (?,?,?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
 
             statement.setString(1, user.getUserName());
             statement.setString(2, user.getUserEmail());
             statement.setString(3, user.getUserPassword());
             statement.setString(4, user.getUserId());
-
+            statement.setBoolean(5, user.isLoggedIn());
 
             statement.execute();
         } catch (SQLException e) {
@@ -46,12 +46,13 @@ public class UserDao implements Dao {
 
             result.next();
 
-            String userId = result.getString(4);
             String userName = result.getString(1);
             String userEmail = result.getString(2);
             String userPassword = result.getString(3);
+            String userId = result.getString(4);
+            boolean loggedIn = result.getBoolean(5);
 
-            user = new User(userId, userName, userEmail, userPassword);
+            user = new User(userId, userName, userEmail, userPassword, loggedIn);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,12 +73,13 @@ public class UserDao implements Dao {
 
             while (result.next()) {
 
-                String userId = result.getString(4);
                 String userName = result.getString(1);
                 String userEmail = result.getString(2);
                 String userPassword = result.getString(3);
+                String userId = result.getString(4);
+                boolean loggedIn = result.getBoolean(5);
 
-                user = new User(userId, userName, userEmail, userPassword);
+                user = new User(userId, userName, userEmail, userPassword, loggedIn);
                 list.add(user);
             }
             result.close();

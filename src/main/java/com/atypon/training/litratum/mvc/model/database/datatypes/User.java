@@ -5,12 +5,14 @@ public class User {
     private String userName;
     private String userEmail;
     private String userPassword;
+    private boolean isLoggedIn;
 
-    public User(String userId, String userName, String userEmail, String userPassword) {
+    public User(String userId, String userName, String userEmail, String userPassword, boolean isLoggedIn) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
+        this.isLoggedIn = isLoggedIn;
     }
 
     public String getUserId() {
@@ -27,5 +29,9 @@ public class User {
 
     public String getUserPassword() {
         return userPassword;
+    }
+
+    public boolean isLoggedIn() {
+        return isLoggedIn;
     }
 }
