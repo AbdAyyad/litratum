@@ -6,7 +6,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>test</servlet-name>-->
-<!--        <servlet-class>com.atypon.training.litratum.mvc.controllers.servlets.FrontController</servlet-class>-->
+<!--        <servlet-class>com.atypon.training.litratum.controllers.servlets.FrontController</servlet-class>-->
 <!--    </servlet>-->
 <!--    -->
 <!--    -->
@@ -17,7 +17,7 @@
 
     <filter>
         <filter-name>MyFilter</filter-name>
-        <filter-class>com.atypon.training.litratum.mvc.controllers.servlets.Filter</filter-class>
+        <filter-class>com.atypon.training.litratum.controllers.filters.Filter</filter-class>
     </filter>
 
     <filter-mapping>

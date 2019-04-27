@@ -1,4 +1,4 @@
-<%@ page import="com.atypon.training.litratum.mvc.model.database.datatypes.User" %>
+<%@ page import="com.atypon.training.litratum.model.database.datatypes.User" %>
 <%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.

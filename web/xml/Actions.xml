@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <actions>
-    <action url="SignUp" class="com.atypon.training.litratum.mvc.controllers.actions.SignUpAction"/>
-    <action url="sign_in" class="com.atypon.training.litratum.mvc.controllers.actions.SignInAction"/>
-    <action url="admin" class="com.atypon.training.litratum.mvc.controllers.actions.AdminAction"/>
-    <action url="backstage" class="com.atypon.training.litratum.mvc.controllers.actions.BackStageAction"/>
-    <action url="notfound" class="com.atypon.training.litratum.mvc.controllers.tools.NotFound"/>
-    <action url="user" class="com.atypon.training.litratum.mvc.controllers.actions.UserAction"/>
+    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction"/>
+    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.SignInAction"/>
+    <action url="admin" class="com.atypon.training.litratum.controllers.actions.AdminAction"/>
+    <action url="backstage" class="com.atypon.training.litratum.controllers.actions.BackStageAction"/>
+    <action url="notfound" class="com.atypon.training.litratum.controllers.actions.NotFound"/>
+    <action url="user" class="com.atypon.training.litratum.controllers.actions.UserAction"/>
 </actions>

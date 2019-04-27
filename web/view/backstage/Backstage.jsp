@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.atypon.training.litratum.mvc.model.database.UnprocessedContent" %><%--
+<%@ page import="com.atypon.training.litratum.model.database.UnprocessedContent" %><%--
   Created by IntelliJ IDEA.
   UserAction: aayyad
   Date: 4/8/19
