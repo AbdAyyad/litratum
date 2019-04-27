@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Filter implements javax.servlet.Filter {
+public class RequestFilter implements javax.servlet.Filter {
 
     private FilterConfig config;
 
