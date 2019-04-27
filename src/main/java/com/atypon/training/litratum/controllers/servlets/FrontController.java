@@ -75,7 +75,7 @@ public class FrontController extends HttpServlet {
 
     private void initUrlMapWithException() throws Exception {
         actionsMapping = new HashMap<>();
-        String xmlTransformed =  XmlTransformer.getXml(Constants.ACTIONS_MAPPING_XML_FILE, Constants.ACTIONS_MAPPING_XSL_FILE);
+        String xmlTransformed = XmlTransformer.getXml(Constants.ACTIONS_MAPPING_XML_FILE, Constants.ACTIONS_MAPPING_XSL_FILE);
 
 
         StringReader stringReader = new StringReader(xmlTransformed);
@@ -93,12 +93,14 @@ public class FrontController extends HttpServlet {
 
     }
 
-    private void initActionMap(){
-        try{
-            String transformedXml = XmlTransformer.getXml(Constants.ACTIONS_OBJECTS_XML_FILE,Constants.ACTIONS_OBJECTS_XSL_FILE);
+    private void initActionMap() {
+        try {
+            String transformedXml = XmlTransformer.getXml(Constants.ACTIONS_OBJECTS_XML_FILE, Constants.ACTIONS_OBJECTS_XSL_FILE);
             XmlFactory factory = new XmlFactory(transformedXml);
             allActions = factory.getAllActions();
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -116,8 +118,9 @@ public class FrontController extends HttpServlet {
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String url = (String) req.getAttribute("actionUrl");
-        Action action = allActions.get(url);
-        Class<?> actionClass = Class.forName(actionsMapping.get(action.getActionClass()));
+        String actionName = actionsMapping.get(url);
+        Action action = allActions.get(actionName);
+        Class<?> actionClass = Class.forName(action.getActionClass());
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
         obj.execute(req, resp, action.getJsp());
