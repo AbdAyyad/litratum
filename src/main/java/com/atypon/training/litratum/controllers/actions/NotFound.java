@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class NotFound implements ActionInterface {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFound.jsp");
         dispatcher.forward(req, resp);
     }

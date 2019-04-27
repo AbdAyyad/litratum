@@ -14,8 +14,8 @@ import java.util.List;
 
 public class AdminAction implements ActionInterface {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
-        switch (args) {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+        switch (jsp) {
             case "content":
                 contentPostRequest(req, resp);
                 break;
@@ -42,8 +42,8 @@ public class AdminAction implements ActionInterface {
     }
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
-        switch (args) {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+        switch (jsp) {
             case "content":
                 contentGetRequest(req, resp);
                 break;

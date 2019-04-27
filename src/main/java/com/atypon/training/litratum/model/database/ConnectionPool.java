@@ -2,8 +2,8 @@ package com.atypon.training.litratum.model.database;
 
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
-import com.atypon.training.litratum.model.xmlobject.DataBase;
-import com.atypon.training.litratum.model.xmlobject.XmlFactory;
+import com.atypon.training.litratum.model.xml.DataBase;
+import com.atypon.training.litratum.model.xml.XmlFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;

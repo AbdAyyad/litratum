@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class UserAction implements ActionInterface {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
-        switch (args) {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+        switch (jsp) {
             case "info":
                 showInfoPage(req, resp);
                 break;

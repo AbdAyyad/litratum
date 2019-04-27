@@ -2,8 +2,9 @@ package com.atypon.training.litratum.controllers.servlets;
 
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
-import com.atypon.training.litratum.model.Action;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
+import com.atypon.training.litratum.model.xml.Action;
+import com.atypon.training.litratum.model.xml.XmlFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -27,8 +28,8 @@ import java.util.Map;
 public class FrontController extends HttpServlet {
 
     private static final String PATH = "/FrontController";
-    private static Action action;
-    private Map<String, String> actionsClassMap;
+    private Map<String, String> actionsMapping;
+    private Map<String, Action> allActions;
 
 
     public static RequestDispatcher getRequestDispatcher(ServletContext context) {
@@ -44,8 +45,9 @@ public class FrontController extends HttpServlet {
         Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed/";
         Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped/";
         Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped/";
-        initMap();
+        initUrlMap();
         createDirectories();
+        initActionMap();
     }
 
     private void createDirectories() {
@@ -63,34 +65,40 @@ public class FrontController extends HttpServlet {
         }
     }
 
-    private void initMap() {
+    private void initUrlMap() {
         try {
-            initMapWithException();
-        } catch (IOException e) {
+            initUrlMapWithException();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void initMapWithException() throws IOException {
-        actionsClassMap = new HashMap<>();
-        String xmlTransformed = null;
-        try {
-            xmlTransformed = XmlTransformer.getXml(Constants.ACTIONS_XML_FILE, Constants.ACTIONS_XSL_FILE);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void initUrlMapWithException() throws Exception {
+        actionsMapping = new HashMap<>();
+        String xmlTransformed =  XmlTransformer.getXml(Constants.ACTIONS_MAPPING_XML_FILE, Constants.ACTIONS_MAPPING_XSL_FILE);
+
+
         StringReader stringReader = new StringReader(xmlTransformed);
         BufferedReader bf = new BufferedReader(stringReader);
 
-        String line = bf.readLine(); // <? xmlobject version="1.0" encode="UTF-8"/>
+        String line = bf.readLine(); // <? xml version="1.0" encode="UTF-8"/>
         String key;
         String value;
 
         while ((line = bf.readLine()) != null) {
             key = line.trim();
             value = bf.readLine().trim();
-            actionsClassMap.put(key, value);
+            actionsMapping.put(key, value);
         }
+
+    }
+
+    private void initActionMap(){
+        try{
+            String transformedXml = XmlTransformer.getXml(Constants.ACTIONS_OBJECTS_XML_FILE,Constants.ACTIONS_OBJECTS_XSL_FILE);
+            XmlFactory factory = new XmlFactory(transformedXml);
+            allActions = factory.getAllActions();
+        }catch (Exception e){e.printStackTrace();}
     }
 
     @Override
@@ -107,20 +115,12 @@ public class FrontController extends HttpServlet {
 
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        Action action = getAction();
-        Class<?> actionClass = Class.forName(actionsClassMap.get(action.getClassName()));
+        String url = (String) req.getAttribute("actionUrl");
+        Action action = allActions.get(url);
+        Class<?> actionClass = Class.forName(actionsMapping.get(action.getActionClass()));
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
-        obj.execute(req, resp, action.getArg());
+        obj.execute(req, resp, action.getJsp());
     }
-
-    private synchronized static Action getAction() {
-        return action;
-    }
-
-    public synchronized static void setAction(Action action) {
-        FrontController.action = action;
-    }
-
 
 }

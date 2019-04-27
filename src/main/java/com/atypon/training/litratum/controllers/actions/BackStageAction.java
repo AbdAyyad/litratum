@@ -10,7 +10,7 @@ import java.io.*;
 public class BackStageAction implements ActionInterface {
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
         int id = Integer.valueOf(req.getParameter("id"));
         resp.setContentType("text/html");
@@ -28,7 +28,7 @@ public class BackStageAction implements ActionInterface {
     }
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String args) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
   //      UnprocessedDao dao = new UnprocessedDao(pool.getConnection());
 //        req.setAttribute("datalist", dao.getAll());

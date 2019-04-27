@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <actions>
-    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction"/>
-    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.SignInAction"/>
-    <action url="admin" class="com.atypon.training.litratum.controllers.actions.AdminAction"/>
-    <action url="backstage" class="com.atypon.training.litratum.controllers.actions.BackStageAction"/>
-    <action url="notfound" class="com.atypon.training.litratum.controllers.actions.NotFound"/>
-    <action url="user" class="com.atypon.training.litratum.controllers.actions.UserAction"/>
+    <action name="welcome" class="com.atypon.training.litratum.controllers.actions.WelcomeAction" jsp="view/user/HomePage.jsp"/>
+    <action name="signUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction" jsp="view/user/WelcomeNewMember.jsp"/>
+    <action name="signIn" class="com.atypon.training.litratum.controllers.actions.SignInAction" jsp="view/user/LoggedIn.jsp"/>
+<!--    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction"/>-->
+<!--    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.SignInAction"/>-->
+<!--    <action url="admin" class="com.atypon.training.litratum.controllers.actions.AdminAction"/>-->
+<!--    <action url="backstage" class="com.atypon.training.litratum.controllers.actions.BackStageAction"/>-->
+<!--    <action url="notfound" class="com.atypon.training.litratum.controllers.actions.NotFound"/>-->
+<!--    <action url="user" class="com.atypon.training.litratum.controllers.actions.UserAction"/>-->
 </actions>

@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.model.xmlobject;
+package com.atypon.training.litratum.model.xml;
 
 public class DataBase {
     private String host;

@@ -24,7 +24,7 @@ public class ContentProcessing implements Runnable {
         String[] directories = getDirectoryContents(xmlDirectory);
         String xmlPath = xmlDirectory;
 
-        if (directories[0].endsWith("xmlobject")) {
+        if (directories[0].endsWith("xml")) {
             xmlPath += directories[0];
         } else {
             xmlPath += directories[1];
@@ -62,7 +62,7 @@ public class ContentProcessing implements Runnable {
         builder.append('/');
 
 
-        if (directories[0].equals("manifest.xmlobject")) {
+        if (directories[0].equals("manifest.xml")) {
             builder.append(directories[1]);
         } else {
             builder.append(directories[0]);

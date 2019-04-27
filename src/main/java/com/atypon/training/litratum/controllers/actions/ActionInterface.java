@@ -6,22 +6,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface ActionInterface {
-    default void execute(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {
+    default void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         switch (req.getMethod()) {
             case "GET":
-                doGet(req, resp,args);
+                doGet(req, resp, jsp);
                 break;
             case "POST":
-                doPost(req, resp,args);
+                doPost(req, resp, jsp);
                 break;
             case "PUT":
-                doPut(req, resp,args);
+                doPut(req, resp, jsp);
                 break;
         }
     }
 
-    default void doGet(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
-    default void doPost(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
-    default void doPut(HttpServletRequest req, HttpServletResponse resp,String args)throws ServletException, IOException {}
+    default void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    }
+
+    default void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    }
+
+    default void doPut(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    }
 
 }
