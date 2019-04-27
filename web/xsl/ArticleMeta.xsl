@@ -5,6 +5,10 @@
         <xsl:call-template name="author"/>
         <xsl:text>&#xa;</xsl:text>
         <xsl:call-template name="article-doi"/>
+        <xsl:text>&#xa;</xsl:text>
+        <xsl:call-template name="release-date"/>
+        <xsl:text>&#xa;</xsl:text>
+        <xsl:call-template name="article-title"/>
     </xsl:template>
 
     <xsl:template name="author">
@@ -14,6 +18,19 @@
     </xsl:template>
 
     <xsl:template name="article-doi">
-        <xsl:value-of select="front/article-meta/article-id"/>
+        <xsl:if test="front/article-meta/article-id/@pub-id-type = 'doi'">
+            <xsl:value-of select="front/article-meta/article-id"/>
+        </xsl:if>
     </xsl:template>
+
+    <xsl:template name="release-date">
+        <xsl:value-of select="front/article-meta/pub-date/month"/>
+        <xsl:text>/</xsl:text>
+        <xsl:value-of select="front/article-meta/pub-date/year"/>
+    </xsl:template>
+
+    <xsl:template name="article-title">
+        <xsl:value-of select="front/article-meta/title-group/article-title"/>
+    </xsl:template>
+
 </xsl:stylesheet>
