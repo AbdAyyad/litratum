@@ -16,16 +16,7 @@ public final class XmlTransformer {
     private XmlTransformer() {
     }
 
-    public static String getXml(String xmlPath, String xslPath) {
-        try {
-            return getXmlWithException(xmlPath, xslPath);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private static String getXmlWithException(String xmlPath, String xslPath) throws Exception {
+    public static String getXml(String xmlPath, String xslPath) throws Exception {
         Document document;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         StringWriter stringWriter = new StringWriter();

@@ -73,7 +73,12 @@ public class FrontController extends HttpServlet {
 
     private void initMapWithException() throws IOException {
         actionsClassMap = new HashMap<>();
-        String xmlTransformed = XmlTransformer.getXml(Constants.ACTIONS_XML_FILE, Constants.ACTIONS_XSL_FILE);
+        String xmlTransformed = null;
+        try {
+            xmlTransformed = XmlTransformer.getXml(Constants.ACTIONS_XML_FILE, Constants.ACTIONS_XSL_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         StringReader stringReader = new StringReader(xmlTransformed);
         BufferedReader bf = new BufferedReader(stringReader);
 

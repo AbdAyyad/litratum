@@ -20,9 +20,17 @@ public class ConnectionPool {
 
 
     private void initThePool() {
-        pool = new BasicDataSource();
+        try {
+            initPoolWithException();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void initPoolWithException() throws Exception {
         DataBase dataBase = getDataBaseObject();
+
+        pool = new BasicDataSource();
 
         pool.setUrl(dataBase.getUri());
         pool.setUsername(dataBase.getUser());
@@ -30,6 +38,7 @@ public class ConnectionPool {
 
         pool.setMinIdle(Constants.CONNECTION_POOL_MIN_SIZE);
         pool.setMaxIdle(Constants.CONNECTION_POOL_MAX_SIZE);
+
     }
 
     public synchronized static ConnectionPool getConnectionPool() {
@@ -40,8 +49,9 @@ public class ConnectionPool {
     }
 
 
-    private DataBase getDataBaseObject() {
-        XmlFactory factory = new XmlFactory(XmlTransformer.getXml(Constants.DATABASE_XML_FILE, Constants.DATABASE_XSL_FILE));
+    private DataBase getDataBaseObject() throws Exception {
+        String xml = XmlTransformer.getXml(Constants.DATABASE_XML_FILE, Constants.DATABASE_XSL_FILE);
+        XmlFactory factory = new XmlFactory(xml);
         return factory.getDataBase();
     }
 

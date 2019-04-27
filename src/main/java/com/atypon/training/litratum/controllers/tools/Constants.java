@@ -9,7 +9,7 @@ public class Constants {
     public final static int CONNECTION_POOL_MAX_SIZE = 100;
     public final static int CONNECTION_POOL_MIN_SIZE = 10;
     public final static String ACTIONS_XML_FILE = "xmlobject/Actions.xmlobject";
-    public final static String ACTIONS_XSL_FILE = "xsl/action.xsl";
+    public final static String ACTIONS_XSL_FILE = "xsl/Action.xsl";
     public final static String ALL_ALLOWED_RANDOM = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     // initialize at run time

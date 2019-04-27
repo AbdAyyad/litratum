@@ -16,12 +16,12 @@
 <!--    </servlet-mapping>-->
 
     <filter>
-        <filter-name>MyFilter</filter-name>
+        <filter-name>RequestFilterFilter</filter-name>
         <filter-class>com.atypon.training.litratum.controllers.filters.RequestFilter</filter-class>
     </filter>
 
     <filter-mapping>
-        <filter-name>MyFilter</filter-name>
+        <filter-name>RequestFilterFilter</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
