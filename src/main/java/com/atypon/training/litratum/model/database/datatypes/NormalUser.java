@@ -11,6 +11,11 @@ public class NormalUser{
         LicenseId = licenseId;
     }
 
+    public NormalUser(String normalUserId, String userId) {
+        this.normalUserId = normalUserId;
+        this.userId = userId;
+    }
+
     public String getNormalUserId() {
         return normalUserId;
     }

@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.controllers.servlets;
 
-import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
 import com.atypon.training.litratum.model.xml.Action;
 import com.atypon.training.litratum.model.xml.XmlFactory;
@@ -107,9 +107,6 @@ public class FrontController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             serviceWithException(req, resp);
-        } catch (ClassNotFoundException e) {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFound.jsp");
-            dispatcher.forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,12 +115,22 @@ public class FrontController extends HttpServlet {
 
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String url = (String) req.getAttribute("actionUrl");
-        String actionName = actionsMapping.get(url);
+
+        String actionName = getActionMapping(url);
         Action action = allActions.get(actionName);
+
         Class<?> actionClass = Class.forName(action.getActionClass());
         Constructor constructor = actionClass.getConstructor();
         ActionInterface obj = (ActionInterface) constructor.newInstance();
+
         obj.execute(req, resp, action.getJsp());
+    }
+
+    private String getActionMapping(String url) {
+        if (actionsMapping.containsKey(url)) {
+            return actionsMapping.get(url);
+        }
+        return "not-found";
     }
 
 }

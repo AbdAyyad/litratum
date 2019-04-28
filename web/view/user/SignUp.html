@@ -9,24 +9,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="signUpModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="/SignUp">
-                    <input type="text" name="userName" placeholder="your name"/>
-                    <input type="email" name="userEmail" placeholder="email"/>
-                    <input type="password" name="password" placeholder="password"/>
+                <form method="post" action="/sign-up">
+                    <input class="form-control sign-form" type="text" name="userName" placeholder="your name"/>
+                    <input class="form-control sign-form" type="email" name="userEmail" placeholder="email"/>
+                    <input class="form-control sign-form" type="password" name="userPassword" placeholder="password"/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <!--            <div class="modal-footer">-->
-            <!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-            <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
-            <!--            </div>-->
         </div>
     </div>
 </div>

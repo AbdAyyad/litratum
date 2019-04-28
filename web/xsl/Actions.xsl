@@ -5,11 +5,13 @@
     </xsl:template>
 
     <xsl:template name="attribute">
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:value-of select="action/@name"/>
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:value-of select="action/@class"/>
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:value-of select="action/@jsp"/>
+        <xsl:for-each select="action">
+            <xsl:text>&#xa;</xsl:text>
+            <xsl:value-of select="@name"/>
+            <xsl:text>&#xa;</xsl:text>
+            <xsl:value-of select="@class"/>
+            <xsl:text>&#xa;</xsl:text>
+            <xsl:value-of select="@jsp"/>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>

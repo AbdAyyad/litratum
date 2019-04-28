@@ -2,5 +2,7 @@
 <maps>
     <map url="/" action-name="welcome"/>
     <map url="/welcome" action-name="welcome"/>
+    <map url="/sign-up" action-name="signUp"/>
+    <map url="/not-found" action-name="notFound"/>
     <map url="/admin" action-name="admin"/>
 </maps>
