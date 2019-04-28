@@ -28,7 +28,7 @@ public class SignUpAction implements ActionInterface {
         String userId = RandomGenerator.getRandomString(64);
         String normalUserId = RandomGenerator.getRandomString(64);
 
-        User user = new User(userId, userName, email, password, false);
+        User user = new User(userId, userName, email, password, true);
         NormalUser normalUser = new NormalUser(normalUserId, userId);
 
         Dao userDao = new UserDao();
@@ -37,6 +37,7 @@ public class SignUpAction implements ActionInterface {
         userDao.addEntry(user);
         normalDao.addEntry(normalUser);
 
+        req.setAttribute("userName", userName);
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         dispatcher.forward(req, resp);
     }

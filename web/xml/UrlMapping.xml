@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <maps>
-    <map url="/" action-name="welcome"/>
-    <map url="/welcome" action-name="welcome"/>
+    <map url="/" action-name="newUser"/>
+    <map url="/welcome" action-name="newUser"/>
     <map url="/sign-up" action-name="signUp"/>
+    <map url="/home" action-name="welcome"/>
     <map url="/not-found" action-name="notFound"/>
     <map url="/admin" action-name="admin"/>
 </maps>

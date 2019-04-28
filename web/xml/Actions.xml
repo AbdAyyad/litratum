@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <actions>
-    <action name="welcome" class="com.atypon.training.litratum.controllers.actions.WelcomeAction"
-            jsp="view/user/HomePage.jsp"/>
-    <action name="signUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction"
-            jsp="view/user/WelcomeNewMember.jsp"/>
-    <action name="signIn" class="com.atypon.training.litratum.controllers.actions.SignInAction"
-            jsp="view/user/LoggedIn.jsp"/>
+    <action name="newUser" class="com.atypon.training.litratum.controllers.actions.WelcomeAction" jsp="view/user/HomePage.jsp"/>
+    <action name="signUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction" jsp="view/user/LoggedIn.jsp"/>
+    <action name="signIn" class="com.atypon.training.litratum.controllers.actions.SignInAction" jsp="view/user/LoggedIn.jsp"/>
     <action name="notFound" class="com.atypon.training.litratum.controllers.actions.NotFound" jsp="view/NotFound.jsp"/>
+    <action name="welcome" class="com.atypon.training.litratum.controllers.actions.HomeLoggedIn" jsp="view/user/LoggedIn.jsp"/>
 
     <!--    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.SignUpAction"/>-->
     <!--    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.SignInAction"/>-->
