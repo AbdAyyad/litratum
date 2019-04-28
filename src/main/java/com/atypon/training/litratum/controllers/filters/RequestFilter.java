@@ -20,10 +20,12 @@ public class RequestFilter implements javax.servlet.Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String url = httpRequest.getRequestURI();
-        httpRequest.setAttribute("actionUrl", url);
         if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html") || url.endsWith("ico")) {
+            RequestDispatcher dispatcher = httpRequest.getRequestDispatcher(url);
+            dispatcher.forward(servletRequest, servletResponse);
             return;
         }
+        httpRequest.setAttribute("actionUrl", url);
         FrontController.getRequestDispatcher(config.getServletContext()).forward(servletRequest, servletResponse);
     }
 
