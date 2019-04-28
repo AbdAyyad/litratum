@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NotFound implements ActionInterface {
+public class NotFoundAction implements ActionInterface {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFound.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFoundAction.jsp");
         dispatcher.forward(req, resp);
     }
 }

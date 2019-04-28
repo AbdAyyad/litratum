@@ -1,5 +1,7 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 public class User {
     private String userId;
     private String userName;
@@ -33,5 +35,14 @@ public class User {
 
     public boolean isLoggedIn() {
         return isLoggedIn;
+    }
+
+    public boolean verifyPassword(String password) {
+        BCrypt.Result result = BCrypt.verifyer().verify(password.getBytes(), this.userPassword.getBytes());
+        return result.verified;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
     }
 }

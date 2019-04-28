@@ -89,6 +89,73 @@ public class UserDao implements Dao {
 
     @Override
     public void editEntry(Object o) {
+        User user = (User) o;
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "UPDATE user_table SET logged_in = ?, user_email = ?, user_name = ?, user_password = ? WHERE user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
 
+            statement.setBoolean(1, user.isLoggedIn());
+            statement.setString(2, user.getUserEmail());
+            statement.setString(3, user.getUserName());
+            statement.setString(4, user.getUserPassword());
+            statement.setString(5, user.getUserId());
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public boolean isLoggedIn(String email) {
+
+        boolean retValue = false;
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            StringBuilder sql = new StringBuilder();
+
+            sql.append("select logged_in from user_table where user_email = ");
+            sql.append("'");
+            sql.append(email);
+            sql.append("';");
+
+            PreparedStatement statement = con.prepareStatement(sql.toString());
+
+            ResultSet set = statement.executeQuery();
+
+            set.next();
+            retValue = set.getBoolean(1);
+            set.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return retValue;
+    }
+
+    public User getUserByEmail(String email) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        User user = null;
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from user_table where user_email = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, email);
+
+            ResultSet result = statement.executeQuery();
+
+            result.next();
+
+            String userName = result.getString(1);
+            String userEmail = result.getString(2);
+            String userPassword = result.getString(3);
+            String userId = result.getString(4);
+            boolean loggedIn = result.getBoolean(5);
+
+            user = new User(userId, userName, userEmail, userPassword, loggedIn);
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

@@ -20,7 +20,8 @@
                 <a class="nav-link" href="/info">Welcome ${userName}</a>
             </li>
             <li class="nav-item">
-                <form method="post">
+                <form method="post" action="/sign-out">
+                    <input type="hidden" name="userEmail" value="${userEmail}">
                     <button type="submit" class="btn btn-outline-danger">Sign out</button>
                 </form>
             </li>
