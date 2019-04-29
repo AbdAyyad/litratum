@@ -1,6 +1,7 @@
-package com.atypon.training.litratum.controllers.actions;
+package com.atypon.training.litratum.controllers.actions.user;
 
-
+import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.tools.Authenticator;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.UserDao;
 import com.atypon.training.litratum.model.database.datatypes.User;
@@ -11,29 +12,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignInAction implements ActionInterface {
-
+public class UserInformationAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("userEmail");
-        String password = req.getParameter("userPassword");
-        UserDao dao = new UserDao();
-        boolean flag;
-        RequestDispatcher dispatcher;
-        User user = dao.getUserByEmail(email);
-        flag = user.verifyPassword(password);
-
+        boolean flag = Authenticator.isLoggedIn(email);
+        RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         if (flag) {
-            dispatcher = req.getRequestDispatcher(jsp);
-            user.setLoggedIn(true);
-            req.setAttribute("userName", user.getUserName());
-            req.setAttribute("userEmail", user.getUserEmail());
-            dao.editEntry(user);
+            UserDao dao = new UserDao();
+            User user = dao.getUserByEmail(email);
+            req.setAttribute("userName", user.getUserEmail());
+            req.setAttribute("user", user);
+            req.setAttribute("license","not implemented");
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
         }
-
         dispatcher.forward(req, resp);
     }
-
 }

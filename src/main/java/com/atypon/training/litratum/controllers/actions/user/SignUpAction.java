@@ -1,6 +1,7 @@
-package com.atypon.training.litratum.controllers.actions;
+package com.atypon.training.litratum.controllers.actions.user;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.atypon.training.litratum.controllers.actions.ActionInterface;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
 import com.atypon.training.litratum.model.database.daos.Dao;
 import com.atypon.training.litratum.model.database.daos.NormalUserDao;
@@ -38,6 +39,7 @@ public class SignUpAction implements ActionInterface {
         normalDao.addEntry(normalUser);
 
         req.setAttribute("userName", userName);
+        req.setAttribute("userEmail", email);
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         dispatcher.forward(req, resp);
     }

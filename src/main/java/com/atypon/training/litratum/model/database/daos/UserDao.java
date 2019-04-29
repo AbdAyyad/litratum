@@ -158,4 +158,22 @@ public class UserDao implements Dao {
         }
         return user;
     }
+
+    public String getUserName(String email) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        String userName = "";
+        try (Connection con = pool.getConnection()) {
+            String sql = "select user_name from user_table where user_email = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, email);
+
+            ResultSet result = statement.executeQuery();
+            result.next();
+
+            userName = result.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userName;
+    }
 }

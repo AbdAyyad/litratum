@@ -7,6 +7,43 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="../common/Header.html"/>
-<jsp:include page="NewUserNavBar.jsp"/>
-<h1>info page</h1>
+<jsp:include page="UserNavBar.jsp"/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            attribute
+        </th>
+        <th>
+            value
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            ${user.getUserName()}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Email
+        </td>
+        <td>
+            ${user.getUserEmail()}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            License
+        </td>
+        <td>
+            ${license}
+        </td>
+    </tr>
+    </tbody>
+</table>
 <jsp:include page="../common/Footer.html"/>

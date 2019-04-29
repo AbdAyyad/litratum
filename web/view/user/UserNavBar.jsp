@@ -17,7 +17,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/info">Welcome ${userName}</a>
+                <a class="nav-link" href="/user/info">Welcome ${userName}</a>
             </li>
             <li class="nav-item">
                 <form method="post" action="/sign-out">

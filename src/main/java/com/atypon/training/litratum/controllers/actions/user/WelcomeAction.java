@@ -1,4 +1,6 @@
-package com.atypon.training.litratum.controllers.actions;
+package com.atypon.training.litratum.controllers.actions.user;
+
+import com.atypon.training.litratum.controllers.actions.ActionInterface;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

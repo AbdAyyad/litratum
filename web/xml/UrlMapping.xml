@@ -6,6 +6,7 @@
     <map url="/sign-in" action-name="signIn"/>
     <map url="/sign-out" action-name="signOut"/>
     <map url="/home" action-name="welcome"/>
+    <map url="/user/info" action-name="info"/>
     <map url="/not-found" action-name="notFound"/>
     <map url="/admin" action-name="admin"/>
 </maps>
