@@ -22,6 +22,7 @@ public class AdminSignInAction implements ActionInterface {
         boolean flag = Authenticator.isLoggedInAdmin(email);
 
         if (flag) {
+            req.setAttribute("adminEmail", email);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);

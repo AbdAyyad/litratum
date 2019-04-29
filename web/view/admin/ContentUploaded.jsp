@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="../common/Header.html"/>
-<jsp:include page="AdminNavBar.html"/>
+<jsp:include page="AdminSiteNavBar.html"/>
 
 <h1>content uploaded successfully</h1>
 

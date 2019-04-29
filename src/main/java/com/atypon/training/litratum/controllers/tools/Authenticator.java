@@ -5,6 +5,12 @@ import com.atypon.training.litratum.model.database.daos.UserDao;
 import com.atypon.training.litratum.model.database.datatypes.Admin;
 import com.atypon.training.litratum.model.database.datatypes.User;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 public class Authenticator {
     private Authenticator() {
     }
@@ -32,5 +38,22 @@ public class Authenticator {
             user.setLoggedIn(true);
             dao.editEntry(user);
         }
+    }
+
+    public static void dispatchAdminAction(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+        String email = req.getParameter("adminEmail");
+
+        boolean flag = Authenticator.isLoggedInAdmin(email);
+        RequestDispatcher dispatcher;
+
+        if (flag) {
+            req.setAttribute("adminEmail", email);
+            dispatcher = req.getRequestDispatcher(jsp);
+        } else {
+            dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
+        }
+
+        dispatcher.forward(req, resp);
+
     }
 }

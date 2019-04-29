@@ -11,10 +11,7 @@
 
     <action name="adminHome" class="com.atypon.training.litratum.controllers.actions.admin.AdminHomeAction" jsp="view/admin/AdminHome.jsp"/>
     <action name="adminSignIn" class="com.atypon.training.litratum.controllers.actions.admin.AdminSignInAction" jsp="view/admin/ContentForm.jsp"/>
-    <!--    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.user.SignUpAction"/>-->
-    <!--    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.UserSignInActiontion"/>-->
-    <!--    <action url="admin" class="com.atypon.training.litratum.controllers.actions.AdminAction"/>-->
-    <!--    <action url="backstage" class="com.atypon.training.litratum.controllers.actions.BackStageAction"/>-->
-    <!--    <action url="notfound" class="com.atypon.training.litratum.controllers.actions.NotFoundActionAction"/>-->
-    <!--    <action url="user" class="com.atypon.training.litratum.controllers.actions.user.UserAction"/>-->
+    <action name="adminContent" class="com.atypon.training.litratum.controllers.actions.admin.AdminContentAction" jsp="view/admin/ContentForm.jsp"/>
+    <action name="adminNew" class="com.atypon.training.litratum.controllers.actions.admin.NewAdminFormAction" jsp="view/admin/CreateAdminForm.jsp"/>
+    <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/CreateAdminForm.jsp"/>
 </actions>

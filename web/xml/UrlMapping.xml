@@ -10,4 +10,7 @@
     <map url="/not-found/" action-name="notFound"/>
     <map url="/admin/" action-name="adminHome"/>
     <map url="/admin/sign-in/" action-name="adminSignIn"/>
+    <map url="/admin/content/" action-name="adminContent"/>
+    <map url="/admin/new/" action-name="adminNew"/>
+    <map url="/admin/create/" action-name="adminCreate"/>
 </maps>

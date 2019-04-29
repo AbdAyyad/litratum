@@ -7,12 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="../common/Header.html"/>
-<jsp:include page="AdminNavBar.html"/>
+<jsp:include page="AdminNavBar.jsp"/>
 
 <div class="container">
     <form method="post" enctype="multipart/form-data">
-        <input licenseType="file" name="content">
-        <button licenseType="submit" class="btn btn-primary">submit</button>
+        <input type="file" name="content">
+        <button type="submit" class="btn btn-primary">submit</button>
     </form>
 </div>
 
