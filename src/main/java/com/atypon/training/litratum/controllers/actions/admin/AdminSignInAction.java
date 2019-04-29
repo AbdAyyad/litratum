@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.controllers.actions.user;
+package com.atypon.training.litratum.controllers.actions.admin;
 
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
 import com.atypon.training.litratum.controllers.tools.Authenticator;
@@ -10,19 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class HomeLoggedInAction implements ActionInterface {
+public class AdminSignInAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("userEmail");
+        String password = req.getParameter("userPassword");
 
-        boolean flag = Authenticator.isLoggedInUser(email);
         RequestDispatcher dispatcher;
 
+        Authenticator.signIn(email, password);
+        boolean flag = Authenticator.isLoggedInAdmin(email);
+
         if (flag) {
-            req.setAttribute("userEmail", email);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
-            dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
+            dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
         }
 
         dispatcher.forward(req, resp);

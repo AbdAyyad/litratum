@@ -16,7 +16,7 @@ public class UserInformationAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("userEmail");
-        boolean flag = Authenticator.isLoggedIn(email);
+        boolean flag = Authenticator.isLoggedInUser(email);
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         if (flag) {
             UserDao dao = new UserDao();
