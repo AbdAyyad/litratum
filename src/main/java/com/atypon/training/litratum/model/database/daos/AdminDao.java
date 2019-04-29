@@ -71,14 +71,15 @@ public class AdminDao implements Dao {
 
     }
 
-    public Admin getAdminByUserId(String userId){
+    public Admin getAdminByUserId(String userId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         Admin admin = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from admin_table where user_id == ?;";
+            String sql = "select * from admin_table where user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, userId);
             ResultSet result = statement.executeQuery();
+            result.next();
             String adminId = result.getString(1);
             admin = new Admin(userId, adminId);
             result.close();

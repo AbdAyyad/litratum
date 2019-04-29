@@ -10,7 +10,7 @@
     <action name="info" class="com.atypon.training.litratum.controllers.actions.user.UserInformationAction" jsp="view/user/UserInfo.jsp"/>
 
     <action name="adminHome" class="com.atypon.training.litratum.controllers.actions.admin.AdminHomeAction" jsp="view/admin/AdminHome.jsp"/>
-    <action name="adminSignIn" class="com.atypon.training.litratum.controllers.actions.admin.AdminHomeAction" jsp="view/admin/ContentForm.jsp"/>
+    <action name="adminSignIn" class="com.atypon.training.litratum.controllers.actions.admin.AdminSignInAction" jsp="view/admin/ContentForm.jsp"/>
     <!--    <action url="SignUp" class="com.atypon.training.litratum.controllers.actions.user.SignUpAction"/>-->
     <!--    <action url="sign_in" class="com.atypon.training.litratum.controllers.actions.UserSignInActiontion"/>-->
     <!--    <action url="admin" class="com.atypon.training.litratum.controllers.actions.AdminAction"/>-->

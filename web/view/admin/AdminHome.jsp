@@ -9,7 +9,7 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminNavBar.html"/>
 <div class="container">
-    <form>
+    <form method="post" action="/admin/sign-in">
         <input type="text" class="form-control sign-form" name="adminEmail" placeholder="Email"/>
         <input type="password" class="form-control sign-form" name="adminPassword" placeholder="Password"/>
         <button type="submit" class="btn btn-primary">Sign In</button>
