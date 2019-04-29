@@ -8,3 +8,15 @@
 .sign-form {
     margin-bottom: 10px;
 }
+
+.admin-form-width {
+    width: 40%;
+}
+
+#admin-email {
+    margin-top: 10px;
+}
+
+#admin-sign-form {
+    margin-left: 30%;
+}
