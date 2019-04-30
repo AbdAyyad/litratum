@@ -14,10 +14,10 @@
         <input type="email" class="form-control" name="newAdminEmail" placeholder="Email"/>
         <input type="password" class="form-control" name="newAdminPassword" placeholder="Password"/>
         <div class="radio">
-            <label><input type="radio" name="optradio" checked>Admin</label>
+            <label><input type="radio" name="optradio" value="admin" checked>Admin</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio">Backstage</label>
+            <label><input type="radio" name="optradio" value="backstage">Backstage</label>
         </div>
         <input type="hidden" name="adminEmail" value="${adminEmail}"/>
         <button type="submit" class="btn btn-outline-primary">submit</button>
