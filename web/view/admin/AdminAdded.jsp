@@ -9,6 +9,6 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminNavBar.jsp"/>
 <div class="container">
-    <h3>admin created successfully</h3>
+    <h3 class="text-center">admin created successfully</h3>
 </div>
 <jsp:include page="../common/Footer.html"/>

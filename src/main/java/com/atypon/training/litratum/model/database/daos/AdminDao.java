@@ -2,6 +2,7 @@ package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
 import com.atypon.training.litratum.model.database.datatypes.Admin;
+import com.atypon.training.litratum.model.database.datatypes.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -87,5 +88,11 @@ public class AdminDao implements Dao {
             e.printStackTrace();
         }
         return admin;
+    }
+
+    public Admin getAdminByEmail(String email) {
+        UserDao userDao = new UserDao();
+        User user = userDao.getUserByEmail(email);
+        return getAdminByUserId(user.getUserId());
     }
 }

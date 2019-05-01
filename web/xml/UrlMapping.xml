@@ -13,4 +13,5 @@
     <map url="/admin/content/" action-name="adminContent"/>
     <map url="/admin/new/" action-name="adminNew"/>
     <map url="/admin/create/" action-name="adminCreate"/>
+    <map url="/admin/content/upload/" action-name="adminUploadContent"/>
 </maps>

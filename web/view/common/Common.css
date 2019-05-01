@@ -17,6 +17,14 @@
     margin-top: 10px;
 }
 
-#admin-sign-form {
+.text-center {
+    text-align: center;
+}
+
+.left-thirty {
     margin-left: 30%;
+}
+
+#upload-articles-here{
+    margin-top: 10%;
 }

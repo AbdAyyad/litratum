@@ -55,5 +55,6 @@ public class CreateNewAdminAction implements ActionInterface {
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
         }
+        dispatcher.forward(req,resp);
     }
 }

@@ -9,10 +9,10 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminSiteNavBar.html"/>
 <div class="container">
-    <form method="post" id="admin-sign-form" action="/admin/sign-in/">
-        <input type="text" id="admin-email" class="form-control sign-form admin-form-width" name="adminEmail" placeholder="Email"/>
+    <form method="post" class="left-thirty" action="/admin/sign-in/">
+        <input type="email" id="admin-email" class="form-control sign-form admin-form-width" name="adminEmail" placeholder="Email"/>
         <input type="password" class="form-control sign-form admin-form-width" name="adminPassword" placeholder="Password"/>
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" class="btn btn-primary left-thirty">Sign In</button>
     </form>
 </div>
 <jsp:include page="../common/Footer.html"/>
