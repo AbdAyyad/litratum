@@ -22,4 +22,16 @@ public class LiteratumDispatchter {
         }
         dispatcher.forward(req, resp);
     }
+
+    public static void dispatchBackstageRequest(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        RequestDispatcher dispatcher;
+        boolean backstageLoggedIn = (Boolean) session.getAttribute("backstageLoggedIn");
+        if (backstageLoggedIn) {
+            dispatcher = req.getRequestDispatcher(jsp);
+        } else {
+            dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
+        }
+        dispatcher.forward(req, resp);
+    }
 }

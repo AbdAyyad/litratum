@@ -31,7 +31,7 @@ public class BackstageAdminDao implements Dao {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         Object admin = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from backstage_admin_table where admin_id == ?;";
+            String sql = "select * from backstage_admin_table where backstage_admin_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet result = statement.executeQuery();
@@ -69,5 +69,26 @@ public class BackstageAdminDao implements Dao {
     @Override
     public void editEntry(Object o) {
 
+    }
+
+    public BackStageAdmin getBackstageAdminByUserId(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        BackStageAdmin admin = null;
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from backstage_admin_table where user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+
+            ResultSet result = statement.executeQuery();
+
+            result.next();
+
+            String backStageAdminId = result.getString(1);
+            admin = new BackStageAdmin(backStageAdminId, userId);
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return admin;
     }
 }
