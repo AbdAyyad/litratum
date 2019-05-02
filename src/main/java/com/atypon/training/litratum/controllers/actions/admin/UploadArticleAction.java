@@ -26,8 +26,20 @@ public class UploadArticleAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         try {
-            Iterator<FileItem> iter = decodeRequest(req).iterator();
-        } catch (FileUploadException e) {
+            RequestDispatcher dispatcher;
+            HttpSession session = req.getSession();
+            boolean flag = (Boolean) session.getAttribute("loggedInAdmin");
+            if (flag) {
+                String adminId = (String) session.getAttribute("adminId");
+                FileItem file = decodeRequest(req).get(0);
+                writeFile(file);
+                addToDataBase(file.getName(), adminId);
+                dispatcher = req.getRequestDispatcher(jsp);
+            } else {
+                dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
+            }
+            dispatcher.forward(req, resp);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
