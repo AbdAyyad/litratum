@@ -11,7 +11,7 @@ public class LiteratumDispatchter {
     private LiteratumDispatchter() {
     }
 
-    public static void dispatchAdminReequest(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public static void dispatchAdminRequest(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         RequestDispatcher dispatcher;
         boolean flag = (Boolean) session.getAttribute("adminLoggedIn");

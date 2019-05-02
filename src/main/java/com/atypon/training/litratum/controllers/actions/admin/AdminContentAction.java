@@ -11,6 +11,6 @@ import java.io.IOException;
 public class AdminContentAction implements ActionInterface {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
-        LiteratumDispatchter.dispatchAdminReequest(req, resp, jsp);
+        LiteratumDispatchter.dispatchAdminRequest(req, resp, jsp);
     }
 }
