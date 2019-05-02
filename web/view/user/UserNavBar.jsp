@@ -12,22 +12,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <form id="home-form" method="post" action="/home/">
-                    <input type="hidden" name="userEmail" value="${userEmail}"/>
-                    <a class="nav-link" onclick="document.getElementById('home-form').submit();">Home</a>
-                </form>
+                <a class="nav-link" href="/home/">Home</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <form id="info-form" method="post" action="/user/info/">
-                    <input type="hidden" name="userEmail" value="${userEmail}"/>
-                    <a class="nav-link" onclick="document.getElementById('info-form').submit();">Welcome ${userName}</a>
-                </form>
+                <a class="nav-link" href="/user/info">Welcome ${userName}</a>
             </li>
             <li class="nav-item">
-                <form method="post" action="/sign-out/">
-                    <input type="hidden" name="userEmail" value="${userEmail}">
+                <form method="get" action="/sign-out/">
                     <button type="submit" class="btn btn-outline-danger">Sign out</button>
                 </form>
             </li>

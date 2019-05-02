@@ -1,9 +1,7 @@
 package com.atypon.training.litratum.controllers.actions.admin;
 
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
-import com.atypon.training.litratum.controllers.tools.Authenticator;
 import com.atypon.training.litratum.controllers.tools.Constants;
-import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
 import com.atypon.training.litratum.model.database.daos.AdminDao;
 import com.atypon.training.litratum.model.database.daos.UnprocessedContentDao;
@@ -15,7 +13,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

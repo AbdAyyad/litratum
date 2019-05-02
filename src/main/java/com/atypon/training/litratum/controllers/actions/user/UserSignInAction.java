@@ -2,7 +2,6 @@ package com.atypon.training.litratum.controllers.actions.user;
 
 
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
-import com.atypon.training.litratum.controllers.tools.Authenticator;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.UserDao;
 import com.atypon.training.litratum.model.database.datatypes.User;
@@ -11,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class UserSignInAction implements ActionInterface {
@@ -22,20 +22,20 @@ public class UserSignInAction implements ActionInterface {
         boolean flag;
         RequestDispatcher dispatcher;
 
-        Authenticator.signIn(email, password);
-        flag = Authenticator.isLoggedInUser(email);
+        UserDao dao = new UserDao();
+        User user = dao.getUserByEmail(email);
+        flag = user.verifyPassword(password);
 
         if (flag) {
-            UserDao dao = new UserDao();
-            User user = dao.getUserByEmail(email);
+            HttpSession session = req.getSession();
+            session.setMaxInactiveInterval(7200);
             dispatcher = req.getRequestDispatcher(jsp);
-            req.setAttribute("userName", user.getUserName());
-            req.setAttribute("userEmail", user.getUserEmail());
+            session.setAttribute("userName", user.getUserName());
+            session.setAttribute("userEmail", user.getUserEmail());
+            session.setAttribute("loggedInUser", true);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
         }
-
         dispatcher.forward(req, resp);
     }
-
 }

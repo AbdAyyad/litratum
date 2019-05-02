@@ -23,7 +23,6 @@ public class UserDao implements Dao {
             statement.setString(2, user.getUserEmail());
             statement.setString(3, user.getUserPassword());
             statement.setString(4, user.getUserId());
-            statement.setBoolean(5, user.isLoggedIn());
 
             statement.execute();
         } catch (SQLException e) {
@@ -48,9 +47,8 @@ public class UserDao implements Dao {
             String userEmail = result.getString(2);
             String userPassword = result.getString(3);
             String userId = result.getString(4);
-            boolean loggedIn = result.getBoolean(5);
 
-            user = new User(userId, userName, userEmail, userPassword, loggedIn);
+            user = new User(userId, userName, userEmail, userPassword);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,9 +73,8 @@ public class UserDao implements Dao {
                 String userEmail = result.getString(2);
                 String userPassword = result.getString(3);
                 String userId = result.getString(4);
-                boolean loggedIn = result.getBoolean(5);
 
-                user = new User(userId, userName, userEmail, userPassword, loggedIn);
+                user = new User(userId, userName, userEmail, userPassword);
                 list.add(user);
             }
             result.close();
@@ -95,7 +92,6 @@ public class UserDao implements Dao {
             String sql = "UPDATE user_table SET logged_in = ?, user_email = ?, user_name = ?, user_password = ? WHERE user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
 
-            statement.setBoolean(1, user.isLoggedIn());
             statement.setString(2, user.getUserEmail());
             statement.setString(3, user.getUserName());
             statement.setString(4, user.getUserPassword());
@@ -149,9 +145,8 @@ public class UserDao implements Dao {
             String userEmail = result.getString(2);
             String userPassword = result.getString(3);
             String userId = result.getString(4);
-            boolean loggedIn = result.getBoolean(5);
 
-            user = new User(userId, userName, userEmail, userPassword, loggedIn);
+            user = new User(userId, userName, userEmail, userPassword);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();

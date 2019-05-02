@@ -11,7 +11,7 @@ import java.io.IOException;
 public class AdminHomeAction implements ActionInterface {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         dispatcher.forward(req, resp);
     }

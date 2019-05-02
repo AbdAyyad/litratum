@@ -116,7 +116,7 @@ public class FrontController extends HttpServlet {
     private void serviceWithException(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String url = (String) req.getAttribute("actionUrl");
 
-        String actionName = getActionMapping(url);
+        String actionName = url.endsWith("/") && !url.equals("/") ? getActionMapping(url.substring(0, url.length() - 1)) : getActionMapping(url);
         Action action = allActions.get(actionName);
 
         Class<?> actionClass = Class.forName(action.getActionClass());

@@ -17,8 +17,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <form method="post" action="/sign-out/">
-                    <input type="hidden" name="userEmail" value="${adminEmail}">
+                <form method="post" action="/admin/sign-out/">
                     <button type="submit" class="btn btn-outline-danger">Sign out</button>
                 </form>
             </li>

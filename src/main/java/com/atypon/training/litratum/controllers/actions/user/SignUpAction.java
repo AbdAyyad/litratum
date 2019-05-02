@@ -29,7 +29,7 @@ public class SignUpAction implements ActionInterface {
         String userId = RandomGenerator.getRandomString(64);
         String normalUserId = RandomGenerator.getRandomString(64);
 
-        User user = new User(userId, userName, email, password, true);
+        User user = new User(userId, userName, email, password);
         NormalUser normalUser = new NormalUser(normalUserId, userId);
 
         Dao userDao = new UserDao();

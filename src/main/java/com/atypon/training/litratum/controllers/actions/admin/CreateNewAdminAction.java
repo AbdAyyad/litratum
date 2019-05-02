@@ -2,7 +2,6 @@ package com.atypon.training.litratum.controllers.actions.admin;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.atypon.training.litratum.controllers.actions.ActionInterface;
-import com.atypon.training.litratum.controllers.tools.Authenticator;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
 import com.atypon.training.litratum.model.database.daos.AdminDao;
@@ -16,28 +15,29 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class CreateNewAdminAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
-        String currentEmail = req.getParameter("adminEmail");
-        String email = req.getParameter("newAdminEmail");
-        String password = req.getParameter("newAdminPassword");
-        String username = req.getParameter("newAdminName");
-        String option = req.getParameter("optradio");
-
         RequestDispatcher dispatcher;
-        boolean flag = Authenticator.isLoggedInAdmin(currentEmail);
+        HttpSession session = req.getSession();
+        boolean flag = (Boolean) session.getAttribute("adminLoggedIn");
 
         if (flag) {
+            String email = req.getParameter("newAdminEmail");
+            String password = req.getParameter("newAdminPassword");
+            String username = req.getParameter("newAdminName");
+            String option = req.getParameter("optradio");
+
             String userId = RandomGenerator.getRandomString(64);
             String adminId = RandomGenerator.getRandomString(64);
 
             char[] bcryptChars = BCrypt.withDefaults().hashToChar(12, password.toCharArray());
             password = new String(bcryptChars);
 
-            User user = new User(userId, username, email, password, true);
+            User user = new User(userId, username, email, password);
 
             UserDao userDao = new UserDao();
             userDao.addEntry(user);
