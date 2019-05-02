@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.License;
+import com.atypon.training.litratum.model.database.datatypes.LicenseModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class LicenseDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        License license = (License) o;
+        LicenseModel license = (LicenseModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into license_table(license_type,time_stamp,license_id,actual_license_id) values (?,?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class LicenseDao implements Dao {
             int licenseType = result.getInt(1);
             String timeStamp = result.getString(2);
 
-            license = new License(licenseType, licenseId, actualLicenseId, timeStamp);
+            license = new LicenseModel(licenseType, licenseId, actualLicenseId, timeStamp);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class LicenseDao implements Dao {
                 int licenseType = result.getInt(1);
                 String timeStamp = result.getString(2);
 
-                License license = new License(licenseType, licenseId, actualLicenseId, timeStamp);
+                LicenseModel license = new LicenseModel(licenseType, licenseId, actualLicenseId, timeStamp);
                 list.add(license);
             }
             result.close();

@@ -1,10 +1,10 @@
 package com.atypon.training.litratum.model.xml;
 
-public class Action {
+public class ActionModel {
     private String actionClass;
     private String jsp;
 
-    protected Action(String actionClass, String jsp) {
+    ActionModel(String actionClass, String jsp) {
         this.actionClass = actionClass;
         this.jsp = jsp;
     }

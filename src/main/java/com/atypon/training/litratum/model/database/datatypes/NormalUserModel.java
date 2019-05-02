@@ -1,17 +1,17 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class NormalUser{
+public class NormalUserModel {
     private String normalUserId;
     private String userId;
     private String LicenseId;
 
-    public NormalUser(String normalUserId, String userId, String licenseId) {
+    public NormalUserModel(String normalUserId, String userId, String licenseId) {
         this.normalUserId = normalUserId;
         this.userId = userId;
         LicenseId = licenseId;
     }
 
-    public NormalUser(String normalUserId, String userId) {
+    public NormalUserModel(String normalUserId, String userId) {
         this.normalUserId = normalUserId;
         this.userId = userId;
     }

@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.UnprocessedContent;
+import com.atypon.training.litratum.model.database.datatypes.UnprocessedContentModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class UnprocessedContentDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        UnprocessedContent unprocessedContent = (UnprocessedContent) o;
+        UnprocessedContentModel unprocessedContent = (UnprocessedContentModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into unprocessed_content_table(unprocessed_content_id,file_name,admin_id,status,time_stamp) values (?,?,?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class UnprocessedContentDao implements Dao {
             int status = result.getInt(4);
             String timeStamp = result.getString(5);
 
-            unprocessedContent = new UnprocessedContent(unprocessedContentId, fileName, adminId, status, timeStamp);
+            unprocessedContent = new UnprocessedContentModel(unprocessedContentId, fileName, adminId, status, timeStamp);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class UnprocessedContentDao implements Dao {
                 int status = result.getInt(4);
                 String timeStamp = result.getString(5);
 
-                unprocessedContent = new UnprocessedContent(unprocessedContentId, fileName, adminId, status, timeStamp);
+                unprocessedContent = new UnprocessedContentModel(unprocessedContentId, fileName, adminId, status, timeStamp);
                 list.add(unprocessedContent);
             }
             result.close();

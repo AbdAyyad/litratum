@@ -1,6 +1,6 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class ProcessedContent {
+public class ProcessedContentModel {
     private String backStageAdminId;
     private String processedContentId;
     private String fileName;
@@ -8,7 +8,7 @@ public class ProcessedContent {
     private String timeStamp;
     private String unprocessedId;
 
-    public ProcessedContent(String backStageAdminId, String processedContentId, String fileName, String doi, String timeStamp, String unprocessedId) {
+    public ProcessedContentModel(String backStageAdminId, String processedContentId, String fileName, String doi, String timeStamp, String unprocessedId) {
         this.backStageAdminId = backStageAdminId;
         this.processedContentId = processedContentId;
         this.fileName = fileName;

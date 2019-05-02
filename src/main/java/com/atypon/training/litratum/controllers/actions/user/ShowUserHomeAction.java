@@ -1,6 +1,6 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
-import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.actions.Action;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class ShowUserHomeAction implements ActionInterface {
+public class ShowUserHomeAction implements Action {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();

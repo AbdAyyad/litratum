@@ -1,10 +1,10 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class LicenseCount {
+public class LicenseCountModel {
     private String licenseCountId;
     private int count;
 
-    public LicenseCount(String licenseCountId, int count) {
+    public LicenseCountModel(String licenseCountId, int count) {
         this.licenseCountId = licenseCountId;
         this.count = count;
     }

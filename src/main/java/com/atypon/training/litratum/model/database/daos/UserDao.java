@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.User;
+import com.atypon.training.litratum.model.database.datatypes.UserModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class UserDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        User user = (User) o;
+        UserModel user = (UserModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into user_table(user_name,user_email,user_password,user_id, logged_in) values (?,?,?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class UserDao implements Dao {
             String userPassword = result.getString(3);
             String userId = result.getString(4);
 
-            user = new User(userId, userName, userEmail, userPassword);
+            user = new UserModel(userId, userName, userEmail, userPassword);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class UserDao implements Dao {
                 String userPassword = result.getString(3);
                 String userId = result.getString(4);
 
-                user = new User(userId, userName, userEmail, userPassword);
+                user = new UserModel(userId, userName, userEmail, userPassword);
                 list.add(user);
             }
             result.close();
@@ -86,7 +86,7 @@ public class UserDao implements Dao {
 
     @Override
     public void editEntry(Object o) {
-        User user = (User) o;
+        UserModel user = (UserModel) o;
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         try (Connection con = pool.getConnection()) {
             String sql = "UPDATE user_table SET logged_in = ?, user_email = ?, user_name = ?, user_password = ? WHERE user_id = ?;";
@@ -129,9 +129,9 @@ public class UserDao implements Dao {
         return retValue;
     }
 
-    public User getUserByEmail(String email) {
+    public UserModel getUserByEmail(String email) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        User user = null;
+        UserModel user = null;
         try (Connection con = pool.getConnection()) {
             String sql = "select * from user_table where user_email = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -146,7 +146,7 @@ public class UserDao implements Dao {
             String userPassword = result.getString(3);
             String userId = result.getString(4);
 
-            user = new User(userId, userName, userEmail, userPassword);
+            user = new UserModel(userId, userName, userEmail, userPassword);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();

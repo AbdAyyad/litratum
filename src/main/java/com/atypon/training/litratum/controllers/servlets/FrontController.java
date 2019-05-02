@@ -1,9 +1,9 @@
 package com.atypon.training.litratum.controllers.servlets;
 
-import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.actions.Action;
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
-import com.atypon.training.litratum.model.xml.Action;
+import com.atypon.training.litratum.model.xml.ActionModel;
 import com.atypon.training.litratum.model.xml.XmlFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet {
 
     private static final String PATH = "/FrontController";
     private Map<String, String> actionsMapping;
-    private Map<String, Action> allActions;
+    private Map<String, ActionModel> allActions;
 
 
     public static RequestDispatcher getRequestDispatcher(ServletContext context) {
@@ -118,11 +118,11 @@ public class FrontController extends HttpServlet {
         String url = (String) req.getAttribute("actionUrl");
 
         String actionName = url.endsWith("/") && !url.equals("/") ? getActionMapping(url.substring(0, url.length() - 1)) : getActionMapping(url);
-        Action action = allActions.get(actionName);
+        ActionModel action = allActions.get(actionName);
 
         Class<?> actionClass = Class.forName(action.getActionClass());
         Constructor constructor = actionClass.getConstructor();
-        ActionInterface obj = (ActionInterface) constructor.newInstance();
+        Action obj = (Action) constructor.newInstance();
 
         obj.execute(req, resp, action.getJsp());
     }

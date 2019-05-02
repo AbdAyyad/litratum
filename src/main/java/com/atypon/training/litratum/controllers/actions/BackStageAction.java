@@ -17,7 +17,7 @@ public class BackStageAction {
         resp.setContentType("text/html");
         ConnectionPool pool = ConnectionPool.getConnectionPool();
 //        Dao dao = new UnprocessedDao(pool.getConnection());
-//        UnprocessedContent content = (UnprocessedContent) dao.getEntry(id);
+//        UnprocessedContentModel content = (UnprocessedContentModel) dao.getEntry(id);
 //        out.println("start processing" + content.getFileName());
 //        Runnable task = new ContentProcessing(content.getFileName());
 

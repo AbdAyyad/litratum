@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NotFoundAction implements ActionInterface {
+public class NotFoundAction implements Action {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFoundAction.jsp");

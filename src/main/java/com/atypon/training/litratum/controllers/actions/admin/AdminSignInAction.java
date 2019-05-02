@@ -1,11 +1,11 @@
 package com.atypon.training.litratum.controllers.actions.admin;
 
-import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.actions.Action;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.AdminDao;
 import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.Admin;
-import com.atypon.training.litratum.model.database.datatypes.User;
+import com.atypon.training.litratum.model.database.datatypes.AdminModel;
+import com.atypon.training.litratum.model.database.datatypes.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AdminSignInAction implements ActionInterface {
+public class AdminSignInAction implements Action {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("adminEmail");
@@ -24,8 +24,8 @@ public class AdminSignInAction implements ActionInterface {
 
         UserDao userDao = new UserDao();
         AdminDao adminDao = new AdminDao();
-        User user = userDao.getUserByEmail(email);
-        Admin admin = adminDao.getAdminByUserId(user.getUserId());
+        UserModel user = userDao.getUserByEmail(email);
+        AdminModel admin = adminDao.getAdminByUserId(user.getUserId());
         boolean adminVerified = user.verifyPassword(password) && admin != null;
 
         if (adminVerified) {

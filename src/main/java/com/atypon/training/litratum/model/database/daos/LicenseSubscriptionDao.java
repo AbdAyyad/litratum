@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.LicenseSubscription;
+import com.atypon.training.litratum.model.database.datatypes.LicenseSubscriptionModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class LicenseSubscriptionDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        LicenseSubscription license = (LicenseSubscription) o;
+        LicenseSubscriptionModel license = (LicenseSubscriptionModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into license_subscription_table(end_date,license_subscription) values (?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class LicenseSubscriptionDao implements Dao {
             String licenseSubscriptionId = result.getString(2);
             String endDate = result.getString(1);
 
-            licenseSubscription = new LicenseSubscription(licenseSubscriptionId, endDate);
+            licenseSubscription = new LicenseSubscriptionModel(licenseSubscriptionId, endDate);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class LicenseSubscriptionDao implements Dao {
                 String licenseSubscriptionId = result.getString(2);
                 String endDate = result.getString(1);
 
-                licenseSubscription = new LicenseSubscription(licenseSubscriptionId, endDate);
+                licenseSubscription = new LicenseSubscriptionModel(licenseSubscriptionId, endDate);
                 list.add(licenseSubscription);
             }
             result.close();

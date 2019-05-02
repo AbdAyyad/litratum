@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.LicenseCount;
+import com.atypon.training.litratum.model.database.datatypes.LicenseCountModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class LicenseCountDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        LicenseCount license = (LicenseCount) o;
+        LicenseCountModel license = (LicenseCountModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into license_count_table(license_count_id,count) values (?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class LicenseCountDao implements Dao {
             String licenseCountId = result.getString(2);
             int count = result.getInt(2);
 
-            licenseCount = new LicenseCount(licenseCountId, count);
+            licenseCount = new LicenseCountModel(licenseCountId, count);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class LicenseCountDao implements Dao {
             while (result.next()) {
                 String licenseCountId = result.getString(2);
                 int count = result.getInt(2);
-                LicenseCount licenseCount = new LicenseCount(licenseCountId, count);
+                LicenseCountModel licenseCount = new LicenseCountModel(licenseCountId, count);
                 list.add(licenseCount);
             }
             result.close();

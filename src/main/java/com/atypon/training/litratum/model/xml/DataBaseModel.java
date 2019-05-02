@@ -1,13 +1,13 @@
 package com.atypon.training.litratum.model.xml;
 
-public class DataBase {
+public class DataBaseModel {
     private String host;
     private String name;
     private String password;
     private int port;
     private String user;
 
-    protected DataBase(String host, String name, String password, int port, String user) {
+    DataBaseModel(String host, String name, String password, int port, String user) {
         this.host = host;
         this.name = name;
         this.password = password;
@@ -37,7 +37,7 @@ public class DataBase {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("DataBase{");
+        final StringBuilder sb = new StringBuilder("DataBaseModel{");
         sb.append("host='").append(host).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", password='").append(password).append('\'');

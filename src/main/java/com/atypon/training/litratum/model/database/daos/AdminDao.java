@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.Admin;
+import com.atypon.training.litratum.model.database.datatypes.AdminModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class AdminDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        Admin admin = (Admin) o;
+        AdminModel admin = (AdminModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into admin_table(admin_id,user_id) values (?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -37,7 +37,7 @@ public class AdminDao implements Dao {
             ResultSet result = statement.executeQuery();
             String adminId = result.getString(1);
             String userId = result.getString(2);
-            admin = new Admin(userId, adminId);
+            admin = new AdminModel(userId, adminId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class AdminDao implements Dao {
             while (result.next()) {
                 String adminId = result.getString(1);
                 String userId = result.getString(2);
-                Admin admin = new Admin(userId, adminId);
+                AdminModel admin = new AdminModel(userId, adminId);
                 list.add(admin);
             }
             result.close();
@@ -71,9 +71,9 @@ public class AdminDao implements Dao {
 
     }
 
-    public Admin getAdminByUserId(String userId) {
+    public AdminModel getAdminByUserId(String userId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        Admin admin = null;
+        AdminModel admin = null;
         try (Connection con = pool.getConnection()) {
             String sql = "select * from admin_table where user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -81,7 +81,7 @@ public class AdminDao implements Dao {
             ResultSet result = statement.executeQuery();
             result.next();
             String adminId = result.getString(1);
-            admin = new Admin(userId, adminId);
+            admin = new AdminModel(userId, adminId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,10 +1,10 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
 
-import com.atypon.training.litratum.controllers.actions.ActionInterface;
+import com.atypon.training.litratum.controllers.actions.Action;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.User;
+import com.atypon.training.litratum.model.database.datatypes.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class UserSignInAction implements ActionInterface {
+public class UserSignInAction implements Action {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class UserSignInAction implements ActionInterface {
         RequestDispatcher dispatcher;
 
         UserDao dao = new UserDao();
-        User user = dao.getUserByEmail(email);
+        UserModel user = dao.getUserByEmail(email);
         boolean userIsVerified = user.verifyPassword(password);
 
         if (userIsVerified) {

@@ -1,12 +1,12 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class ArticleMeta {
+public class ArticleMetaModel {
     private String author;
     private String doi;
     private String releaseDate;
     private String title;
 
-    public ArticleMeta(String author, String doi, String releaseDate, String title) {
+    public ArticleMetaModel(String author, String doi, String releaseDate, String title) {
         this.author = author;
         this.doi = doi;
         this.releaseDate = releaseDate;

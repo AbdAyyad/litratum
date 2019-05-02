@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.BackStageAdmin;
+import com.atypon.training.litratum.model.database.datatypes.BackStageAdminModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class BackstageAdminDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        BackStageAdmin admin = (BackStageAdmin) o;
+        BackStageAdminModel admin = (BackStageAdminModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into backstage_admin_table(backstage_admin_id,user_id) values (?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -37,7 +37,7 @@ public class BackstageAdminDao implements Dao {
             ResultSet result = statement.executeQuery();
             String backStageAdminId = result.getString(1);
             String userId = result.getString(2);
-            admin = new BackStageAdmin(backStageAdminId, userId);
+            admin = new BackStageAdminModel(backStageAdminId, userId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class BackstageAdminDao implements Dao {
             while (result.next()) {
                 String backStageAdminId = result.getString(1);
                 String userId = result.getString(2);
-                BackStageAdmin admin = new BackStageAdmin(backStageAdminId, userId);
+                BackStageAdminModel admin = new BackStageAdminModel(backStageAdminId, userId);
                 list.add(admin);
             }
             result.close();
@@ -71,9 +71,9 @@ public class BackstageAdminDao implements Dao {
 
     }
 
-    public BackStageAdmin getBackstageAdminByUserId(String userId) {
+    public BackStageAdminModel getBackstageAdminByUserId(String userId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        BackStageAdmin admin = null;
+        BackStageAdminModel admin = null;
         try (Connection con = pool.getConnection()) {
             String sql = "select * from backstage_admin_table where user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class BackstageAdminDao implements Dao {
             result.next();
 
             String backStageAdminId = result.getString(1);
-            admin = new BackStageAdmin(backStageAdminId, userId);
+            admin = new BackStageAdminModel(backStageAdminId, userId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();

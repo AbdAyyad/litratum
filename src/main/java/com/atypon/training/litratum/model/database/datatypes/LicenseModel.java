@@ -1,12 +1,12 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class License {
+public class LicenseModel {
     private int licenseType;
     private String licenseId;
     private String actualLicenseId;
     private String timeStamp;
 
-    public License(int licenseType, String licenseId, String actualLicenseId, String timeStamp) {
+    public LicenseModel(int licenseType, String licenseId, String actualLicenseId, String timeStamp) {
         this.licenseType = licenseType;
         this.licenseId = licenseId;
         this.actualLicenseId = actualLicenseId;

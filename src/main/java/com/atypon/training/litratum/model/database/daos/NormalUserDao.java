@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.NormalUser;
+import com.atypon.training.litratum.model.database.datatypes.NormalUserModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class NormalUserDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        NormalUser normalUser = (NormalUser) o;
+        NormalUserModel normalUser = (NormalUserModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into normal_user_table(normal_user_id,user_id,license_id) values (?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class NormalUserDao implements Dao {
             String userId = result.getString(2);
             String licenseId = result.getString(3);
 
-            normalUser = new NormalUser(normalUserId, userId, licenseId);
+            normalUser = new NormalUserModel(normalUserId, userId, licenseId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class NormalUserDao implements Dao {
                 String userId = result.getString(2);
                 String licenseId = result.getString(3);
 
-                normalUser = new NormalUser(normalUserId, userId, licenseId);
+                normalUser = new NormalUserModel(normalUserId, userId, licenseId);
                 list.add(normalUser);
             }
             result.close();

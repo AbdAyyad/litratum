@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.datatypes.ProcessedContent;
+import com.atypon.training.litratum.model.database.datatypes.ProcessedContentModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class ProcessedContentDao implements Dao {
     @Override
     public void addEntry(Object o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
-        ProcessedContent processedContent = (ProcessedContent) o;
+        ProcessedContentModel processedContent = (ProcessedContentModel) o;
         try (Connection con = pool.getConnection()) {
             String sql = "insert into processed_content_table(processed_content_id,file_name,doi,unprocessed_id,time_stamp,backstage_admin_id) values (?,?,?,?,?,?);";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -52,7 +52,7 @@ public class ProcessedContentDao implements Dao {
             String timeStamp = result.getString(5);
             String backstageAdminId = result.getString(6);
 
-            processedContent = new ProcessedContent(backstageAdminId, processedContentId, fileName, doi, timeStamp, unprocessedId);
+            processedContent = new ProcessedContentModel(backstageAdminId, processedContentId, fileName, doi, timeStamp, unprocessedId);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,7 +80,7 @@ public class ProcessedContentDao implements Dao {
                 String timeStamp = result.getString(5);
                 String backstageAdminId = result.getString(6);
 
-                processedContent = new ProcessedContent(backstageAdminId, processedContentId, fileName, doi, timeStamp, unprocessedId);
+                processedContent = new ProcessedContentModel(backstageAdminId, processedContentId, fileName, doi, timeStamp, unprocessedId);
                 list.add(processedContent);
             }
             result.close();

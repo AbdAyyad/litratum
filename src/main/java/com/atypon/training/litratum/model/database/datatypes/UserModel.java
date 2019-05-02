@@ -2,13 +2,13 @@ package com.atypon.training.litratum.model.database.datatypes;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-public class User {
+public class UserModel {
     private String userId;
     private String userName;
     private String userEmail;
     private String userPassword;
 
-    public User(String userId, String userName, String userEmail, String userPassword) {
+    public UserModel(String userId, String userName, String userEmail, String userPassword) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;

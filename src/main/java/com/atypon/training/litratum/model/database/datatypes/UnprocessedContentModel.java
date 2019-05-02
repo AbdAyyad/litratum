@@ -1,13 +1,13 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class UnprocessedContent {
+public class UnprocessedContentModel {
     private String unprocessedContentId;
     private String fileName;
     private String adminId;
     private int status;
     private String timeStamp;
 
-    public UnprocessedContent(String unprocessedContentId, String fileName, String adminId, int status, String timeStamp) {
+    public UnprocessedContentModel(String unprocessedContentId, String fileName, String adminId, int status, String timeStamp) {
         this.unprocessedContentId = unprocessedContentId;
         this.fileName = fileName;
         this.adminId = adminId;

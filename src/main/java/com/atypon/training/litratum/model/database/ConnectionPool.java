@@ -2,7 +2,7 @@ package com.atypon.training.litratum.model.database;
 
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
-import com.atypon.training.litratum.model.xml.DataBase;
+import com.atypon.training.litratum.model.xml.DataBaseModel;
 import com.atypon.training.litratum.model.xml.XmlFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -28,7 +28,7 @@ public class ConnectionPool {
     }
 
     private void initPoolWithException() throws Exception {
-        DataBase dataBase = getDataBaseObject();
+        DataBaseModel dataBase = getDataBaseObject();
 
         pool = new BasicDataSource();
 
@@ -49,7 +49,7 @@ public class ConnectionPool {
     }
 
 
-    private DataBase getDataBaseObject() throws Exception {
+    private DataBaseModel getDataBaseObject() throws Exception {
         String xml = XmlTransformer.getXml(Constants.DATABASE_XML_FILE, Constants.DATABASE_XSL_FILE);
         XmlFactory factory = new XmlFactory(xml);
         return factory.getDataBase();

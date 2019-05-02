@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class SignOutAction implements ActionInterface {
+public class SignOutAction implements Action {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();

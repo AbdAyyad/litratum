@@ -1,10 +1,10 @@
 package com.atypon.training.litratum.model.database.datatypes;
 
-public class BackStageAdmin{
+public class BackStageAdminModel {
     private String backStageAdminId;
     private String userId;
 
-    public BackStageAdmin(String backStageAdminId, String userId) {
+    public BackStageAdminModel(String backStageAdminId, String userId) {
         this.backStageAdminId = backStageAdminId;
         this.userId = userId;
     }
