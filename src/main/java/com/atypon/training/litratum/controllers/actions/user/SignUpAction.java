@@ -13,6 +13,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SignUpAction implements ActionInterface {
@@ -38,8 +39,13 @@ public class SignUpAction implements ActionInterface {
         userDao.addEntry(user);
         normalDao.addEntry(normalUser);
 
-        req.setAttribute("userName", userName);
-        req.setAttribute("userEmail", email);
+        HttpSession session = req.getSession();
+
+        session.setAttribute("userName", userName);
+        session.setAttribute("userEmail", email);
+        session.setAttribute("loggedInUser", true);
+        session.setMaxInactiveInterval(7200);
+
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         dispatcher.forward(req, resp);
     }
