@@ -15,4 +15,5 @@
     <action name="adminNew" class="com.atypon.training.litratum.controllers.actions.admin.NewAdminFormAction" jsp="view/admin/CreateAdminForm.jsp"/>
     <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/AdminAdded.jsp"/>
     <action name="adminUploadContent" class="com.atypon.training.litratum.controllers.actions.admin.UploadArticleAction" jsp="view/admin/ContentForm.jsp"/>
+    <action name="adminSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/admin/AdminHome.jsp"/>
 </actions>
