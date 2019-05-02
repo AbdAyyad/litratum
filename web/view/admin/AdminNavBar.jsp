@@ -3,16 +3,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <form id="content-form" method="post" action="/admin/content/">
-                    <input type="hidden" name="adminEmail" value="${adminEmail}"/>
-                    <a class="nav-link" onclick="document.getElementById('content-form').submit();">content</a>
-                </form>
+                <a class="nav-link" href="/admin/content/">content</a>
             </li>
             <li class="nav-item">
-                <form id="admin-form" method="post" action="/admin/new/">
-                    <input type="hidden" name="adminEmail" value="${adminEmail}"/>
-                    <a class="nav-link" onclick="document.getElementById('admin-form').submit();">admins</a>
-                </form>
+                <a class="nav-link" href="/admin/new/">admins</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
