@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class SignUpAction implements ActionInterface {
+public class UserSignUpAction implements ActionInterface {
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String password = req.getParameter("userPassword");
         String email = req.getParameter("userEmail");

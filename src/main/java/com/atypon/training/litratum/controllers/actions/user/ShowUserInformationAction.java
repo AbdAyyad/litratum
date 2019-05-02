@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class UserInformationAction implements ActionInterface {
+public class ShowUserInformationAction implements ActionInterface {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         boolean loggedInUser = (Boolean) session.getAttribute("loggedInUser");
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);

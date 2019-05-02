@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SignOutAction implements ActionInterface {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.setAttribute("isLoggedInUser", false);
         session.setAttribute("isLoggedInAdmin", false);

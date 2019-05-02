@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class CreateNewAdminAction implements ActionInterface {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher;
         HttpSession session = req.getSession();
         boolean adminIsLoggedIn = (Boolean) session.getAttribute("adminLoggedIn");

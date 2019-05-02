@@ -22,9 +22,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class UploadArticleAction implements ActionInterface {
+public class UploadContentAction implements ActionInterface {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         try {
             RequestDispatcher dispatcher;
             HttpSession session = req.getSession();
@@ -64,7 +64,7 @@ public class UploadArticleAction implements ActionInterface {
     }
 
     private void writeFile(FileItem fileItem) throws Exception {
-        String fileName = Constants.UNPROCESSED_FOLDER + "zipped/" + fileItem.getName();
+        String fileName = Constants.ZIPPED_FOLDER + fileItem.getName();
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
         // Set factory constraints

@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class AdminSignInAction implements ActionInterface {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("adminEmail");
         String password = req.getParameter("adminPassword");
         RequestDispatcher dispatcher;

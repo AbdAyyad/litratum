@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NewAdminFormAction implements ActionInterface {
+public class ShowNewAdminFormAction implements ActionInterface {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         LiteratumDispatchter.dispatchAdminRequest(req, resp, jsp);
     }
 }

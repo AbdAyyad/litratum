@@ -5,11 +5,12 @@ import com.atypon.training.litratum.model.database.ConnectionPool;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-public class BackStageAction implements ActionInterface {
+public class BackStageAction {
 
-    @Override
+
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
         int id = Integer.valueOf(req.getParameter("id"));
@@ -27,7 +28,6 @@ public class BackStageAction implements ActionInterface {
         //threadPool.execute(task);
     }
 
-    @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
   //      UnprocessedDao dao = new UnprocessedDao(pool.getConnection());

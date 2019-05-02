@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Constructor;
@@ -41,10 +42,10 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
-        Constants.XSL_PATH = Constants.RELATIVE_PATH + "xsl/";
-        Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed/";
-        Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped/";
-        Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped/";
+        Constants.XSL_PATH = Constants.RELATIVE_PATH + "xsl" + File.separator;
+        Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed" + File.separator;
+        Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped" + File.separator;
+        Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped" + File.separator;
         initUrlMap();
         createDirectories();
         initActionMap();

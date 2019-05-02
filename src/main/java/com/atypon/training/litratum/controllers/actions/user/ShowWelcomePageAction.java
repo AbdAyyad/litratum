@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class WelcomeAction implements ActionInterface {
+public class ShowWelcomePageAction implements ActionInterface {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
