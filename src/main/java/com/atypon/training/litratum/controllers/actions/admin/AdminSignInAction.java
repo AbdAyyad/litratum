@@ -26,9 +26,9 @@ public class AdminSignInAction implements ActionInterface {
         AdminDao adminDao = new AdminDao();
         User user = userDao.getUserByEmail(email);
         Admin admin = adminDao.getAdminByUserId(user.getUserId());
-        boolean flag = user.verifyPassword(password) && admin != null;
+        boolean adminVerified = user.verifyPassword(password) && admin != null;
 
-        if (flag) {
+        if (adminVerified) {
             session.setAttribute("adminEmail", email);
             session.setAttribute("adminId", admin.getAdminId());
             session.setAttribute("loggedInAdmin", true);

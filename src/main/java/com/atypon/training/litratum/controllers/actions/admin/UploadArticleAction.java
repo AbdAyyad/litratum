@@ -28,8 +28,8 @@ public class UploadArticleAction implements ActionInterface {
         try {
             RequestDispatcher dispatcher;
             HttpSession session = req.getSession();
-            boolean flag = (Boolean) session.getAttribute("loggedInAdmin");
-            if (flag) {
+            boolean adminIsLoggedIn = (Boolean) session.getAttribute("loggedInAdmin");
+            if (adminIsLoggedIn) {
                 String adminId = (String) session.getAttribute("adminId");
                 FileItem file = decodeRequest(req).get(0);
                 writeFile(file);

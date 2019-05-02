@@ -14,11 +14,11 @@ public class HomeLoggedInAction implements ActionInterface {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
-        boolean flag = (Boolean) session.getAttribute("loggedInUser");
         RequestDispatcher dispatcher;
 
-        if (flag) {
+        boolean loggedInUser = (Boolean) session.getAttribute("loggedInUser");
+
+        if (loggedInUser) {
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);

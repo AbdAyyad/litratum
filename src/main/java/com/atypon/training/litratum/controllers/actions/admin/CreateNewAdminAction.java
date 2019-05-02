@@ -23,9 +23,9 @@ public class CreateNewAdminAction implements ActionInterface {
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher;
         HttpSession session = req.getSession();
-        boolean flag = (Boolean) session.getAttribute("adminLoggedIn");
+        boolean adminIsLoggedIn = (Boolean) session.getAttribute("adminLoggedIn");
 
-        if (flag) {
+        if (adminIsLoggedIn) {
             String email = req.getParameter("newAdminEmail");
             String password = req.getParameter("newAdminPassword");
             String username = req.getParameter("newAdminName");

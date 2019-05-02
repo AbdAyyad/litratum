@@ -19,14 +19,13 @@ public class UserSignInAction implements ActionInterface {
     public void doPost(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("userEmail");
         String password = req.getParameter("userPassword");
-        boolean flag;
         RequestDispatcher dispatcher;
 
         UserDao dao = new UserDao();
         User user = dao.getUserByEmail(email);
-        flag = user.verifyPassword(password);
+        boolean userIsVerified = user.verifyPassword(password);
 
-        if (flag) {
+        if (userIsVerified) {
             HttpSession session = req.getSession();
             session.setMaxInactiveInterval(7200);
             dispatcher = req.getRequestDispatcher(jsp);

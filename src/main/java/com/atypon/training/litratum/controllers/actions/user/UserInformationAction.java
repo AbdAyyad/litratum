@@ -16,9 +16,9 @@ public class UserInformationAction implements ActionInterface {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        boolean flag = (Boolean) session.getAttribute("loggedInUser");
+        boolean loggedInUser = (Boolean) session.getAttribute("loggedInUser");
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
-        if (flag) {
+        if (loggedInUser) {
             String email = (String) session.getAttribute("userEmail");
             UserDao dao = new UserDao();
             User user = dao.getUserByEmail(email);
