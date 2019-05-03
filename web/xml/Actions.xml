@@ -18,6 +18,6 @@
     <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/AdminAdded.jsp"/>
 
     <action name="backstageWelcome" class="com.atypon.training.litratum.controllers.actions.backstage.ShowBackstageWelcomeAction" jsp="view/backstage/BackstageWelcome.jsp"/>
-    <action name="backstageSignIn" class="com.atypon.training.litratum.controllers.actions.backstage.BackstageSignInAction" jsp="view/backstage/ProcessTheContent.jsp"/>
+    <action name="backstageSignIn" class="com.atypon.training.litratum.controllers.actions.backstage.BackstageSignInAction" jsp="view/backstage/BackstageHome.jsp"/>
     <action name="backstageSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/backstage/BackstageWelcome.jsp"/>
 </actions>
