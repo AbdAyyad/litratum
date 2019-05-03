@@ -10,7 +10,7 @@
 <jsp:include page="AdminNavBar.jsp"/>
 
 <div class="container">
-    <h3 class="text-center" id="upload-articles-here">upload articles here</h3>
+    <h3 class="text-center top-ten-percent">upload articles here</h3>
     <form method="post" class="left-thirty" action="/admin/content/upload/" enctype="multipart/form-data">
         <input class="sign-form" accept=".zip" type="file" name="content"/>
         <br/>

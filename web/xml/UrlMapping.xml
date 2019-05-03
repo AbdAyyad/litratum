@@ -19,6 +19,7 @@
     <map url="/admin/content/upload" action-name="adminUploadContent"/>
 
     <map url="/backstage" action-name="backstageWelcome"/>
+    <map url="/backstage/content" action-name="backstageShowContent"/>
     <map url="/backstage/sign-in" action-name="backstageSignIn"/>
     <map url="/backstage/sign-out" action-name="backstageSignOut"/>
 </maps>

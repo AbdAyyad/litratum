@@ -131,7 +131,7 @@ public class FrontController extends HttpServlet {
         if (actionsMapping.containsKey(url)) {
             return actionsMapping.get(url);
         }
-        return "not-found";
+        return "notFound";
     }
 
 }
