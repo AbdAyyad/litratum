@@ -35,6 +35,7 @@ public class UploadContentAction implements IAction {
                 FileItem file = decodeRequest(req).get(0);
                 writeFile(file);
                 addToDataBase(file.getName(), adminId);
+                session.setAttribute("fileName", file.getName());
                 dispatcher = req.getRequestDispatcher(jsp);
             } else {
                 dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);

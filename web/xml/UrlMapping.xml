@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <maps>
+    <map url="/not-found" action-name="notFound"/>
+
     <map url="/" action-name="newUser"/>
     <map url="/welcome" action-name="newUser"/>
     <map url="/sign-up" action-name="signUp"/>
@@ -7,14 +9,15 @@
     <map url="/sign-out" action-name="signOut"/>
     <map url="/home" action-name="welcome"/>
     <map url="/user/info" action-name="info"/>
-    <map url="/not-found" action-name="notFound"/>
+
     <map url="/admin" action-name="adminHome"/>
     <map url="/admin/sign-in" action-name="adminSignIn"/>
     <map url="/admin/sign-out" action-name="adminSignOut"/>
-    <map url="/admin/content" action-name="adminContent"/>
     <map url="/admin/new" action-name="adminNew"/>
     <map url="/admin/create" action-name="adminCreate"/>
+    <map url="/admin/content" action-name="adminContent"/>
     <map url="/admin/content/upload" action-name="adminUploadContent"/>
+
     <map url="/backstage" action-name="backstageWelcome"/>
     <map url="/backstage/sign-in" action-name="backstageSignIn"/>
     <map url="/backstage/sign-out" action-name="backstageSignOut"/>

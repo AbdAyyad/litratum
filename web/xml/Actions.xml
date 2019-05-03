@@ -11,11 +11,11 @@
 
     <action name="adminHome" class="com.atypon.training.litratum.controllers.actions.admin.AdminHomeAction" jsp="view/admin/AdminHome.jsp"/>
     <action name="adminSignIn" class="com.atypon.training.litratum.controllers.actions.admin.AdminSignInAction" jsp="view/admin/ContentForm.jsp"/>
+    <action name="adminSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/admin/AdminHome.jsp"/>
     <action name="adminContent" class="com.atypon.training.litratum.controllers.actions.admin.ShowUploadContentFormAction" jsp="view/admin/ContentForm.jsp"/>
+    <action name="adminUploadContent" class="com.atypon.training.litratum.controllers.actions.admin.UploadContentAction" jsp="view/admin/ContentUploaded.jsp"/>
     <action name="adminNew" class="com.atypon.training.litratum.controllers.actions.admin.ShowNewAdminFormAction" jsp="view/admin/CreateAdminForm.jsp"/>
     <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/AdminAdded.jsp"/>
-    <action name="adminUploadContent" class="com.atypon.training.litratum.controllers.actions.admin.UploadContentAction" jsp="view/admin/ContentForm.jsp"/>
-    <action name="adminSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/admin/AdminHome.jsp"/>
 
     <action name="backstageWelcome" class="com.atypon.training.litratum.controllers.actions.backstage.ShowBackstageWelcomeAction" jsp="view/backstage/BackstageWelcome.jsp"/>
     <action name="backstageSignIn" class="com.atypon.training.litratum.controllers.actions.backstage.BackstageSignInAction" jsp="view/backstage/ProcessTheContent.jsp"/>
