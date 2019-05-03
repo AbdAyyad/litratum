@@ -15,7 +15,7 @@ public class UserDao implements IUserDao {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UserModel user = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from user_table where user_email = ?;";
+            String sql = "select * from user_table where user_email = ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, email);
 

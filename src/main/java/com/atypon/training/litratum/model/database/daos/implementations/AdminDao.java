@@ -16,7 +16,7 @@ public class AdminDao implements ISubUserDao<AdminModel> {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         AdminModel admin = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from admin_table where user_id = ?;";
+            String sql = "select * from admin_table where user_id = ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, userId);
             ResultSet result = statement.executeQuery();

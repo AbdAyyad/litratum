@@ -16,7 +16,7 @@ public class LicenseCountDao implements ISubLicenseDao<LicenseCountModel> {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         LicenseCountModel licenseCount = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from lisence_count_table where license_count_id == ?;";
+            String sql = "select * from lisence_count_table where license_count_id == ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, id);
             ResultSet result = statement.executeQuery();

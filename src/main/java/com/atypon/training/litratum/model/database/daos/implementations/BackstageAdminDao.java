@@ -31,7 +31,7 @@ public class BackstageAdminDao implements ISubUserDao<BackStageAdminModel> {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         BackStageAdminModel admin = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from backstage_admin_table where user_id = ?;";
+            String sql = "select * from backstage_admin_table where user_id = ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, userId);
 

@@ -5,7 +5,7 @@ import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.implementations.NormalUserDao;
 import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
-import com.atypon.training.litratum.model.database.daos.interfaces.ISubUserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.INormalUser;
 import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
 import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
 import com.atypon.training.litratum.model.database.datamodel.UserModel;
@@ -26,7 +26,7 @@ public class UserSignInAction implements IAction {
         RequestDispatcher dispatcher;
 
         IUserDao dao = new UserDao();
-        ISubUserDao<NormalUserModel> normalDao = new NormalUserDao();
+        INormalUser normalDao = new NormalUserDao();
 
         UserModel user = dao.getByEmail(email);
         NormalUserModel normalUser = normalDao.getByUserId(user.getUserId());
