@@ -1,6 +1,6 @@
 package com.atypon.training.litratum.model.xml;
 
-import com.atypon.training.litratum.model.database.datatypes.ArticleMetaModel;
+import com.atypon.training.litratum.model.database.datamodel.ArticleMetaModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;

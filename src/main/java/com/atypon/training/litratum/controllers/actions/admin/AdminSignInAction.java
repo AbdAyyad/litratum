@@ -1,11 +1,13 @@
 package com.atypon.training.litratum.controllers.actions.admin;
 
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
-import com.atypon.training.litratum.model.database.daos.AdminDao;
-import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.AdminModel;
-import com.atypon.training.litratum.model.database.datatypes.UserModel;
+import com.atypon.training.litratum.model.database.daos.implementations.AdminDao;
+import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.ISubUserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
+import com.atypon.training.litratum.model.database.datamodel.AdminModel;
+import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AdminSignInAction implements Action {
+public class AdminSignInAction implements IAction {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("adminEmail");
@@ -22,10 +24,11 @@ public class AdminSignInAction implements Action {
         RequestDispatcher dispatcher;
         HttpSession session = req.getSession();
 
-        UserDao userDao = new UserDao();
-        AdminDao adminDao = new AdminDao();
-        UserModel user = userDao.getUserByEmail(email);
-        AdminModel admin = adminDao.getAdminByUserId(user.getUserId());
+        IUserDao userDao = new UserDao();
+        ISubUserDao<AdminModel> adminDao = new AdminDao();
+
+        UserModel user = userDao.getByEmail(email);
+        AdminModel admin = adminDao.getByUserId(user.getUserId());
         boolean adminVerified = user.verifyPassword(password) && admin != null;
 
         if (adminVerified) {

@@ -1,11 +1,12 @@
 package com.atypon.training.litratum.controllers.actions.admin;
 
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
-import com.atypon.training.litratum.model.database.daos.UnprocessedContentDao;
-import com.atypon.training.litratum.model.database.datatypes.UnprocessedContentModel;
+import com.atypon.training.litratum.model.database.daos.implementations.UnprocessedContentDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IUnprocessedContentDao;
+import com.atypon.training.litratum.model.database.datamodel.UnprocessedContentModel;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -22,7 +23,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class UploadContentAction implements Action {
+public class UploadContentAction implements IAction {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         try {
@@ -56,11 +57,11 @@ public class UploadContentAction implements Action {
     }
 
     private void addToDataBase(String fileName, String adminId) {
-        UnprocessedContentDao dao = new UnprocessedContentDao();
+        IUnprocessedContentDao dao = new UnprocessedContentDao();
         String unprocessedId = RandomGenerator.getRandomString(64);
         String timeStamp = LocalDate.now().toString();
         UnprocessedContentModel content = new UnprocessedContentModel(unprocessedId, fileName, adminId, 0, timeStamp);
-        dao.addEntry(content);
+        dao.add(content);
     }
 
     private void writeFile(FileItem fileItem) throws Exception {

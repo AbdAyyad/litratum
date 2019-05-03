@@ -1,13 +1,14 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
-import com.atypon.training.litratum.model.database.daos.Dao;
-import com.atypon.training.litratum.model.database.daos.NormalUserDao;
-import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.NormalUserModel;
-import com.atypon.training.litratum.model.database.datatypes.UserModel;
+import com.atypon.training.litratum.model.database.daos.implementations.NormalUserDao;
+import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.ISubUserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
+import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
+import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class UserSignUpAction implements Action {
+public class UserSignUpAction implements IAction {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
@@ -33,11 +34,11 @@ public class UserSignUpAction implements Action {
         UserModel user = new UserModel(userId, userName, email, password);
         NormalUserModel normalUser = new NormalUserModel(normalUserId, userId);
 
-        Dao userDao = new UserDao();
-        Dao normalDao = new NormalUserDao();
+        IUserDao userDao = new UserDao();
+        ISubUserDao<NormalUserModel> normalDao = new NormalUserDao();
 
-        userDao.addEntry(user);
-        normalDao.addEntry(normalUser);
+        userDao.add(user);
+        normalDao.add(normalUser);
 
         HttpSession session = req.getSession();
 

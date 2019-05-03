@@ -10,7 +10,7 @@
 <jsp:include page="BackstageWelcomeNavBar.jsp"/>
 <div class="container">
     <form class="left-thirty" action="/backstage/sign-in/" method="post">
-        <input class="form-control sign-form admin-form-width" type="email" name="backstageEmail" placeholder="Email">
+        <input class="form-control sign-form admin-form-width top-ten-px" type="email" name="backstageEmail" placeholder="Email">
         <input class="form-control sign-form admin-form-width" type="password" name="backstagePassword" placeholder="Password">
         <button type="submit" class="btn btn-primary left-thirty">sign in</button>
     </form>

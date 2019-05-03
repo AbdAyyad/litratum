@@ -1,4 +1,4 @@
-package com.atypon.training.litratum.model.database.datatypes;
+package com.atypon.training.litratum.model.database.datamodel;
 
 public class ArticleMetaModel {
     private String author;

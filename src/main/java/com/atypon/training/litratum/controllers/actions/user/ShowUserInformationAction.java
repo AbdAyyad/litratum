@@ -1,9 +1,10 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
-import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.UserModel;
+import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
+import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class ShowUserInformationAction implements Action {
+public class ShowUserInformationAction implements IAction {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -20,8 +21,8 @@ public class ShowUserInformationAction implements Action {
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         if (loggedInUser) {
             String email = (String) session.getAttribute("userEmail");
-            UserDao dao = new UserDao();
-            UserModel user = dao.getUserByEmail(email);
+            IUserDao dao = new UserDao();
+            UserModel user = dao.getByEmail(email);
             session.setAttribute("userName", user.getUserEmail());
             session.setAttribute("user", user);
             session.setAttribute("license", "not implemented");

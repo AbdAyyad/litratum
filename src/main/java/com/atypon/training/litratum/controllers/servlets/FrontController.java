@@ -1,6 +1,6 @@
 package com.atypon.training.litratum.controllers.servlets;
 
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
 import com.atypon.training.litratum.model.xml.ActionModel;
@@ -122,7 +122,7 @@ public class FrontController extends HttpServlet {
 
         Class<?> actionClass = Class.forName(action.getActionClass());
         Constructor constructor = actionClass.getConstructor();
-        Action obj = (Action) constructor.newInstance();
+        IAction obj = (IAction) constructor.newInstance();
 
         obj.execute(req, resp, action.getJsp());
     }

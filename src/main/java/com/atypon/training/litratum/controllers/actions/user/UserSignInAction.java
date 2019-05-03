@@ -1,10 +1,14 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
 
-import com.atypon.training.litratum.controllers.actions.Action;
+import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
-import com.atypon.training.litratum.model.database.daos.UserDao;
-import com.atypon.training.litratum.model.database.datatypes.UserModel;
+import com.atypon.training.litratum.model.database.daos.implementations.NormalUserDao;
+import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.ISubUserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
+import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
+import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class UserSignInAction implements Action {
+public class UserSignInAction implements IAction {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
@@ -21,9 +25,12 @@ public class UserSignInAction implements Action {
         String password = req.getParameter("userPassword");
         RequestDispatcher dispatcher;
 
-        UserDao dao = new UserDao();
-        UserModel user = dao.getUserByEmail(email);
-        boolean userIsVerified = user.verifyPassword(password);
+        IUserDao dao = new UserDao();
+        ISubUserDao<NormalUserModel> normalDao = new NormalUserDao();
+
+        UserModel user = dao.getByEmail(email);
+        NormalUserModel normalUser = normalDao.getByUserId(user.getUserId());
+        boolean userIsVerified = user.verifyPassword(password) && normalUser != null;
 
         if (userIsVerified) {
             HttpSession session = req.getSession();
