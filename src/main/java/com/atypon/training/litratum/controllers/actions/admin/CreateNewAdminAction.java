@@ -25,8 +25,9 @@ public class CreateNewAdminAction implements IAction {
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher;
         HttpSession session = req.getSession();
-        boolean adminIsLoggedIn = (Boolean) session.getAttribute("adminLoggedIn");
 
+        Object sessionAttr = session.getAttribute("loggedInAdmin");
+        boolean adminIsLoggedIn = sessionAttr == null ? false : (Boolean) sessionAttr;
         if (adminIsLoggedIn) {
             String email = req.getParameter("newAdminEmail");
             String password = req.getParameter("newAdminPassword");

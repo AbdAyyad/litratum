@@ -1,6 +1,7 @@
 package com.atypon.training.litratum.controllers.actions.admin;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
+import com.atypon.training.litratum.controllers.tools.BackstageQueue;
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.controllers.tools.RandomGenerator;
@@ -29,12 +30,18 @@ public class UploadContentAction implements IAction {
         try {
             RequestDispatcher dispatcher;
             HttpSession session = req.getSession();
-            boolean adminIsLoggedIn = (Boolean) session.getAttribute("loggedInAdmin");
+            Object sessionAttr = session.getAttribute("loggedInAdmin");
+            boolean adminIsLoggedIn = sessionAttr == null ? false : (Boolean) sessionAttr;
             if (adminIsLoggedIn) {
                 String adminId = (String) session.getAttribute("adminId");
+                String unprocessedId = RandomGenerator.getRandomString(64);
+
                 FileItem file = decodeRequest(req).get(0);
                 writeFile(file);
-                addToDataBase(file.getName(), adminId);
+                addToDataBase(file.getName(), adminId, unprocessedId);
+
+                BackstageQueue.add(unprocessedId);
+
                 session.setAttribute("fileName", file.getName());
                 dispatcher = req.getRequestDispatcher(jsp);
             } else {
@@ -57,11 +64,10 @@ public class UploadContentAction implements IAction {
         return upload.parseRequest(req);
     }
 
-    private void addToDataBase(String fileName, String adminId) {
+    private void addToDataBase(String fileName, String adminId, String unprocessedId) {
         IUnprocessedContentDao dao = new UnprocessedContentDao();
-        String unprocessedId = RandomGenerator.getRandomString(64);
         String timeStamp = LocalDate.now().toString();
-        UnprocessedContentModel content = new UnprocessedContentModel(unprocessedId, fileName, adminId, 0, timeStamp);
+        UnprocessedContentModel content = new UnprocessedContentModel(unprocessedId, fileName, adminId, 1, timeStamp);
         dao.add(content);
     }
 

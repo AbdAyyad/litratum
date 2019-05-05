@@ -2,6 +2,7 @@ package com.atypon.training.litratum.controllers.servlets;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.Constants;
+import com.atypon.training.litratum.controllers.tools.ContentProcessingService;
 import com.atypon.training.litratum.controllers.tools.XmlTransformer;
 import com.atypon.training.litratum.model.xml.ActionModel;
 import com.atypon.training.litratum.model.xml.XmlFactory;
@@ -38,6 +39,10 @@ public class FrontController extends HttpServlet {
     }
 
 
+    private void runContentProcessingService() {
+        new Thread(new ContentProcessingService()).start();
+    }
+
     @Override
     public void init() throws ServletException {
         super.init();
@@ -49,6 +54,7 @@ public class FrontController extends HttpServlet {
         initUrlMap();
         createDirectories();
         initActionMap();
+        runContentProcessingService();
     }
 
     private void createDirectories() {

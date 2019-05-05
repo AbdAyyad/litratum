@@ -1,6 +1,7 @@
 package com.atypon.training.litratum.controllers.actions.backstage;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
+import com.atypon.training.litratum.controllers.tools.BackstageQueue;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 import com.atypon.training.litratum.model.database.daos.implementations.UnprocessedContentDao;
 import com.atypon.training.litratum.model.database.daos.interfaces.IUnprocessedContentDao;
@@ -25,19 +26,29 @@ public class AddToTheQueueAction implements IAction {
         if (isAdminLoggedIn) {
             IUnprocessedContentDao dao = new UnprocessedContentDao();
             String contentId = req.getParameter("unprocessedContentId");
+
             dao.updateStatus(contentId, 1);
-            List<UnprocessedContentModel> data = (List<UnprocessedContentModel>) session.getAttribute("unprocessedContents");
-            for (UnprocessedContentModel model : data) {
-                if (model.getUnprocessedContentId().equals(contentId)) {
-                    model.setStatus(1);
-                    break;
-                }
-            }
-            session.setAttribute("unprocessedContents", data);
+
+            BackstageQueue.add(contentId);
+
+            updateUI(session, contentId);
+
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.BACKSTAGE_HOME_PAGE);
         }
         dispatcher.forward(req, resp);
+    }
+
+    private void updateUI(HttpSession session, String contentId) {
+        List<UnprocessedContentModel> data = (List<UnprocessedContentModel>) session.getAttribute("unprocessedContents");
+        for (UnprocessedContentModel model : data) {
+            if (model.getUnprocessedContentId().equals(contentId)) {
+                model.setStatus(1);
+                break;
+            }
+        }
+        session.setAttribute("unprocessedContents", data);
+
     }
 }

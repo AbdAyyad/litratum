@@ -14,8 +14,9 @@ public class LiteratumDispatchter {
     public static void dispatchAdminRequest(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         RequestDispatcher dispatcher;
-        boolean adminLoggedIn = (Boolean) session.getAttribute("loggedInAdmin");
-        if (adminLoggedIn) {
+        Object sessionAttr = session.getAttribute("loggedInAdmin");
+        boolean adminIsLoggedIn = sessionAttr == null ? false : (Boolean) sessionAttr;
+        if (adminIsLoggedIn) {
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
@@ -26,7 +27,8 @@ public class LiteratumDispatchter {
     public static void dispatchBackstageRequest(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         RequestDispatcher dispatcher;
-        boolean backstageLoggedIn = (Boolean) session.getAttribute("backstageLoggedIn");
+        Object sessionAttr = session.getAttribute("backstageLoggedIn");
+        boolean backstageLoggedIn = sessionAttr == null ? false : (Boolean) sessionAttr;
         if (backstageLoggedIn) {
             dispatcher = req.getRequestDispatcher(jsp);
         } else {

@@ -21,6 +21,6 @@
     <action name="backstageShowContent" class="com.atypon.training.litratum.controllers.actions.backstage.ShowProcessContentAction" jsp="view/backstage/ContentPage.jsp"/>
     <action name="backstageProcessContent" class="com.atypon.training.litratum.controllers.actions.backstage.AddToTheQueueAction" jsp="view/backstage/ContentPage.jsp"/>
     <action name="backstageDeleteContent" class="com.atypon.training.litratum.controllers.actions.backstage.DeleteSubmission" jsp="view/backstage/ContentPage.jsp"/>
-    <action name="backstageSignIn" class="com.atypon.training.litratum.controllers.actions.backstage.BackstageSignInAction" jsp="view/backstage/BackstageHome.jsp"/>
+    <action name="backstageSignIn" class="com.atypon.training.litratum.controllers.actions.backstage.BackstageSignInAction" jsp="view/backstage/ContentPage.jsp"/>
     <action name="backstageSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/backstage/BackstageWelcome.jsp"/>
 </actions>
