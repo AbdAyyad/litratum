@@ -8,4 +8,8 @@ public interface IUnprocessedContentDao extends IDao<UnprocessedContentModel> {
     List<UnprocessedContentModel> getAll();
 
     UnprocessedContentModel getById(String unprocessedContentId);
+
+    void updateStatus(String unprocessedId,int status);
+
+    void delete(String unprocessedId);
 }

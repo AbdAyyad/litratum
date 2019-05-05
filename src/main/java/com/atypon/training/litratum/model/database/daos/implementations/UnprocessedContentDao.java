@@ -40,7 +40,7 @@ public class UnprocessedContentDao implements IUnprocessedContentDao {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         UnprocessedContentModel unprocessedContent = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from unprocessed_content_table where unprocessed_content_id == ? limit 1;";
+            String sql = "select * from unprocessed_content_table where unprocessed_content_id = ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, unprocessedContentId);
 
@@ -56,6 +56,37 @@ public class UnprocessedContentDao implements IUnprocessedContentDao {
         }
         return unprocessedContent;
 
+    }
+
+    @Override
+    public void updateStatus(String unprocessedId, int status) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "update unprocessed_content_table set status = ? where unprocessed_content_id = ?";
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setInt(1, status);
+            statement.setString(2, unprocessedId);
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delete(String unprocessedId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "DELETE FROM unprocessed_content_table WHERE unprocessed_content_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, unprocessedId);
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

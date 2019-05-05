@@ -33,13 +33,13 @@
                 <td>${content.getFileName()}</td>
                 <td>${content.getStatus()}</td>
                 <td>
-                    <form method="post" action="/backstage/process/">
+                    <form method="post" action="/backstage/content/process/">
                         <input type="hidden" name="unprocessedContentId" value="${content.getUnprocessedContentId()}"/>
                         <button type="submit" class="btn btn-primary">process</button>
                     </form>
                 </td>
                 <td>
-                    <form method="post" action="/backstage/delete/">
+                    <form method="post" action="/backstage/content/delete/">
                         <input type="hidden" name="unprocessedContentId" value="${content.getUnprocessedContentId()}"/>
                         <button type="submit" class="btn btn-danger">delete</button>
                     </form>

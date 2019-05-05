@@ -20,6 +20,8 @@
 
     <map url="/backstage" action-name="backstageWelcome"/>
     <map url="/backstage/content" action-name="backstageShowContent"/>
+    <map url="/backstage/content/process" action-name="backstageProcessContent"/>
+    <map url="/backstage/content/delete" action-name="backstageDeleteContent"/>
     <map url="/backstage/sign-in" action-name="backstageSignIn"/>
     <map url="/backstage/sign-out" action-name="backstageSignOut"/>
 </maps>
