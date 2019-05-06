@@ -15,6 +15,7 @@ public class SignOutAction implements IAction {
         session.setAttribute("isLoggedInAdmin", false);
         session.setAttribute("isLoggedInBackstage", false);
         RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
+        session.invalidate();
         dispatcher.forward(req, resp);
     }
 }

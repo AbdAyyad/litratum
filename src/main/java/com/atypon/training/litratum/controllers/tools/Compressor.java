@@ -1,14 +1,11 @@
 package com.atypon.training.litratum.controllers.tools;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Enumeration;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 public class Compressor {
     private Compressor() {
@@ -22,39 +19,38 @@ public class Compressor {
         }
     }
 
-    private static void createDirectory(String directory) throws IOException {
-        StringBuilder str = new StringBuilder();
-        String[] pieces = directory.split("/");
-        for (int i = 0; i + 1 < pieces.length; ++i) {
-            str.append(pieces[i]);
-            str.append('/');
-            Path path = Paths.get(str.toString());
-            if (!Files.exists(path)) {
-                Files.createDirectory(path);
-            }
-
-        }
-    }
-
     private static void unZipWithException(String filePath, String outputDirectoryPath) throws IOException {
-        ZipFile zipFile = new ZipFile(filePath);
-        Enumeration<? extends ZipEntry> entries = zipFile.entries();
-        byte[] buffer = new byte[512];
-        while (entries.hasMoreElements()) {
-            ZipEntry entry = entries.nextElement();
-            createDirectory(outputDirectoryPath + "/" + entry.toString());
-            FileOutputStream outputStream = new FileOutputStream(outputDirectoryPath + "/" + entry.toString());
-            InputStream in = zipFile.getInputStream(entry);
-            while (0 < in.available()) {
-                int read = in.read(buffer);
-                outputStream.write(buffer, 0, read);
+        //get the zip file content
+        ZipInputStream zis;
+//get the zipped file list entry
+        ZipEntry ze;
+        zis = new ZipInputStream(new FileInputStream(filePath));
+        ze = zis.getNextEntry();
+
+        while (ze != null) {
+            String fileName = ze.getName();
+            File newFile = new File(outputDirectoryPath + File.separator + fileName);
+
+            System.out.println("file unzip : " + newFile.getAbsoluteFile());
+
+//create all non exists folders
+//else you will hit FileNotFoundException for compressed folder
+            new File(newFile.getParent()).mkdirs();
+
+            FileOutputStream fos = new FileOutputStream(newFile);
+
+            int len;
+            byte[] buffer = new byte[1024];
+            while ((len = zis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len);
             }
-            outputStream.close();
-            in.close();
+
+            fos.close();
+
+            ze = zis.getNextEntry();
         }
-        Path path = Paths.get(filePath.substring(0, filePath.length() - 4));
-        if (Files.exists(path)) {
-            Files.delete(path);
-        }
+
+        zis.closeEntry();
+        zis.close();
     }
 }

@@ -5,11 +5,14 @@
     </xsl:template>
 
     <xsl:template name="paragraph">
-        <xsl:for-each select="body/p">
-            <p>
-                <xsl:value-of select="text()"/>
-            </p>
+        <div class="container">
             <xsl:text>&#xa;</xsl:text>
-        </xsl:for-each>
+            <xsl:for-each select="body/p">
+                <p class="text-center">
+                    <xsl:value-of select="text()"/>
+                </p>
+                <xsl:text>&#xa;</xsl:text>
+            </xsl:for-each>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

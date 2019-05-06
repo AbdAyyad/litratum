@@ -18,9 +18,11 @@
     </xsl:template>
 
     <xsl:template name="article-doi">
-        <xsl:if test="front/article-meta/article-id/@pub-id-type = 'doi'">
-            <xsl:value-of select="front/article-meta/article-id"/>
-        </xsl:if>
+        <xsl:for-each select="front/article-meta/article-id">
+            <xsl:if test="@pub-id-type = 'publisher-id'">
+                <xsl:value-of select="text()"/>
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template name="release-date">
