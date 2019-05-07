@@ -14,3 +14,5 @@ create table article_meta
 
 alter table article_meta
     rename to article_meta_table;
+
+drop table proccessed_content_table;

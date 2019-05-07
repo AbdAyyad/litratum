@@ -9,6 +9,8 @@
     <map url="/sign-out" action-name="signOut"/>
     <map url="/home" action-name="welcome"/>
     <map url="/user/info" action-name="info"/>
+    <map url="/articles" action-name="viewArticles"/>
+    <map url="/show/article" action-name="viewSingleArticle"/>
 
     <map url="/admin" action-name="adminHome"/>
     <map url="/admin/sign-in" action-name="adminSignIn"/>

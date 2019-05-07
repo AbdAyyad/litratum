@@ -43,6 +43,11 @@ public class XmlFactory {
         String doi = reader.readLine().trim();
         String date = reader.readLine().trim();
         String title = reader.readLine().trim();
+
+        // remove issue doi
+        int idx = doi.indexOf("_");
+        doi = doi.substring(idx + 1);
+
         return new ArticleMetaModel(author, doi, date, title);
     }
 

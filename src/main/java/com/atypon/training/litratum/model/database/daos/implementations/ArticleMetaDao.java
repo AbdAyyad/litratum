@@ -1,14 +1,17 @@
 package com.atypon.training.litratum.model.database.daos.implementations;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.daos.interfaces.IDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IArticleMetaDao;
 import com.atypon.training.litratum.model.database.datamodel.ArticleMetaModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ArticleMetaDao implements IDao<ArticleMetaModel> {
+public class ArticleMetaDao implements IArticleMetaDao {
     @Override
     public void add(ArticleMetaModel o) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
@@ -25,5 +28,31 @@ public class ArticleMetaDao implements IDao<ArticleMetaModel> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<ArticleMetaModel> getAll() {
+        List<ArticleMetaModel> data = new ArrayList<>();
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from article_meta_table";
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                ArticleMetaModel model = generateObject(result);
+                data.add(model);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    private ArticleMetaModel generateObject(ResultSet resultSet) throws SQLException {
+        String author = resultSet.getString(1);
+        String doi = resultSet.getString(2);
+        String releseDate = resultSet.getString(3);
+        String title = resultSet.getString(4);
+        return new ArticleMetaModel(author, doi, releseDate, title);
     }
 }

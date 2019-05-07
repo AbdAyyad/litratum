@@ -1,7 +1,7 @@
 package com.atypon.training.litratum.model.database.daos.implementations;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
-import com.atypon.training.litratum.model.database.daos.interfaces.INormalUser;
+import com.atypon.training.litratum.model.database.daos.interfaces.INormalUserDao;
 import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
 
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NormalUserDao implements INormalUser {
+public class NormalUserDao implements INormalUserDao {
 
     @Override
     public NormalUserModel getByUserId(String userId) {

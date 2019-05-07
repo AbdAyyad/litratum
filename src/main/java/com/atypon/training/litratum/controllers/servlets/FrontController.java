@@ -54,8 +54,8 @@ public class FrontController extends HttpServlet {
     }
 
     private void initConstants() {
-        Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
-
+//        Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
+        Constants.RELATIVE_PATH = "C:\\Users\\abday\\IdeaProjects\\litratum\\web\\";
         Constants.XML_PATH = Constants.RELATIVE_PATH + "xml" + File.separator;
         Constants.DATABASE_XML_FILE = Constants.XML_PATH + "DataBase.xml";
         Constants.ACTIONS_MAPPING_XML_FILE = Constants.XML_PATH + "UrlMapping.xml";

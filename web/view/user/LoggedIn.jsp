@@ -8,5 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="UserNavBar.jsp"/>
-<h3>logged in</h3>
+<h3 class="text-center">you are logged in</h3>
 <jsp:include page="../common/Footer.html"/>
