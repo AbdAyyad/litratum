@@ -68,4 +68,18 @@ public class AdminDao implements ISubUserDao<AdminModel> {
         String userId = resultSet.getString(2);
         return new AdminModel(userId, adminId);
     }
+
+    @Override
+    public void delete(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "delete FROM admin_table where user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

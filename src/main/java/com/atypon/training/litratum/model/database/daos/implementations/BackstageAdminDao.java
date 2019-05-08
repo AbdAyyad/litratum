@@ -72,4 +72,18 @@ public class BackstageAdminDao implements ISubUserDao<BackStageAdminModel> {
         String userId = result.getString(2);
         return new BackStageAdminModel(backStageAdminId, userId);
     }
+
+    @Override
+    public void delete(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "delete FROM backstage_admin_table where user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -18,6 +18,7 @@
     <map url="/admin/new" action-name="adminNew"/>
     <map url="/admin/create" action-name="adminCreate"/>
     <map url="/admin/users" action-name="adminAllUsers"/>
+    <map url="/admin/user/delete" action-name="adminDeleteUser"/>
     <map url="/admin/content" action-name="adminContent"/>
     <map url="/admin/content/upload" action-name="adminUploadContent"/>
 

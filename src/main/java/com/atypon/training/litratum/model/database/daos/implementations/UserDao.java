@@ -23,17 +23,75 @@ public class UserDao implements IUserDao {
 
             result.next();
 
-            String userName = result.getString(1);
-            String userEmail = result.getString(2);
-            String userPassword = result.getString(3);
-            String userId = result.getString(4);
+            user = getObject(result);
 
-            user = new UserModel(userId, userName, userEmail, userPassword);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
+    }
+
+
+    @Override
+    public UserModel getById(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        UserModel user = null;
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from user_table where user_id = ? limit 1;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+
+            ResultSet result = statement.executeQuery();
+            result.next();
+            user = getObject(result);
+
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+
+    }
+
+    @Override
+    public void delete(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "delete FROM user_table where user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private UserModel getObject(ResultSet result) throws SQLException {
+        String userName = result.getString(1);
+        String userEmail = result.getString(2);
+        String userPassword = result.getString(3);
+        String userId = result.getString(4);
+
+        return new UserModel(userId, userName, userEmail, userPassword);
+    }
+
+    @Override
+    public void add(UserModel o) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "insert into user_table(user_name,user_email,user_password,user_id) values (?,?,?,?);";
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, o.getUserName());
+            statement.setString(2, o.getUserEmail());
+            statement.setString(3, o.getUserPassword());
+            statement.setString(4, o.getUserId());
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -54,21 +112,4 @@ public class UserDao implements IUserDao {
         }
     }
 
-    @Override
-    public void add(UserModel o) {
-        ConnectionPool pool = ConnectionPool.getConnectionPool();
-        try (Connection con = pool.getConnection()) {
-            String sql = "insert into user_table(user_name,user_email,user_password,user_id) values (?,?,?,?);";
-            PreparedStatement statement = con.prepareStatement(sql);
-
-            statement.setString(1, o.getUserName());
-            statement.setString(2, o.getUserEmail());
-            statement.setString(3, o.getUserPassword());
-            statement.setString(4, o.getUserId());
-
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

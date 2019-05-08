@@ -17,15 +17,28 @@
             <th>email</th>
             <th>license</th>
             <th>update</th>
+            <th>delete</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${license}" begin="0" end="${license.size()-1}" var="idx">
+        <c:forEach begin="0" end="${license.size()-1}" var="idx">
             <tr>
-                <td>${license.get(idx).getLicenseId()}</td>
-                <td>${idx}</td>
-                <td>${idx}</td>
-                <td>${idx}</td>
+                <td>${users.get(idx).getUserEmail()}</td>
+                <td>${users.get(idx).getUserName()}</td>
+                <td>${license.get(idx)}</td>
+                <td>
+                    <form method="post" action="/admin/user/">
+                        <input type="hidden" name="userId" value="${users.get(idx).getUserId()}">
+                        <button type="submit" class="btn btn-primary">update</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/admin/user/delete/">
+                        <input type="hidden" name="userId" value="${users.get(idx).getUserId()}">
+                        <input type="hidden" name="email" value="${users.get(idx).getUserEmail()}">
+                        <button type="submit" class="btn btn-danger">delete</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

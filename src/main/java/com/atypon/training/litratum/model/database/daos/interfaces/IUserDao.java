@@ -6,4 +6,8 @@ public interface IUserDao extends IDao<UserModel> {
     UserModel getByEmail(String email);
 
     void update(UserModel user);
+
+    UserModel getById(String userId);
+
+    void delete(String userId);
 }

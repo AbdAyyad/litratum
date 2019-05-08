@@ -49,6 +49,19 @@ public class NormalUserDao implements INormalUserDao {
         return data;
     }
 
+    @Override
+    public void delete(String userId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "delete FROM normal_user_table where user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, userId);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private NormalUserModel getObject(ResultSet result) throws SQLException {
         String normalId = result.getString(1);
         String userId = result.getString(2);
@@ -74,7 +87,7 @@ public class NormalUserDao implements INormalUserDao {
     }
 
     @Override
-    public void update(String normalId,String licenseId) {
+    public void update(String normalId, String licenseId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         try (Connection con = pool.getConnection()) {
             String sql = "update normal_user_table set license_id = ? where normal_user_id = ?;";

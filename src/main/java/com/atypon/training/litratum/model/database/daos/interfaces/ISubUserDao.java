@@ -4,5 +4,8 @@ import java.util.List;
 
 public interface ISubUserDao<T> extends IDao<T> {
     T getByUserId(String userId);
+
     List<T> selectAll();
+
+    void delete(String userId);
 }
