@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NormalUserDao implements INormalUserDao {
 
@@ -21,13 +23,37 @@ public class NormalUserDao implements INormalUserDao {
             statement.setString(1, userId);
             ResultSet result = statement.executeQuery();
             result.next();
-            String adminId = result.getString(1);
-            user = new NormalUserModel(userId, adminId);
+            user = getObject(result);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public List<NormalUserModel> selectAll() {
+        List<NormalUserModel> data = new ArrayList<>();
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from normal_user_table;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                data.add(getObject(result));
+            }
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    private NormalUserModel getObject(ResultSet result) throws SQLException {
+        String normalId = result.getString(1);
+        String userId = result.getString(2);
+        String licenseId = result.getString(3);
+        return new NormalUserModel(normalId, userId, licenseId);
     }
 
     @Override
@@ -48,14 +74,14 @@ public class NormalUserDao implements INormalUserDao {
     }
 
     @Override
-    public void update(NormalUserModel normalUser) {
+    public void update(String normalId,String licenseId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         try (Connection con = pool.getConnection()) {
             String sql = "update normal_user_table set license_id = ? where normal_user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
 
-            statement.setString(1, normalUser.getLicenseId());
-            statement.setString(2, normalUser.getNormalUserId());
+            statement.setString(1, licenseId);
+            statement.setString(2, normalId);
 
             statement.execute();
         } catch (SQLException e) {

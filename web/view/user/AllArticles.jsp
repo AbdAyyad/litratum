@@ -10,51 +10,13 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="UserNavBar.jsp"/>
 <div class="container">
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Title
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Author
-            </th>
-            <th>
-                view
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach begin="0" var="i" end="${articles.size() -1}">
-            <tr>
-                <td>
-                        ${i+1}
-                </td>
-                <td>
-                        ${articles.get(i).getTitle()}
-                </td>
-                <td>
-                        ${articles.get(i).getReleaseDate()}
-                </td>
-                <td>
-                        ${articles.get(i).getAuthor()}
-                </td>
-                <td>
-                    <form method="post" action="/show/article/">
-                        <input type="hidden" name="doi" value="${articles.get(i).getDoi()}">
-                        <button type="submit" class="btn btn-primary">view</button>
-                    </form>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <c:choose>
+        <c:when test="${articles.size() > 0}">
+            <jsp:include page="AllArticlesTable.jsp"/>
+        </c:when>
+        <c:when test="${articles.size() == 0}">
+            <h3 class="text-center top-ten-percent">no processed articles</h3>
+        </c:when>
+    </c:choose>
 </div>
 <jsp:include page="../common/Footer.html"/>

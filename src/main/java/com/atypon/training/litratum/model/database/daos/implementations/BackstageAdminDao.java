@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BackstageAdminDao implements ISubUserDao<BackStageAdminModel> {
 
@@ -39,12 +41,35 @@ public class BackstageAdminDao implements ISubUserDao<BackStageAdminModel> {
 
             result.next();
 
-            String backStageAdminId = result.getString(1);
-            admin = new BackStageAdminModel(backStageAdminId, userId);
+            admin = getObject(result);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return admin;
+    }
+
+    @Override
+    public List<BackStageAdminModel> selectAll() {
+        List<BackStageAdminModel> data = new ArrayList<>();
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from backstage_admin_table;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                data.add(getObject(result));
+            }
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    private BackStageAdminModel getObject(ResultSet result) throws SQLException {
+        String backStageAdminId = result.getString(1);
+        String userId = result.getString(2);
+        return new BackStageAdminModel(backStageAdminId, userId);
     }
 }

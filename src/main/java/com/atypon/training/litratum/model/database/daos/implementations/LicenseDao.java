@@ -2,13 +2,15 @@ package com.atypon.training.litratum.model.database.daos.implementations;
 
 import com.atypon.training.litratum.model.database.ConnectionPool;
 import com.atypon.training.litratum.model.database.daos.interfaces.IDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.ILicenseDao;
 import com.atypon.training.litratum.model.database.datamodel.LicenseModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LicenseDao implements IDao<LicenseModel> {
+public class LicenseDao implements ILicenseDao {
 
     @Override
     public void add(LicenseModel license) {
@@ -25,5 +27,29 @@ public class LicenseDao implements IDao<LicenseModel> {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public LicenseModel getById(String licenseId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        LicenseModel data = null;
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from license_table where license_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, licenseId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            resultSet.next();
+            int licenseType = resultSet.getInt(1);
+            String timeStamp = resultSet.getString(2);
+            String licenseIdfromDb = resultSet.getString(3);
+            String actualLicenseId = resultSet.getString(4);
+
+            data = new LicenseModel(licenseType, licenseIdfromDb, actualLicenseId, timeStamp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 }

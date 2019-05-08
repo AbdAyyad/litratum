@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDao implements ISubUserDao<AdminModel> {
 
@@ -21,13 +23,30 @@ public class AdminDao implements ISubUserDao<AdminModel> {
             statement.setString(1, userId);
             ResultSet result = statement.executeQuery();
             result.next();
-            String adminId = result.getString(1);
-            admin = new AdminModel(userId, adminId);
+            admin = getObject(result);
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return admin;
+    }
+
+    @Override
+    public List<AdminModel> selectAll() {
+        List<AdminModel> data = new ArrayList<>();
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from admin_table;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while (result.next()){
+                data.add(getObject(result));
+            }
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 
     @Override
@@ -42,5 +61,11 @@ public class AdminDao implements ISubUserDao<AdminModel> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private AdminModel getObject(ResultSet resultSet) throws SQLException {
+        String adminId = resultSet.getString(1);
+        String userId = resultSet.getString(2);
+        return new AdminModel(userId, adminId);
     }
 }

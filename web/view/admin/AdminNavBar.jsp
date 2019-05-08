@@ -8,6 +8,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/new/">admins</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/users/">users</a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

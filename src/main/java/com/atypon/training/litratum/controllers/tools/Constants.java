@@ -10,7 +10,8 @@ public class Constants {
     public final static int CONNECTION_POOL_MIN_SIZE = 10;
     public final static String ALL_ALLOWED_RANDOM = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    public final static String RELATIVE_PATH = "C:\\Users\\abday\\IdeaProjects\\litratum\\web\\";
+//    public final static String RELATIVE_PATH = "C:\\Users\\abday\\IdeaProjects\\litratum\\web\\";
+    public final static String RELATIVE_PATH = "/home/aayyad/IdeaProjects/litratum/web/";
     public final static String UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed" + File.separator;
     public final static String PROCESSED_FOLDER = Constants.RELATIVE_PATH + "processed" + File.separator;
     public final static String UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped" + File.separator;
