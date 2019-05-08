@@ -16,7 +16,4 @@ public class RandomGenerator {
         return builder.toString();
     }
 
-    public static String getRandomString(){
-        return getRandomString(20);
-    }
 }
