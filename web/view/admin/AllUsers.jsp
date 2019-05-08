@@ -16,7 +16,7 @@
             <th>user name</th>
             <th>email</th>
             <th>license</th>
-            <th>update</th>
+            <th>change licence</th>
             <th>delete</th>
         </tr>
         </thead>

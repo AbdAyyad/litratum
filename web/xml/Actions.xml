@@ -20,6 +20,9 @@
     <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/AdminAdded.jsp"/>
     <action name="adminAllUsers" class="com.atypon.training.litratum.controllers.actions.admin.ShowAllUsersAction" jsp="view/admin/AllUsers.jsp"/>
     <action name="adminDeleteUser" class="com.atypon.training.litratum.controllers.actions.admin.DeleteUserAction" jsp="view/admin/UserDeleted.jsp"/>
+    <action name="adminLicenseForm" class="com.atypon.training.litratum.controllers.actions.admin.ShowAddLicenseFormAction" jsp="view/admin/AddLicenseForm.jsp"/>
+    <action name="adminAddCountLicense" class="com.atypon.training.litratum.controllers.actions.admin.CreateCountLicenseAction" jsp="view/admin/AllUsers.jsp"/>
+    <action name="adminAddSubLicense" class="com.atypon.training.litratum.controllers.actions.admin.CreateSubscriptionLicense" jsp="view/admin/AllUsers.jsp"/>
 
     <action name="backstageWelcome" class="com.atypon.training.litratum.controllers.actions.backstage.ShowBackstageWelcomeAction" jsp="view/backstage/BackstageWelcome.jsp"/>
     <action name="backstageShowContent" class="com.atypon.training.litratum.controllers.actions.backstage.ShowProcessContentAction" jsp="view/backstage/ContentPage.jsp"/>
