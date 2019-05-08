@@ -10,7 +10,6 @@ import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
 import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
 import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +46,6 @@ public class UserSignUpAction implements IAction {
         session.setAttribute("loggedInUser", true);
         session.setMaxInactiveInterval(7200);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/articles");
     }
 }
