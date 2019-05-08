@@ -20,13 +20,17 @@ public class RequestFilter implements javax.servlet.Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String url = httpRequest.getRequestURI();
-        if (url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html") || url.endsWith("ico")) {
+        if (isStaticResource(url)) {
             RequestDispatcher dispatcher = httpRequest.getRequestDispatcher(url);
             dispatcher.forward(servletRequest, servletResponse);
             return;
         }
         httpRequest.setAttribute("actionUrl", url);
         FrontController.getRequestDispatcher(config.getServletContext()).forward(servletRequest, servletResponse);
+    }
+
+    private boolean isStaticResource(String url) {
+        return url.endsWith("css") || url.endsWith("jsp") || url.endsWith("js") || url.endsWith("html") || url.endsWith("ico");
     }
 
 }
