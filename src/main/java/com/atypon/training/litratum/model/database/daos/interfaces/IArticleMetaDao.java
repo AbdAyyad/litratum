@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface IArticleMetaDao extends IDao<ArticleMetaModel> {
     List<ArticleMetaModel> getAll();
+
+    void setUnprocessedId(String doi, String unprocessedId);
+
+    void delete(String unprocessedId);
+
+    ArticleMetaModel getByUnprocessedId(String unprocessedId);
 }

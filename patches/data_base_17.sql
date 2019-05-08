@@ -16,3 +16,13 @@ alter table article_meta
     rename to article_meta_table;
 
 drop table proccessed_content_table;
+
+alter table article_meta_table
+    add "unprocessed-id" varchar(64);
+
+create unique index "article_meta_table_unprocessed-id_uindex"
+    on article_meta_table (unprocessed_id);
+
+alter table article_meta_table
+    rename column "unprocessed-id" to unprocessed_id;
+

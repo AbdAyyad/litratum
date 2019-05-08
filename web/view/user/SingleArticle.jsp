@@ -1,5 +1,3 @@
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.FileReader" %>
 <%--
   Created by IntelliJ IDEA.
   User: abday
@@ -11,13 +9,7 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="UserNavBar.jsp"/>
 <%
-    String path = (String) session.getAttribute("article");
-    BufferedReader reader = new BufferedReader(new FileReader(path));
-    StringBuilder output = new StringBuilder();
-    String line;
-    while ((line = reader.readLine()) != null) {
-        output.append(line);
-    }
+
 %>
-<%=output.toString()%>
+${article}
 <jsp:include page="../common/Footer.html"/>

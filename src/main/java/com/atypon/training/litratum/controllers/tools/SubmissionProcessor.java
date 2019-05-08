@@ -2,13 +2,16 @@ package com.atypon.training.litratum.controllers.tools;
 
 import com.atypon.training.litratum.model.database.daos.implementations.ArticleMetaDao;
 import com.atypon.training.litratum.model.database.daos.implementations.UnprocessedContentDao;
-import com.atypon.training.litratum.model.database.daos.interfaces.IDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.IArticleMetaDao;
 import com.atypon.training.litratum.model.database.daos.interfaces.IUnprocessedContentDao;
 import com.atypon.training.litratum.model.database.datamodel.ArticleMetaModel;
 import com.atypon.training.litratum.model.database.datamodel.UnprocessedContentModel;
 import com.atypon.training.litratum.model.xml.XmlFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -90,33 +93,10 @@ public class SubmissionProcessor implements Runnable {
         return builder.toString();
     }
 
-    private String readFile(String path) {
-        StringBuilder str = new StringBuilder();
-        String line;
-
-        try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
-            while ((line = bf.readLine()) != null) {
-                str.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return str.toString();
-    }
-
-    private void writeFile(String path, String content) {
-        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path)))) {
-            out.write(content);
-            out.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void addMetaToDataBase(ArticleMetaModel meta) {
-        IDao<ArticleMetaModel> metaDao = new ArticleMetaDao();
+        IArticleMetaDao metaDao = new ArticleMetaDao();
         metaDao.add(meta);
+        metaDao.setUnprocessedId(meta.getDoi(), unprocessedContentId);
     }
 
     private ArticleMetaModel getMeta(String xmlPath) {

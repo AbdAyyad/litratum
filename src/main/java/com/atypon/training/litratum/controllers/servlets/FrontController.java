@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Constructor;
@@ -46,34 +45,12 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        initConstants();
         initUrlMap();
         createDirectories();
         initActionMap();
         runContentProcessingService();
     }
 
-    private void initConstants() {
-//        Constants.RELATIVE_PATH = this.getServletContext().getRealPath("");
-        Constants.RELATIVE_PATH = "C:\\Users\\abday\\IdeaProjects\\litratum\\web\\";
-        Constants.XML_PATH = Constants.RELATIVE_PATH + "xml" + File.separator;
-        Constants.DATABASE_XML_FILE = Constants.XML_PATH + "DataBase.xml";
-        Constants.ACTIONS_MAPPING_XML_FILE = Constants.XML_PATH + "UrlMapping.xml";
-        Constants.ACTIONS_OBJECTS_XML_FILE = Constants.XML_PATH + "Actions.xml";
-
-        Constants.XSL_PATH = Constants.RELATIVE_PATH + "xsl" + File.separator;
-        Constants.DATABASE_XSL_FILE = Constants.XSL_PATH + "DataBase.xsl";
-        Constants.ACTIONS_MAPPING_XSL_FILE = Constants.XSL_PATH + "UrlMapping.xsl";
-        Constants.ARTICLE_META_XSL_FILE = Constants.XSL_PATH + "ArticleMeta.xsl";
-        Constants.ACTIONS_OBJECTS_XSL_FILE = Constants.XSL_PATH + "Actions.xsl";
-        Constants.ARTICLE_HTML_XSL_FILE = Constants.XSL_PATH + "ArticleHtml.xsl";
-        Constants.DTD_FILE = Constants.XSL_PATH + "JATS-archivearticle1.dtd";
-
-        Constants.UNPROCESSED_FOLDER = Constants.RELATIVE_PATH + "unprocessed" + File.separator;
-        Constants.PROCESSED_FOLDER = Constants.RELATIVE_PATH + "processed" + File.separator;
-        Constants.UNZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "unzipped" + File.separator;
-        Constants.ZIPPED_FOLDER = Constants.UNPROCESSED_FOLDER + "zipped" + File.separator;
-    }
 
     private void createDirectories() {
         try {

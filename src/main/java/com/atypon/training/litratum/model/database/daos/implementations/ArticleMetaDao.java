@@ -48,11 +48,59 @@ public class ArticleMetaDao implements IArticleMetaDao {
         return data;
     }
 
+    @Override
+    public void setUnprocessedId(String doi, String unprocessedId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "update article_meta_table set unprocessed_id  = ? where doi = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, unprocessedId);
+            statement.setString(2, doi);
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delete(String unprocessedId) {
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "DELETE FROM article_meta_table WHERE unprocessed_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, unprocessedId);
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public ArticleMetaModel getByUnprocessedId(String unprocessedId) {
+        ArticleMetaModel meta = null;
+        ConnectionPool pool = ConnectionPool.getConnectionPool();
+        try (Connection con = pool.getConnection()) {
+            String sql = "select * from article_meta_table where unprocessed_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, unprocessedId);
+            ResultSet result = statement.executeQuery();
+            result.next();
+            meta = generateObject(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return meta;
+    }
+
     private ArticleMetaModel generateObject(ResultSet resultSet) throws SQLException {
         String author = resultSet.getString(1);
         String doi = resultSet.getString(2);
-        String releseDate = resultSet.getString(3);
+        String releaseDate = resultSet.getString(3);
         String title = resultSet.getString(4);
-        return new ArticleMetaModel(author, doi, releseDate, title);
+        return new ArticleMetaModel(author, doi, releaseDate, title);
     }
 }

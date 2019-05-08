@@ -23,7 +23,6 @@ public class UserSignInAction implements IAction {
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         String email = req.getParameter("userEmail");
         String password = req.getParameter("userPassword");
-        RequestDispatcher dispatcher;
 
         IUserDao dao = new UserDao();
         INormalUserDao normalDao = new NormalUserDao();
@@ -35,13 +34,14 @@ public class UserSignInAction implements IAction {
         if (userIsVerified) {
             HttpSession session = req.getSession();
             session.setMaxInactiveInterval(7200);
-            dispatcher = req.getRequestDispatcher(jsp);
             session.setAttribute("userName", user.getUserName());
             session.setAttribute("userEmail", user.getUserEmail());
             session.setAttribute("loggedInUser", true);
+
+            resp.sendRedirect("/articles/");
         } else {
-            dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
+            RequestDispatcher dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
+            dispatcher.forward(req, resp);
         }
-        dispatcher.forward(req, resp);
     }
 }

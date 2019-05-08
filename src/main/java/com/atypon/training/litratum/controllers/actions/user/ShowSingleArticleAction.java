@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class ShowSingleArticleAction implements IAction {
@@ -21,11 +23,22 @@ public class ShowSingleArticleAction implements IAction {
         if (loggedInUser) {
             String doi = req.getParameter("doi");
             String path = Constants.PROCESSED_FOLDER + doi + ".html";
-            session.setAttribute("article", path);
+            String article = readArticle(path);
+            session.setAttribute("article", article);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
         }
         dispatcher.forward(req, resp);
+    }
+
+    private String readArticle(String path) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        StringBuilder article = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            article.append(line);
+        }
+        return article.toString();
     }
 }
