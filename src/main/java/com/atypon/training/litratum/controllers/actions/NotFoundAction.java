@@ -9,7 +9,7 @@ import java.io.IOException;
 public class NotFoundAction implements IAction {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/NotFoundAction.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher(jsp);
         dispatcher.forward(req, resp);
     }
 }
