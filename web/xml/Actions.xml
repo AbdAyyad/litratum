@@ -16,6 +16,10 @@
     <action name="adminSignOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/admin/AdminHome.jsp"/>
     <action name="adminContent" class="com.atypon.training.litratum.controllers.actions.admin.ShowUploadContentFormAction" jsp="view/admin/ContentForm.jsp"/>
     <action name="adminUploadContent" class="com.atypon.training.litratum.controllers.actions.admin.UploadContentAction" jsp="view/admin/ContentUploaded.jsp"/>
+    <action name="allAdmins" class="com.atypon.training.litratum.controllers.actions.admin.ShowAllAdmins" jsp="view/admin/AllAdmins.jsp"/>
+    <action name="DeleteAdmin" class="com.atypon.training.litratum.controllers.actions.admin.DeleteAdminAction" jsp="view/admin/AllAdmins.jsp"/>
+    <action name="allBackstageAdmins" class="com.atypon.training.litratum.controllers.actions.admin.ShowAllBackstageAdmins" jsp="view/admin/AllBackstageAdmins.jsp"/>
+    <action name="DeleteBackstageAdmin" class="com.atypon.training.litratum.controllers.actions.admin.DeleteBackstageAdminAction" jsp="view/admin/AllBackstageAdmins.jsp"/>
     <action name="adminNew" class="com.atypon.training.litratum.controllers.actions.admin.ShowNewAdminFormAction" jsp="view/admin/CreateAdminForm.jsp"/>
     <action name="adminCreate" class="com.atypon.training.litratum.controllers.actions.admin.CreateNewAdminAction" jsp="view/admin/AdminAdded.jsp"/>
     <action name="adminAllUsers" class="com.atypon.training.litratum.controllers.actions.admin.ShowAllUsersAction" jsp="view/admin/AllUsers.jsp"/>
