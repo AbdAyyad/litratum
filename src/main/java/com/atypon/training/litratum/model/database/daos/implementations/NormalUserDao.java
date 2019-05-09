@@ -87,14 +87,14 @@ public class NormalUserDao implements INormalUserDao {
     }
 
     @Override
-    public void update(String normalId, String licenseId) {
+    public void update(String userId, String licenseId) {
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         try (Connection con = pool.getConnection()) {
-            String sql = "update normal_user_table set license_id = ? where normal_user_id = ?;";
+            String sql = "update normal_user_table set license_id = ? where user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
 
             statement.setString(1, licenseId);
-            statement.setString(2, normalId);
+            statement.setString(2, userId);
 
             statement.execute();
         } catch (SQLException e) {

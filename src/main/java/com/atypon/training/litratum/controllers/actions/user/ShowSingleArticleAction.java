@@ -1,6 +1,7 @@
 package com.atypon.training.litratum.controllers.actions.user;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
+import com.atypon.training.litratum.controllers.tools.AccessControl;
 import com.atypon.training.litratum.controllers.tools.Constants;
 import com.atypon.training.litratum.controllers.tools.JspPath;
 
@@ -21,9 +22,16 @@ public class ShowSingleArticleAction implements IAction {
         boolean loggedInUser = sessionAttr == null ? false : (Boolean) sessionAttr;
         RequestDispatcher dispatcher;
         if (loggedInUser) {
-            String doi = req.getParameter("doi");
-            String path = Constants.PROCESSED_FOLDER + doi + ".html";
-            String article = readArticle(path);
+            String userId = (String) session.getAttribute("userId");
+            boolean isAuthorized = AccessControl.isAuthorized(userId);
+            String article;
+            if (isAuthorized) {
+                String doi = req.getParameter("doi");
+                String path = Constants.PROCESSED_FOLDER + doi + ".html";
+                article = readArticle(path);
+            } else {
+                article = "<h3 class='text-center top-ten-percent'>your license expired</h3>";
+            }
             session.setAttribute("article", article);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {

@@ -16,4 +16,9 @@ public class LicenseCountModel {
     public int getCount() {
         return count;
     }
+
+    public void setCount(int count) {
+        if (count > 0)
+            this.count = count;
+    }
 }

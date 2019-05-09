@@ -2,11 +2,11 @@ package com.atypon.training.litratum.controllers.actions.admin;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
-import com.atypon.training.litratum.model.database.daos.implementations.AdminDao;
+import com.atypon.training.litratum.model.database.daos.implementations.BackstageAdminDao;
 import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
 import com.atypon.training.litratum.model.database.daos.interfaces.ISubUserDao;
 import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
-import com.atypon.training.litratum.model.database.datamodel.AdminModel;
+import com.atypon.training.litratum.model.database.datamodel.BackStageAdminModel;
 import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowAllAdmins implements IAction {
+public class ShowAllBackstageAdminsAction implements IAction {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, String jsp) throws ServletException, IOException {
         RequestDispatcher dispatcher;
@@ -27,7 +27,7 @@ public class ShowAllAdmins implements IAction {
         Object sessionAttr = session.getAttribute("loggedInAdmin");
         boolean adminIsLoggedIn = sessionAttr == null ? false : (Boolean) sessionAttr;
         if (adminIsLoggedIn) {
-            includeAdminsInUI(session);
+            includeBackstageAdminsInUI(session);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.ADMIN_HOME_PAGE);
@@ -35,14 +35,14 @@ public class ShowAllAdmins implements IAction {
         dispatcher.forward(req, resp);
     }
 
-    private void includeAdminsInUI(HttpSession session) {
-        ISubUserDao<AdminModel> adminDao = new AdminDao();
+    private void includeBackstageAdminsInUI(HttpSession session) {
+        ISubUserDao<BackStageAdminModel> adminDao = new BackstageAdminDao();
         IUserDao userDao = new UserDao();
 
-        List<AdminModel> adminList = adminDao.selectAll();
+        List<BackStageAdminModel> adminList = adminDao.selectAll();
         List<UserModel> userList = new ArrayList<>();
 
-        for (AdminModel admin : adminList) {
+        for (BackStageAdminModel admin : adminList) {
             UserModel user = userDao.getById(admin.getUserId());
             userList.add(user);
         }

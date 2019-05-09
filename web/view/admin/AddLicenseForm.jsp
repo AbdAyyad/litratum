@@ -9,7 +9,7 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminNavBar.jsp"/>
 
-<div class="container top-ten-px">
+<div class="container top-ten-percent">
     <label class="left-thirty"><input type="radio" name="optradio" value="admin" checked onclick="showCountForm()">Count</label>
     <label class="left-twenty-px"><input type="radio" name="optradio" value="backstage" onclick="showSubForm()">Subscription</label>
     <br/>

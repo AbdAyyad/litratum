@@ -9,7 +9,7 @@
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="UserNavBar.jsp"/>
 <div class="container">
-    <table class="table">
+    <table class="table top-ten-percent">
         <thead>
         <tr>
             <th>

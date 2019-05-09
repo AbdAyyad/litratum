@@ -34,6 +34,7 @@ public class UserSignInAction implements IAction {
         if (userIsVerified) {
             HttpSession session = req.getSession();
             session.setMaxInactiveInterval(7200);
+            session.setAttribute("userId", user.getUserId());
             session.setAttribute("userName", user.getUserName());
             session.setAttribute("userEmail", user.getUserEmail());
             session.setAttribute("loggedInUser", true);

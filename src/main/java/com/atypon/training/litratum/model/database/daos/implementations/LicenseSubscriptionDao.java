@@ -16,7 +16,7 @@ public class LicenseSubscriptionDao implements ISubLicenseDao<LicenseSubscriptio
         ConnectionPool pool = ConnectionPool.getConnectionPool();
         LicenseSubscriptionModel licenseSubscription = null;
         try (Connection con = pool.getConnection()) {
-            String sql = "select * from license_subscription_table where license_subscription_id == ? limit 1;";
+            String sql = "select * from license_subscription_table where license_subscription_id = ? limit 1;";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, id);
 

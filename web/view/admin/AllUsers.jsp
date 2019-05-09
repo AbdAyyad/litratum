@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../common/Header.html"/>
 <jsp:include page="AdminNavBar.jsp"/>
-<div class="container top-ten-percent">
+<div class="container top-ten-px">
     <table class="table">
         <thead>
         <tr>

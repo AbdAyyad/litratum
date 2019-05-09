@@ -41,6 +41,7 @@ public class UserSignUpAction implements IAction {
 
         HttpSession session = req.getSession();
 
+        session.setAttribute("userId", userId);
         session.setAttribute("userName", userName);
         session.setAttribute("userEmail", email);
         session.setAttribute("loggedInUser", true);
