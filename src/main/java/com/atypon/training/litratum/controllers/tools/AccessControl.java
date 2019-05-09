@@ -23,6 +23,9 @@ public class AccessControl {
         ILicenseDao licenseDao = new LicenseDao();
 
         NormalUserModel normalUserModel = normalDao.getByUserId(userId);
+        if (normalUserModel.getLicenseId() == null) {
+            return false;
+        }
         LicenseModel licenseModel = licenseDao.getById(normalUserModel.getLicenseId());
 
         int licenseType = licenseModel.getLicenseType();
