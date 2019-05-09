@@ -1,1 +1,0 @@
-psql -U postgres -d postgres -a -f .\data_base_13.sql
