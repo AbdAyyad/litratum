@@ -6,7 +6,7 @@
     <action name="signIn" class="com.atypon.training.litratum.controllers.actions.user.UserSignInAction" jsp="view/user/LoggedIn.jsp"/>
     <action name="notFound" class="com.atypon.training.litratum.controllers.actions.NotFoundAction" jsp="view/NotFound.jsp"/>
     <action name="welcome" class="com.atypon.training.litratum.controllers.actions.user.ShowUserHomeAction" jsp="view/user/LoggedIn.jsp"/>
-    <action name="signOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/user/SignOut.jsp"/>
+    <action name="signOut" class="com.atypon.training.litratum.controllers.actions.SignOutAction" jsp="view/common/SignOut.jsp"/>
     <action name="info" class="com.atypon.training.litratum.controllers.actions.user.ShowUserInformationAction" jsp="view/user/UserInfo.jsp"/>
     <action name="viewArticles" class="com.atypon.training.litratum.controllers.actions.user.ShowAllArticlesAction" jsp="view/user/AllArticles.jsp"/>
     <action name="viewSingleArticle" class="com.atypon.training.litratum.controllers.actions.user.ShowSingleArticleAction" jsp="view/user/SingleArticle.jsp"/>
