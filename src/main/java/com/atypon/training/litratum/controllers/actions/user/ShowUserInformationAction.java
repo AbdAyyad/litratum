@@ -2,8 +2,11 @@ package com.atypon.training.litratum.controllers.actions.user;
 
 import com.atypon.training.litratum.controllers.actions.IAction;
 import com.atypon.training.litratum.controllers.tools.JspPath;
+import com.atypon.training.litratum.model.database.daos.implementations.NormalUserDao;
 import com.atypon.training.litratum.model.database.daos.implementations.UserDao;
+import com.atypon.training.litratum.model.database.daos.interfaces.INormalUserDao;
 import com.atypon.training.litratum.model.database.daos.interfaces.IUserDao;
+import com.atypon.training.litratum.model.database.datamodel.NormalUserModel;
 import com.atypon.training.litratum.model.database.datamodel.UserModel;
 
 import javax.servlet.RequestDispatcher;
@@ -22,11 +25,22 @@ public class ShowUserInformationAction implements IAction {
         RequestDispatcher dispatcher;
         if (loggedInUser) {
             String email = (String) session.getAttribute("userEmail");
+
             IUserDao dao = new UserDao();
+            INormalUserDao normalDao = new NormalUserDao();
+
             UserModel user = dao.getByEmail(email);
+            NormalUserModel normalUserModel = normalDao.getByUserId(user.getUserId());
+
+            String license = normalUserModel.getLicenseId();
+
+            if (license == null) {
+                license = "no license";
+            }
+
             session.setAttribute("userName", user.getUserEmail());
             session.setAttribute("user", user);
-            session.setAttribute("license", "not implemented");
+            session.setAttribute("license", license);
             dispatcher = req.getRequestDispatcher(jsp);
         } else {
             dispatcher = req.getRequestDispatcher(JspPath.HOME_PAGE);
